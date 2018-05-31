@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 74cdc4bc08b76554d8d44b06a47848dc
+timeCreated: 1525904661
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Geeker
+  fontNames:
+  - Geeker
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 121701a592f084141bedca959a803a88, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Interactable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Characters
+  - EdgesDetection
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2208244009
+    locked: 0
+  - name: Waterfalls
+    uniqueID: 2521960487
+    locked: 0
+  - name: Platforms
+    uniqueID: 3603101403
+    locked: 0
+  - name: Character
+    uniqueID: 4276072811
+    locked: 0
+  - name: Foreground
+    uniqueID: 2612057015
+    locked: 0
