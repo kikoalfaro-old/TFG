@@ -1,99 +1,140 @@
-﻿Shader "Custom/Hologram"
+﻿Shader "SFHologram/HologramShader"
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
-		[HDR]_HoloColor("Hologram Color", Color) = (0, 0.7, 0, 1)
-		_HoloNoise("Noise Texture", 2D) = "white" {}
-		_ScanlineData("scanline: x = speed, y = scale | noise: z = Scale, w = Strength", Vector) = (4,1,10,0.6)
-		_RimPower("Rim Strength", Range(0.1,5.0)) = 0.5
-		_MinAlpha("Minimum Alpha", Range(0.0,1.0)) = 0.2
+		// General
+		_Brightness("Brightness", Range(0.1, 6.0)) = 3.0
+		_Alpha ("Alpha", Range (0.0, 1.0)) = 1.0
+		_Direction ("Direction", Vector) = (0,1,0,0)
+		// Main Color
+		_MainTex ("MainTexture", 2D) = "white" {}
+		_MainColor ("MainColor", Color) = (1,1,1,1)
+		// Rim/Fresnel
+		_RimColor ("Rim Color", Color) = (1,1,1,1)
+		_RimPower ("Rim Power", Range(0.1, 10)) = 5.0
+		// Scanline
+		_ScanTiling ("Scan Tiling", Range(0.01, 10.0)) = 0.05
+		_ScanSpeed ("Scan Speed", Range(-2.0, 2.0)) = 1.0
+		// Glow
+		_GlowTiling ("Glow Tiling", Range(0.01, 1.0)) = 0.05
+		_GlowSpeed ("Glow Speed", Range(-10.0, 10.0)) = 1.0
+		// Glitch
+		_GlitchSpeed ("Glitch Speed", Range(0, 50)) = 1.0
+		_GlitchIntensity ("Glitch Intensity", Float) = 0
+		// Alpha Flicker
+		_FlickerTex ("Flicker Control Texture", 2D) = "white" {}
+		_FlickerSpeed ("Flicker Speed", Range(0.01, 100)) = 1.0
+
+		// Settings
+		[HideInInspector] _Fold("__fld", Float) = 1.0
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
-		
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+		Blend SrcAlpha OneMinusSrcAlpha
 		LOD 100
-
-		Pass{
-			ZWrite On
-			ColorMask 0
-		}
+		ColorMask RGB
+        Cull Back
 
 		Pass
 		{
-			Blend SrcAlpha OneMinusSrcAlpha
-
 			CGPROGRAM
+			#pragma shader_feature _SCAN_ON
+			#pragma shader_feature _GLOW_ON
+			#pragma shader_feature _GLITCH_ON
 			#pragma vertex vert
 			#pragma fragment frag
-			// make fog work
-			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
 
 			struct appdata
 			{
 				float4 vertex : POSITION;
-				float4 normal : NORMAL;
+				float3 normal : NORMAL;
 				float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
 			{
-				float2 uv : TEXCOORD0;
-				float4 normal : TEXCOORD1;
-				float4 worldPos : TEXCOORD2;
-				float3 viewDir : TEXCOORD3;
-				UNITY_FOG_COORDS(4)
 				float4 vertex : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				float4 worldVertex : TEXCOORD1;
+				float3 viewDir : TEXCOORD2;
+				float3 worldNormal : NORMAL;
 			};
 
 			sampler2D _MainTex;
-			sampler2D _HoloNoise;
+			sampler2D _FlickerTex;
+			float4 _Direction;
 			float4 _MainTex_ST;
-			float4 _HoloColor;
-			float4 _ScanlineData;
+			float4 _MainColor;
+			float4 _RimColor;
 			float _RimPower;
-			float _MinAlpha;
+			float _GlitchSpeed;
+			float _GlitchIntensity;
+			float _Brightness;
+			float _Alpha;
+			float _ScanTiling;
+			float _ScanSpeed;
+			float _GlowTiling;
+			float _GlowSpeed;
+			float _FlickerSpeed;
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
+				
+				// Glitches
+				#if _GLITCH_ON
+					v.vertex.x += _GlitchIntensity * (step(0.5, sin(_Time.y * 2.0 + v.vertex.y * 1.0)) * step(0.99, sin(_Time.y*_GlitchSpeed * 0.5)));
+				#endif
+
 				o.vertex = UnityObjectToClipPos(v.vertex);
+				
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.normal = v.normal;
-				o.worldPos = o.vertex;
-				o.viewDir = ObjSpaceViewDir(v.vertex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
+				o.worldVertex = mul(unity_ObjectToWorld, v.vertex);
+				o.worldNormal = UnityObjectToWorldNormal(v.normal);
+				o.viewDir = normalize(UnityWorldSpaceViewDir(o.worldVertex.xyz));
+
 				return o;
 			}
+
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float atten = pow(1.0f - saturate(dot(i.normal.xyz, normalize(i.viewDir))), _RimPower);
-				atten = max(_MinAlpha, atten);
+				fixed4 texColor = tex2D(_MainTex, i.uv);
 
-				// sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv) * _HoloColor;
-				
-				float y = (i.worldPos.y + _Time.y * _ScanlineData.x) * _ScanlineData.y;
+				half dirVertex = (dot(i.worldVertex, normalize(float4(_Direction.xyz, 1.0))) + 1) / 2;
 
-				float4 scanLine = tex2D(_HoloNoise, float2(0.5, y));
-				float4 scanNoise = tex2D(_HoloNoise, float2(i.worldPos.x * _ScanlineData.z, y));
+				// Scanlines
+				float scan = 0.0;
+				#ifdef _SCAN_ON
+					scan = step(frac(dirVertex * _ScanTiling + _Time.w * _ScanSpeed), 0.5) * 0.65;
+				#endif
 
-				clip(scanLine.x - 0.1f);
+				// Glow
+				float glow = 0.0;
+				#ifdef _GLOW_ON
+					glow = frac(dirVertex * _GlowTiling - _Time.x * _GlowSpeed);
+				#endif
 
-				atten *= scanLine.z + scanNoise * _ScanlineData.w;
+				// Flicker
+				fixed4 flicker = tex2D(_FlickerTex, _Time * _FlickerSpeed);
 
-				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
+				// Rim Light
+				half rim = 1.0-saturate(dot(i.viewDir, i.worldNormal));
+				fixed4 rimColor = _RimColor * pow (rim, _RimPower);
 
-				col.a = atten;
+				fixed4 col = texColor * _MainColor + (glow * 0.35 * _MainColor) + rimColor;
+				col.a = texColor.a * _Alpha * (scan + rim + glow) * flicker;
+
+				col.rgb *= _Brightness;
 
 				return col;
 			}
 			ENDCG
 		}
 	}
+
+	CustomEditor "HologramShaderGUI"
 }
