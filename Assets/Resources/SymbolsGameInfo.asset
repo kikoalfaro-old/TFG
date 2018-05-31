@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f560cf73cab82fd4db162662fed507da, type: 3}
+  m_Name: SymbolsGameInfo
+  m_EditorClassIdentifier: 
+  levelsInfo:
+    m_keys: 00000000
+    m_values:
+    - symbolMinSpeed: 6
+      symbolMaxSpeed: 8
+      timeBetweenSymbols: 4
+      amountOfSymbolsToSpawn: 5
+      minTotalAccuracy: 80
+      spawningPoints:
+      - transform: {fileID: 224365613347064608, guid: 204f0260519f7b240b466a2d89ba66eb,
+          type: 2}
+      - transform: {fileID: 224675148292729780, guid: 204f0260519f7b240b466a2d89ba66eb,
+          type: 2}
+      - transform: {fileID: 224473271538277164, guid: 204f0260519f7b240b466a2d89ba66eb,
+          type: 2}
+      - transform: {fileID: 224992335852032922, guid: 204f0260519f7b240b466a2d89ba66eb,
+          type: 2}
+      ranges:
+      - {fileID: 224552089258920444, guid: 204f0260519f7b240b466a2d89ba66eb, type: 2}
+      symbolMov: {fileID: 114965899487887000, guid: e31a5bb682df09d4fb39d5b1a777515f,
+        type: 2}
