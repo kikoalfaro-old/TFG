@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 174938370}
   - component: {fileID: 174938369}
   m_Layer: 5
-  m_Name: unknown
+  m_Name: "C\xE1psula"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,8 +452,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
-  m_Father: {fileID: 2101414309}
-  m_RootOrder: 8
+  m_Father: {fileID: 1136370323}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 187219186}
   - component: {fileID: 187219185}
   m_Layer: 5
-  m_Name: unknown
+  m_Name: "C\xE1psula"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,8 +520,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
-  m_Father: {fileID: 2101414309}
-  m_RootOrder: 7
+  m_Father: {fileID: 1136370323}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1250,7 +1250,7 @@ GameObject:
   - component: {fileID: 320821607}
   - component: {fileID: 320821606}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Serranos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1267,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1992,7 +1992,7 @@ GameObject:
   - component: {fileID: 553794084}
   - component: {fileID: 553794083}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Lonja de la Seda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2009,7 +2009,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2028,7 +2028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2631,7 +2631,7 @@ GameObject:
   - component: {fileID: 857219170}
   - component: {fileID: 857219169}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: "C\xE1psula"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2647,8 +2647,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
-  m_Father: {fileID: 2101414309}
-  m_RootOrder: 6
+  m_Father: {fileID: 1136370323}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2849,7 +2849,7 @@ GameObject:
   - component: {fileID: 971614754}
   - component: {fileID: 971614753}
   m_Layer: 5
-  m_Name: unknown
+  m_Name: "C\xE1psula"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2865,8 +2865,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
-  m_Father: {fileID: 2101414309}
-  m_RootOrder: 9
+  m_Father: {fileID: 1136370323}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3049,7 +3049,7 @@ GameObject:
   - component: {fileID: 1068959820}
   - component: {fileID: 1068959819}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Quart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3066,7 +3066,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3106,6 +3106,43 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068959817}
+--- !u!1 &1136370322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1136370323}
+  m_Layer: 5
+  m_Name: "C\xE1psulas"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1136370323
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136370322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 857219168}
+  - {fileID: 187219184}
+  - {fileID: 174938368}
+  - {fileID: 971614752}
+  m_Father: {fileID: 2101414309}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1148167586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3306,7 @@ GameObject:
   - component: {fileID: 1227073235}
   - component: {fileID: 1227073234}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: Norte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3286,7 +3323,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3305,7 +3342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3605,7 +3642,7 @@ GameObject:
   - component: {fileID: 1435391616}
   - component: {fileID: 1435391615}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Ayuntamiento
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3622,7 +3659,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703846, y: 0.039703835, z: 0.039703835}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3641,7 +3678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4391,7 +4428,7 @@ GameObject:
   - component: {fileID: 1975715698}
   - component: {fileID: 1975715697}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Catedral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4408,7 +4445,7 @@ RectTransform:
   m_LocalScale: {x: 0.039703645, y: 0.039703615, z: 0.039703615}
   m_Children: []
   m_Father: {fileID: 2101414309}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4427,7 +4464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4614,7 +4651,7 @@ GameObject:
   - component: {fileID: 2101414313}
   - component: {fileID: 2101414314}
   m_Layer: 5
-  m_Name: Map
+  m_Name: Map Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4630,16 +4667,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
+  - {fileID: 1227073233}
   - {fileID: 1435391614}
   - {fileID: 553794082}
+  - {fileID: 1068959818}
   - {fileID: 1975715696}
   - {fileID: 320821605}
-  - {fileID: 1068959818}
-  - {fileID: 1227073233}
-  - {fileID: 857219168}
-  - {fileID: 187219184}
-  - {fileID: 174938368}
-  - {fileID: 971614752}
+  - {fileID: 1136370323}
   m_Father: {fileID: 313547321}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4776,12 +4810,11 @@ MonoBehaviour:
   completedAreaColor: {r: 0, g: 0.6784314, b: 0.63529414, a: 1}
   visitedAreaColor: {r: 0.9803922, g: 0.87843144, b: 0.3372549, a: 1}
   availableAreaColor: {r: 0.98039216, g: 0.33725494, b: 0.33725494, a: 1}
-  unknownAreaColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
+  unknownAreaColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   areaImages:
+  - {fileID: 1227073234}
   - {fileID: 1435391615}
   - {fileID: 553794083}
+  - {fileID: 1068959819}
   - {fileID: 1975715697}
   - {fileID: 320821606}
-  - {fileID: 1068959819}
-  - {fileID: 1227073234}
-  - {fileID: 857219169}

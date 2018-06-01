@@ -4,37 +4,29 @@ using UnityEditor;
 using UnityEngine;
 
 [Serializable]
+public enum AreaStatus { Unknown, Available, Visited, Completed };
+
+[Serializable]
 public class Area
 {
     public string name;
     public int id;
     public GeoLocCoordinates centre; //Mejor por una string spliteada (esto ocultar y la string serializar)
-    bool visited = false;
-    public bool completed = false;
+    public AreaStatus status = AreaStatus.Unknown;
 
     #region Properties
-    public bool Completed
+    
+
+    public AreaStatus Status
     {
         get
         {
-            return completed;
+            return status;
         }
 
         set
         {
-            completed = value;
-        }
-    }
-    public bool Visited
-    {
-        get
-        {
-            return visited;
-        }
-
-        set
-        {
-            visited = value;
+            status = value;
         }
     }
     #endregion
