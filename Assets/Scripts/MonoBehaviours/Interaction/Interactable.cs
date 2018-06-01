@@ -12,7 +12,6 @@ using System;
 // player should call the Interact function when they arrive.
 public class Interactable : MonoBehaviour
 {
-    public Transform interactionLocation;                   // The position and rotation the player should go to in order to interact with this Interactable.
     public ConditionCollection[] conditionCollections = new ConditionCollection[0];
     // All the different Conditions and relevant Reactions that can happen based on them.
     public ReactionCollection defaultReactionCollection;    // If none of the ConditionCollections are reacted to, this one is used.
@@ -20,8 +19,6 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         SetEventTrigger();
-        if (interactionLocation.position.x > transform.position.x) interactionLocation.rotation.Set(0, 180, 0, 1); //Está a la derecha (Player debe mirar a la izquierda)
-        else interactionLocation.rotation.Set(0, 0, 0, 1);
     }
 
     private void SetEventTrigger()
@@ -35,7 +32,6 @@ public class Interactable : MonoBehaviour
 
     private void OnPointerClickDelegate(PointerEventData data)
     {
-        FindObjectOfType<PlayerMovement>().OnInteractableClick(this);
     }
 
     // This is called when the player arrives at the interactionLocation.

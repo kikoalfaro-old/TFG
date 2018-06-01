@@ -20,7 +20,7 @@ public class DefaultAreaManager : MonoBehaviour {
     // Antes del start si por defecto está activo cuando se carga la escena
     private void OnEnable()
     {
-        geoLocManager = GeoLocManager.instance;
+        geoLocManager = GeoLocManager.Instance;
         geoLocManager.WhenSceneAvailable += EnableLoadCanvas;
     }
 

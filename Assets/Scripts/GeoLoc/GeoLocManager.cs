@@ -5,8 +5,6 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum currentZoneType { Default, EstacionNorte, PlazaAyuntamiento, LonjaSeda, TorresQuart, Catedral, TorresSerranos}
-
 [Serializable]
 public class GeoLocCoordinates
 {
@@ -32,7 +30,7 @@ public class GeoLocCoordinates
 
 public class GeoLocManager : MonoBehaviour
 {
-    public static GeoLocManager instance = null;
+    private static GeoLocManager instance = null;
 
     GeoLocCoordinates currentCoords; // Coordenadas espaciales actuales
     Area currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
@@ -55,16 +53,29 @@ public class GeoLocManager : MonoBehaviour
     [Header("Current area debug")]
     public string currentCoords_Debug;
 
+    public static GeoLocManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+
+        set
+        {
+            instance = value;
+        }
+    }
+
     void Awake()
     {
         //Check if instance already exists
-        if (instance == null)
+        if (Instance == null)
 
             //if not, set instance to this
-            instance = this;
+            Instance = this;
 
         //If instance already exists and it's not this:
-        else if (instance != this)
+        else if (Instance != this)
 
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
@@ -77,7 +88,7 @@ public class GeoLocManager : MonoBehaviour
     {
         geoLocData = GeoLocData.Instance;
         if (!geoLocData)
-            throw new UnityException("Game Manager could not be found, ensure that it exists in the Persistent scene.");
+            throw new UnityException("Geolocation data could not be found, ensure that it exists in the Persistent scene.");
 
         sceneController = FindObjectOfType<SceneController>();
         if (!sceneController)

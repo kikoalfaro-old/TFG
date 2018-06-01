@@ -6,21 +6,43 @@ using UnityEngine;
 [Serializable]
 public class Area
 {
-    //Room[] rooms; // Habitación o habitaciones que componen dicho elemento
     public string name;
-    public int id;    
+    public int id;
     public GeoLocCoordinates centre; //Mejor por una string spliteada (esto ocultar y la string serializar)
-    bool completed = false;
+    bool visited = false;
+    public bool completed = false;
+
+    #region Properties
+    public bool Completed
+    {
+        get
+        {
+            return completed;
+        }
+
+        set
+        {
+            completed = value;
+        }
+    }
+    public bool Visited
+    {
+        get
+        {
+            return visited;
+        }
+
+        set
+        {
+            visited = value;
+        }
+    }
+    #endregion
 
     public override string ToString()
     {
         return name;
     }    
-}
-
-public class Room
-{
-
 }
 
 public class GeoLocData : ScriptableObject

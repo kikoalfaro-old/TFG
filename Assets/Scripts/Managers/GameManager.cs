@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-    void Awake()
+    GeoLocManager geoLocManager; // Actualiza coordenadas, y llama a la carga escenas...
+    GeoLocData geoLocData; // Datos de las áreas
+
+    private void Awake()
     {
         //Check if instance already exists
         if (instance == null)
@@ -24,5 +26,21 @@ public class GameManager : MonoBehaviour {
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);    
+    }
+
+    private void Start()
+    {
+        geoLocManager = GeoLocManager.Instance;
+    }
+
+    // Esto quizá habria que llamarlo con un delegate de evento desde cualquier lado. --> marca el área actual como completa y guarda los datos del juego
+    public void OnAreaCompleted()
+    {
+        geoLocData.allAreas[geoLocManager.GetCurrentArea().id].Completed = true;
+    }
+
+    public void OnAreaVisited()
+    {
+        geoLocData.allAreas[geoLocManager.GetCurrentArea().id].Visited = true;
     }
 }
