@@ -21,20 +21,33 @@ public class GameData
     }
 }
 
-public class Save : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
-    public static Save instance = null;
+    private static SaveManager instance = null;
+
+    public static SaveManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+
+        set
+        {
+            instance = value;
+        }
+    }
 
     private void Awake()
     {
         //Check if instance already exists
-        if (instance == null)
+        if (Instance == null)
 
             //if not, set instance to this
-            instance = this;
+            Instance = this;
 
         //If instance already exists and it's not this:
-        else if (instance != this)
+        else if (Instance != this)
 
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);

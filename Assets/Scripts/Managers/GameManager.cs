@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     GeoLocManager geoLocManager; // Actualiza coordenadas, y llama a la carga escenas...
     GeoLocData geoLocData; // Datos de las áreas
+    SaveManager saveManager;
 
     public static GameManager Instance
     {
@@ -45,11 +46,38 @@ public class GameManager : MonoBehaviour {
     {
         geoLocManager = GeoLocManager.Instance;
         geoLocData = GeoLocData.Instance;
+        saveManager = SaveManager.Instance;
     }
 
-    public void UpdateCurrentAreaState(AreaStatus newStatus)
+    public AreaStatus GetCurrentAreaStatus()
+    {
+        return geoLocManager.GetCurrentArea().Status;
+    }
+
+    public void UpdateCurrentAreaStatus(AreaStatus newStatus)
     {
         geoLocData.allAreas[geoLocManager.GetCurrentArea().id].Status = newStatus;
+        //saveManager.SaveGame(); // Guardamos el juego después de actualizar el estado
         Debug.Log("Area status updated");
+    }
+
+    public void ResetAllStatus()
+    {
+        foreach (Area area in geoLocData.allAreas)
+        {
+            area.Status = AreaStatus.Available; // OJO, HABRÁ QUE PONERLO A UNKNOWN EN LA VERSIÓN FINAL
+        }
+
+        SaveGame();
+    }
+
+    public void SaveGame()
+    {
+        saveManager.SaveGame();
+    }
+
+    public void LoadGame()
+    {
+        saveManager.LoadGame();
     }
 }

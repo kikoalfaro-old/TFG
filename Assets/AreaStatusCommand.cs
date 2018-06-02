@@ -13,9 +13,8 @@ public class AreaStateCommand : Command {
     }
     public override void OnEnter()
     {
-        Debug.Log("Instance: " + GameManager.Instance);
-        Debug.Log("Start reference: " + gameManager);
-        gameManager.UpdateCurrentAreaState(newStatus);
+        gameManager.UpdateCurrentAreaStatus(newStatus);
+        //gameManager.SaveGame(); // Se guarda automáticamente cada vez que cambia el estado de un área
         Continue();
     }
 

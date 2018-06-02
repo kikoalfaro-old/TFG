@@ -24,7 +24,7 @@ MonoBehaviour:
     centre:
       latitude: 39.467056
       longitude: -0.377207
-    status: 0
+    status: 1
   - name: Ayuntamiento
     id: 2
     centre:
