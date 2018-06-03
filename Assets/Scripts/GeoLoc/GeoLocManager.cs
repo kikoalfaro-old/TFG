@@ -152,7 +152,6 @@ public class GeoLocManager : MonoBehaviour
 
     void UpdateArea()
     {
-        Debug.Log("current: " + currentArea);
         if (currentArea == defaultAreaName)
         {
             foreach (KeyValuePair<string, string> area in geoLocData.allAreas) // Recorro el diccionario de áreas
