@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Norte.unity
     guid: 449a722aaa58f0548be58b8343f06f2f
+  - enabled: 1
+    path: Assets/Scenes/ELEMENTOS DE INFO/Capsula.unity
+    guid: f2325201a087dd54797e9454ea2ee0b3
   m_configObjects: {}

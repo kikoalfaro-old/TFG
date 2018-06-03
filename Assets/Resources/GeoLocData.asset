@@ -18,7 +18,7 @@ MonoBehaviour:
     centre:
       latitude: 0
       longitude: 0
-    status: 0
+    status: 1
   - name: Norte
     id: 1
     centre:
@@ -30,28 +30,34 @@ MonoBehaviour:
     centre:
       latitude: 39.469776
       longitude: -0.376369
-    status: 0
+    status: 1
   - name: LonjaSeda
     id: 3
     centre:
       latitude: 39.474365
       longitude: -0.37832
-    status: 0
+    status: 1
   - name: Quart
     id: 4
     centre:
       latitude: 39.475742
       longitude: -0.383886
-    status: 0
+    status: 1
   - name: Catedral
     id: 5
     centre:
       latitude: 39.475597
       longitude: -0.375231
-    status: 0
+    status: 1
   - name: Serranos
     id: 6
     centre:
       latitude: 39.4792
       longitude: -0.376024
-    status: 0
+    status: 1
+  - name: Capsula
+    id: 7
+    centre:
+      latitude: 39.47118
+      longitude: -0.341848
+    status: 1
