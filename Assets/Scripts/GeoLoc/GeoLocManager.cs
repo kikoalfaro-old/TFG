@@ -152,6 +152,7 @@ public class GeoLocManager : MonoBehaviour
 
     void UpdateArea()
     {
+        Debug.Log("current: " + currentArea);
         if (currentArea == defaultAreaName)
         {
             foreach (KeyValuePair<string, string> area in geoLocData.allAreas) // Recorro el diccionario de áreas
@@ -174,7 +175,7 @@ public class GeoLocManager : MonoBehaviour
         // Si no estoy en la escena por defecto pero no estoy dentro del área, cargar la escena por defecto
         else if(!PointInsideArea(currentCoords, currentArea)){
             sceneController.FadeAndLoadScene(defaultAreaName);
-            currentArea = geoLocData.allAreas[defaultAreaName];
+            currentArea = defaultAreaName;
         }
     }
 
@@ -188,7 +189,7 @@ public class GeoLocManager : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Devuelve si un punto está dentro de un area. Si el parámetro de zona es el por defecto, devuelve falso.
+    /// Devuelve si un punto está dentro de un area. Si el parámetro de area es el por defecto, devuelve falso.
     /// </summary>
     /// <param name="point"></param>
     /// <param name="area"></param>
@@ -196,6 +197,7 @@ public class GeoLocManager : MonoBehaviour
     //OJO:  Aquí hemos de CAMBIARLO y pasar como parámetro un objeto de tipo AREA... (también vale para elementos)
     bool PointInsideArea(GeoLocCoordinates point, string area)
     {
+        //Debug.Log(point + "inside " + area);
         bool isInsideArea = false;
         if(area != defaultAreaName) isInsideArea = DistanceBetweenPoints(point, new GeoLocCoordinates(geoLocData.allAreas[area])) <= geoLocData.areaRadius; 
         // Un punto está dentro de un círculo si la distancia desde él hasta el centro es menor o igual que r (radio)
