@@ -5,23 +5,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class MapManager : MonoBehaviour {
-
-
-    // Diccionario serializado Status -> Color
+    
     [SerializeField]
-    public Color completedAreaColor;
-    public Color visitedAreaColor;
-    public Color availableAreaColor;
-    public Color unknownAreaColor;
+    AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();
 
     [Space]
-    public Image[] areaImages;
-    GeoLocData geoLocData;
+    [SerializeField]
+    StringImageDictionary areaImages = new StringImageDictionary();
 
+    GameData gameData;
+
+    // Esto funciona solo porque en el primer frame (cuando se cogen todas las referencias), el mapa estará desactivado
     private void OnEnable()
     {
-        geoLocData = GeoLocData.Instance;
+        gameData = GameManager.Instance.GetGameData();
         SetAreaColors();
     }
 
@@ -32,28 +31,9 @@ public class MapManager : MonoBehaviour {
 
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
     {
-        for (int i = 0; i < areaImages.Length; i++)
+        foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
-            switch (geoLocData.allAreas[i + 1].Status)
-            {
-                case AreaStatus.Unknown:
-                    areaImages[i].color = unknownAreaColor;
-                    break;
-                case AreaStatus.Available:
-                    areaImages[i].color = availableAreaColor;
-                    break;
-                case AreaStatus.Visited:
-                    areaImages[i].color = visitedAreaColor;
-                    break;
-                case AreaStatus.Completed:
-                    areaImages[i].color = completedAreaColor;
-                    break;
-                default:
-                    break;
-            }
+            areaImages[area.Key].color = statusColors[area.Value]; // Devuelve el color que corresponde a ese estado
         }
-
-        Debug.Log("Map colors updated");
-
     }
 }

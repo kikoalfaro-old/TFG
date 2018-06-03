@@ -7,7 +7,7 @@ using UnityEditor;
 
 
 [Serializable]
-public class LevelsDictionary : SerializableDictionary<Difficulty, Level> {}
+public class DifficultyLeveDictionary : SerializableDictionary<Difficulty, Level> {}
 // Diccionario de correspondencia Difficulty --> Level
 
 [Serializable]
@@ -57,7 +57,7 @@ public class Level
 // Sólo vamos a usar esta clase como almacén de datos
 public class SymbolsGameInfo : ScriptableObject
 {
-    public LevelsDictionary levelsInfo = new LevelsDictionary();
+    public DifficultyLeveDictionary levelsInfo = new DifficultyLeveDictionary();
 
     private static SymbolsGameInfo instance;              // The singleton instance.
 

@@ -693,7 +693,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -812,7 +812,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1363,7 +1363,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1468,7 +1468,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refreshTime: 2
-  defaultSceneName: Default
+  defaultAreaName: Default
   coordsText: {fileID: 2032072091}
   zoneText: {fileID: 158023557}
   currentCoords_Debug: 0, 0
@@ -1659,7 +1659,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1849,7 +1849,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2043,7 +2043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2101414309
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2194,14 +2194,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e42d83a7da37843b04714262c0e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completedAreaColor: {r: 0, g: 0.6784314, b: 0.63529414, a: 1}
-  visitedAreaColor: {r: 0.9803922, g: 0.87843144, b: 0.3372549, a: 1}
-  availableAreaColor: {r: 0.98039216, g: 0.33725494, b: 0.33725494, a: 1}
-  unknownAreaColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
+  statusColors:
+    m_keys: 00000000010000000200000003000000
+    m_values:
+    - {r: 0.38823533, g: 0.38823533, b: 0.38823533, a: 1}
+    - {r: 0.9803922, g: 0.3372549, b: 0.3372549, a: 1}
+    - {r: 0.9803922, g: 0.87843144, b: 0.3372549, a: 1}
+    - {r: 0, g: 0.6784314, b: 0.63529414, a: 1}
   areaImages:
-  - {fileID: 1227073234}
-  - {fileID: 1435391615}
-  - {fileID: 553794083}
-  - {fileID: 1068959819}
-  - {fileID: 1975715697}
-  - {fileID: 320821606}
+    m_keys:
+    - Norte
+    - Ayuntamiento
+    - LonjaSeda
+    - Quart
+    - Catedral
+    - Serranos
+    m_values:
+    - {fileID: 1227073234}
+    - {fileID: 1435391615}
+    - {fileID: 553794083}
+    - {fileID: 1068959819}
+    - {fileID: 1975715697}
+    - {fileID: 320821606}

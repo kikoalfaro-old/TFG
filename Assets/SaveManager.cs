@@ -5,19 +5,20 @@ using System;
 using System.Collections.Generic;
 
 [Serializable]
-public class GameData
+public enum AreaStatus { Unknown, Available, Visited, Completed };
+
+[Serializable]
+public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuación (dado el caso)
 {
     // score
-    List<Area> areasData;
+    public Dictionary<string, AreaStatus> areasStatus;
 
-    public GameData()
+    public GameData(StringStringDictionary allAreas)
     {
-        areasData = GeoLocData.Instance.allAreas; // Hace una copia del array de áreas para guardarlo
-    }
-
-    public void LoadData()
-    {
-        GeoLocData.Instance.allAreas = areasData;
+        foreach (KeyValuePair<string, string> area in allAreas)
+        {
+            areasStatus.Add(area.Key, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+        }
     }
 }
 
@@ -56,13 +57,7 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        SaveGame();
-        LoadGame();
-    }
-
-    public void SaveGame()
+    public void SaveGame(GameData gameDataToSave) // Le pasamos el objeto de gameData que deseamos serializar
     {
         string destination = Application.persistentDataPath + "/playerData.dat";
         FileStream file;
@@ -70,15 +65,14 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(destination)) file = File.OpenWrite(destination);
         else file = File.Create(destination);
 
-        GameData gameData = new GameData();
         BinaryFormatter bf = new BinaryFormatter();
-        bf.Serialize(file, gameData);
+        bf.Serialize(file, gameDataToSave);
         file.Close();
 
         Debug.Log("Game saved");
     }
 
-    public void LoadGame()
+    public GameData LoadGame()
     {
         string destination = Application.persistentDataPath + "/playerData.dat";
         FileStream file;
@@ -87,17 +81,15 @@ public class SaveManager : MonoBehaviour
         else
         {
             Debug.LogError("File not found");
-            return;
+            return null;
         }
 
         BinaryFormatter bf = new BinaryFormatter();
-        GameData gameData = (GameData)bf.Deserialize(file);
+        GameData loadedGameData = (GameData)bf.Deserialize(file);
         file.Close();
 
-        gameData.LoadData(); // Carga de nuevo toda la información de las áras        
-
         Debug.Log("Game loaded");
-
+        return loadedGameData;
     }
 
 }

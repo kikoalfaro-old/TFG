@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     GeoLocData geoLocData; // Datos de las áreas
     SaveManager saveManager;
 
+    GameData gameData; // Aquí es donde se almacenará toda la información de los estados de las áreas
+
     public static GameManager Instance
     {
         get
@@ -44,40 +46,62 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        geoLocManager = GeoLocManager.Instance;
-        geoLocData = GeoLocData.Instance;
+        geoLocManager = GeoLocManager.Instance;        
         saveManager = SaveManager.Instance;
+        geoLocData = LoadGeoLocData(); // Podría ser un array de distintas GeoLocDatas
+
+        gameData = LoadGame();
+        if(gameData == null) // NO HAY NINGÚN ARCHIVO GUARDADO PREVIAMENTE, POR LO QUE CREAMOS UNO
+        {
+            SaveGame(new GameData(geoLocData.allAreas)); // Creo el diccionario a partir del Scriptable y lo serializo
+            LoadGame();
+        }
+    }
+
+    private GeoLocData LoadGeoLocData()
+    {
+        return (GeoLocData) Resources.Load(GeoLocData.LoadPath);
     }
 
     public AreaStatus GetCurrentAreaStatus()
     {
-        return geoLocManager.GetCurrentArea().Status;
+        return gameData.areasStatus[geoLocManager.GetCurrentArea()];
     }
 
     public void UpdateCurrentAreaStatus(AreaStatus newStatus)
     {
-        geoLocData.allAreas[geoLocManager.GetCurrentArea().id].Status = newStatus;
-        //saveManager.SaveGame(); // Guardamos el juego después de actualizar el estado
-        Debug.Log("Area status updated");
+        gameData.areasStatus[geoLocManager.GetCurrentArea()] = newStatus; // SUPONGAMOS QUE ASÍ SE ASIGNA UN VALOR A UNA CLAVE
+        SaveGame(gameData); // Guardamos el juego después de actualizar el estado
+        Debug.Log("Area status updated and game saved");
     }
 
     public void ResetAllStatus()
     {
-        foreach (Area area in geoLocData.allAreas)
+        foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
-            area.Status = AreaStatus.Available; // OJO, HABRÁ QUE PONERLO A UNKNOWN EN LA VERSIÓN FINAL
+            gameData.areasStatus[area.Key] = AreaStatus.Available; // OJO, HABRÁ QUE PONERLO A UNKNOWN EN LA VERSIÓN FINAL
         }
 
-        SaveGame();
+        SaveGame(gameData);
     }
 
-    public void SaveGame()
+    public void SaveGame(GameData gameData)
     {
-        saveManager.SaveGame();
+        saveManager.SaveGame(gameData);
     }
 
-    public void LoadGame()
+    public GameData LoadGame()
     {
-        saveManager.LoadGame();
+        return saveManager.LoadGame();
+    }
+
+    public GameData GetGameData()
+    {
+        return gameData;
+    }
+
+    public GeoLocData GetGeoLocData()
+    {
+        return geoLocData;
     }
 }

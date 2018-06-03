@@ -5,5 +5,9 @@ using UnityEditor;
 
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
-[CustomPropertyDrawer(typeof(LevelsDictionary))]
+[CustomPropertyDrawer(typeof(DifficultyLeveDictionary))]
+[CustomPropertyDrawer(typeof(AreaStatusColorDictionary))]
+[CustomPropertyDrawer(typeof(StringImageDictionary))]
+
+
 public class AnySerializableDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}

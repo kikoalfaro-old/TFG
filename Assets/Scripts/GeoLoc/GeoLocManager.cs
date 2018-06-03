@@ -17,11 +17,14 @@ public class GeoLocCoordinates
         this.longitude = 0f;
     }
 
-    public GeoLocCoordinates(float latitude, float longitude)
+    // Introducimos las coordenadas como una cadena y hace el split para guardarlo como float
+    public GeoLocCoordinates(string coordinates)
     {
-        this.latitude = latitude;
-        this.longitude = longitude;
+        string[] textSplit = coordinates.Split(", "[0]);
+        float.TryParse(textSplit[0], out latitude);
+        float.TryParse(textSplit[1], out longitude);
     }
+
     public override string ToString()
     {
         return latitude + ", " + longitude;
@@ -33,11 +36,10 @@ public class GeoLocManager : MonoBehaviour
     private static GeoLocManager instance = null;
 
     GeoLocCoordinates currentCoords; // Coordenadas espaciales actuales
-    Area currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
+    string currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
 
     public float refreshTime = 2f; // Tiempo de actualización de las coordenadas (para que no consuma tanta batería...) --> De momento, por defecto a 20 segs
-    public string defaultSceneName = "Default";
-    Area[] areas; // Todas las áreas del juego con su respectiva info.
+    public string defaultAreaName = "Default";
 
     GeoLocData geoLocData; //Singleton
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.
@@ -86,7 +88,7 @@ public class GeoLocManager : MonoBehaviour
 
     void Start()
     {
-        geoLocData = GeoLocData.Instance;
+        geoLocData = GameManager.Instance.GetGeoLocData();
         if (!geoLocData)
             throw new UnityException("Geolocation data could not be found, ensure that it exists in the Persistent scene.");
 
@@ -101,8 +103,9 @@ public class GeoLocManager : MonoBehaviour
     void InitialSetup()
     {
         // Valores iniciales por defecto
-        currentCoords = new GeoLocCoordinates();
-        currentArea = geoLocData.allAreas[0]; //Empieza siendo la zona por defecto
+        currentArea = defaultAreaName;
+        string currentAreaCentre = geoLocData.allAreas[currentArea]; //Empieza siendo la zona por defecto (Separo en dos por legibilidad)
+        currentCoords = new GeoLocCoordinates(currentAreaCentre);
 
         Input.location.Start();
         UpdateCoods(); //Pone las coordenadas actuales al inicializarse y sitúa el juego
@@ -123,10 +126,11 @@ public class GeoLocManager : MonoBehaviour
     void UpdateCoods()
     {
 
-#if UNITY_ANDROID
-        currentCoords.latitude = Input.location.lastData.latitude;
-        currentCoords.longitude = Input.location.lastData.longitude;
-#endif
+        // -------------- EASY DEBUG (No real input) -------------
+//#if UNITY_ANDROID
+//        currentCoords.latitude = Input.location.lastData.latitude;
+//        currentCoords.longitude = Input.location.lastData.longitude;
+//#endif
 
 #if UNITY_EDITOR
         // Poniendo el punto como si estuviéramos justo en el centro de la zona (muy improbable...)
@@ -148,39 +152,36 @@ public class GeoLocManager : MonoBehaviour
 
     void UpdateArea()
     {
-        if (currentArea.id == 0)
+        if (currentArea == defaultAreaName)
         {
-            foreach (var zone in geoLocData.allAreas)
+            foreach (KeyValuePair<string, string> area in geoLocData.allAreas) // Recorro el diccionario de áreas
             {
-                if (zone == currentArea) continue; //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
+                if (area.Key == currentArea) continue; //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
 
-                if (PointInsideArea(currentCoords, zone))
+                if (PointInsideArea(currentCoords, area.Key))
                 {
                     if (WhenSceneAvailable != null)
                     {
-                        currentArea = zone; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
+                        currentArea = area.Key; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
                         WhenSceneAvailable(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
                     }
                         
                     break;
                 }
-            } //Si llega al final y no la ha actualizado, se quedará en zona 0            
+            } //Si llega al final y no la ha actualizado, se quedará en área por defecto            
         }
 
         // Si no estoy en la escena por defecto pero no estoy dentro del área, cargar la escena por defecto
         else if(!PointInsideArea(currentCoords, currentArea)){
-            sceneController.FadeAndLoadScene(defaultSceneName);
-            currentArea = geoLocData.allAreas[0];
+            sceneController.FadeAndLoadScene(defaultAreaName);
+            currentArea = geoLocData.allAreas[defaultAreaName];
         }
-
-        // Otra idea, para grafo de áreas...
-        // Buscar en las áreas adyacentes y ver en cuál está (de momento, después se puede optimizar) 
     }
 
     private void SetTexts()
     {
         coordsText.text = currentCoords.ToString();
-        zoneText.text = currentArea.id.ToString();
+        zoneText.text = currentArea;
     }
 
 
@@ -193,10 +194,10 @@ public class GeoLocManager : MonoBehaviour
     /// <param name="area"></param>
     /// <returns></returns>
     //OJO:  Aquí hemos de CAMBIARLO y pasar como parámetro un objeto de tipo AREA... (también vale para elementos)
-    bool PointInsideArea(GeoLocCoordinates point, Area area)
+    bool PointInsideArea(GeoLocCoordinates point, string area)
     {
         bool isInsideArea = false;
-        if(area.id != 0) isInsideArea = DistanceBetweenPoints(point, area.centre) <= GeoLocData.Instance.areaRadius; 
+        if(area != defaultAreaName) isInsideArea = DistanceBetweenPoints(point, new GeoLocCoordinates(geoLocData.allAreas[area])) <= geoLocData.areaRadius; 
         // Un punto está dentro de un círculo si la distancia desde él hasta el centro es menor o igual que r (radio)
 
         return isInsideArea;
@@ -220,29 +221,6 @@ public class GeoLocManager : MonoBehaviour
         return distance;
     }
 
-
-    // ESTA VERSIÓN VIEJA DE DISTANCIA ENTRE PUNTOS NO FUNCIONA. QUITARLA UNA VEZ HECHO EL DEBUG
-    /*
-    public float DistanceBetweenPoints(GeoLocCoordinates pointA, GeoLocCoordinates pointB)
-    {
-        double distance;
-        var R = 6378.137; // Radius of earth in KM
-
-        var dLat = pointB.latitude * Mathf.PI / 180 - pointA.latitude * Mathf.PI / 180;
-        var dLon = pointB.longitude * Mathf.PI / 180 - pointB.longitude * Mathf.PI / 180;
-        float a = Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2) +
-          Mathf.Cos(pointA.latitude * Mathf.PI / 180) * Mathf.Cos(pointB.latitude * Mathf.PI / 180) *
-          Mathf.Sin(dLon / 2) * Mathf.Sin(dLon / 2);
-        var c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
-        distance = R * c;
-
-        distance = distance * 1000f; // meters
-                                     //convert distance from double to float
-        float distanceFloat = (float)distance;
-        return distanceFloat;
-    }
-    */
-
     public float EuclideanDistanceBetweenPoints(GeoLocCoordinates pointA, GeoLocCoordinates pointB)
     {
         float Ax = pointA.latitude;
@@ -261,7 +239,7 @@ public class GeoLocManager : MonoBehaviour
         return currentCoords;
     }
 
-    public Area GetCurrentArea()
+    public string GetCurrentArea()
     {
         return currentArea;
     }

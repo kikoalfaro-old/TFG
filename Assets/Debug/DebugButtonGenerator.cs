@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DebugButtonGenerator : MonoBehaviour {
 
     public GameObject buttonPrefab;
-    List<Area> areas;
 
     // Use this for initialization
     void Start () {
@@ -17,17 +16,16 @@ public class DebugButtonGenerator : MonoBehaviour {
     IEnumerator SetButtons()
     {
         yield return new WaitForEndOfFrame();
-        areas = GeoLocData.Instance.allAreas;
-        int numButtons = areas.Count;
-        for (int i = 1; i < numButtons; i++)
+        StringStringDictionary allAreas = GameManager.Instance.GetGeoLocData().allAreas;
+
+        foreach (KeyValuePair<string, string> area in allAreas)
         {
-            GameObject newButton = Instantiate(buttonPrefab, transform) as GameObject;   
-            newButton.GetComponent<Button>().interactable = true;                               
-            newButton.GetComponentInChildren<Text>().text = areas[i].name;
-            newButton.GetComponent<DebugButton>().coords = areas[i].centre.ToString();
+            GameObject newButton = Instantiate(buttonPrefab, transform) as GameObject;
+            newButton.GetComponent<Button>().interactable = true;
+            newButton.GetComponentInChildren<Text>().text = allAreas[area.Key];
+            newButton.GetComponent<DebugButton>().coords = allAreas[area.Value];
         }
 
         yield return null;
     }
-
 } 
