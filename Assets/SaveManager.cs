@@ -15,6 +15,7 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
     public GameData(StringStringDictionary allAreas)
     {
+        Debug.Log("Creating new gameData object...");
         foreach (KeyValuePair<string, string> area in allAreas)
         {
             areasStatus.Add(area.Key, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
@@ -59,6 +60,7 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame(GameData gameDataToSave) // Le pasamos el objeto de gameData que deseamos serializar
     {
+        Debug.Log("gameDataToSave " + gameDataToSave);
         string destination = Application.persistentDataPath + "/playerData.dat";
         FileStream file;
 
@@ -74,13 +76,14 @@ public class SaveManager : MonoBehaviour
 
     public GameData LoadGame()
     {
+        Debug.Log("Loading game");
         string destination = Application.persistentDataPath + "/playerData.dat";
         FileStream file;
 
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            Debug.Log("Returns null");
             return null;
         }
 

@@ -89,7 +89,7 @@ public class GeoLocManager : MonoBehaviour
     void Start()
     {
         geoLocData = GameManager.Instance.GetGeoLocData();
-        if (!geoLocData)
+        if (geoLocData == null)
             throw new UnityException("Geolocation data could not be found, ensure that it exists in the Persistent scene.");
 
         sceneController = FindObjectOfType<SceneController>();

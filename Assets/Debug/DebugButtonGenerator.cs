@@ -8,24 +8,17 @@ public class DebugButtonGenerator : MonoBehaviour {
 
     public GameObject buttonPrefab;
 
-    // Use this for initialization
-    void Start () {
-        StartCoroutine(SetButtons());
-	}
-
-    IEnumerator SetButtons()
+    public void GenerateButons()
     {
-        yield return new WaitForEndOfFrame();
         StringStringDictionary allAreas = GameManager.Instance.GetGeoLocData().allAreas;
 
         foreach (KeyValuePair<string, string> area in allAreas)
         {
-            GameObject newButton = Instantiate(buttonPrefab, transform) as GameObject;
+            if (area.Key == "Default") continue;
+            GameObject newButton = Instantiate(buttonPrefab, transform);
             newButton.GetComponent<Button>().interactable = true;
-            newButton.GetComponentInChildren<Text>().text = allAreas[area.Key];
-            newButton.GetComponent<DebugButton>().coords = allAreas[area.Value];
+            newButton.GetComponentInChildren<Text>().text = area.Key;
+            newButton.GetComponent<DebugButton>().coords = allAreas[area.Key];
         }
-
-        yield return null;
     }
 } 

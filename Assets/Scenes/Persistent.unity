@@ -854,6 +854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033da921da392864ca535f77cea1eb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generator: {fileID: 1989508008}
+  geoLocData: {fileID: 11400000, guid: 33283e77aa1af934cbfe4c8ac279d7e5, type: 2}
 --- !u!4 &703524738
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,7 +1873,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1989508005}
-  - component: {fileID: 1989508007}
   - component: {fileID: 1989508006}
   - component: {fileID: 1989508008}
   m_Layer: 5
@@ -1921,18 +1922,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!114 &1989508007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1989508004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee24b79e0033d8d42a9a320b119ec042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 0}
 --- !u!114 &1989508008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,7 +2032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2101414309
 RectTransform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class MapManager : MonoBehaviour {
     private void OnEnable()
     {
         gameData = GameManager.Instance.GetGameData();
+        Debug.Log(gameData);
         SetAreaColors();
     }
 

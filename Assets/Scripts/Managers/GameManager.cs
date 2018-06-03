@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public DebugButtonGenerator generator;
+
     private static GameManager instance = null;
 
     GeoLocManager geoLocManager; // Actualiza coordenadas, y llama a la carga escenas...
-    GeoLocData geoLocData; // Datos de las áreas
+    public GeoLocData geoLocData; // Datos de las áreas
     SaveManager saveManager;
 
     GameData gameData; // Aquí es donde se almacenará toda la información de los estados de las áreas
@@ -41,26 +43,25 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
 
         //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);    
+        DontDestroyOnLoad(gameObject);
+
     }
 
     private void Start()
     {
-        geoLocManager = GeoLocManager.Instance;        
-        saveManager = SaveManager.Instance;
-        geoLocData = LoadGeoLocData(); // Podría ser un array de distintas GeoLocDatas
+        geoLocManager = GeoLocManager.Instance;
+        saveManager = GetComponent<SaveManager>();
+        Debug.Log(Application.persistentDataPath);
+
 
         gameData = LoadGame();
-        if(gameData == null) // NO HAY NINGÚN ARCHIVO GUARDADO PREVIAMENTE, POR LO QUE CREAMOS UNO
+        if (gameData == null) // NO HAY NINGÚN ARCHIVO GUARDADO PREVIAMENTE, POR LO QUE CREAMOS UNO
         {
             SaveGame(new GameData(geoLocData.allAreas)); // Creo el diccionario a partir del Scriptable y lo serializo
             LoadGame();
         }
-    }
 
-    private GeoLocData LoadGeoLocData()
-    {
-        return (GeoLocData) Resources.Load(GeoLocData.LoadPath);
+        generator.GenerateButons();
     }
 
     public AreaStatus GetCurrentAreaStatus()

@@ -13,5 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaRadius: 200
   allAreas:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - Norte
+    - Ayuntamiento
+    - LonjaSeda
+    - Quart
+    - Catedral
+    - Serranos
+    - Default
+    m_values:
+    - 39.467094, -0.377206
+    - 39.469756, -0.376414
+    - 39.474350, -0.378340
+    - 39.475751, -0.383799
+    - 39.475592, -0.375244
+    - 39.479228, -0.375982
+    - 0, 0
