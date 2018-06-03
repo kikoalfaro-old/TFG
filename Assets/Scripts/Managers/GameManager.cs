@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public static string defaultAreaName = "Default";
     public DebugButtonGenerator generator;
 
     private static GameManager instance = null;
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour {
         if (gameData == null) // NO HAY NINGÚN ARCHIVO GUARDADO PREVIAMENTE, POR LO QUE CREAMOS UNO
         {
             SaveGame(new GameData(geoLocData.allAreas)); // Creo el diccionario a partir del Scriptable y lo serializo
-            LoadGame();
+            gameData = LoadGame();
         }
 
         generator.GenerateButons();

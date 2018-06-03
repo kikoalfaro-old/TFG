@@ -14,7 +14,7 @@ public class DebugButtonGenerator : MonoBehaviour {
 
         foreach (KeyValuePair<string, string> area in allAreas)
         {
-            if (area.Key == "Default") continue;
+            if (area.Key == GameManager.defaultAreaName) continue;
             GameObject newButton = Instantiate(buttonPrefab, transform);
             newButton.GetComponent<Button>().interactable = true;
             newButton.GetComponentInChildren<Text>().text = area.Key;

@@ -39,7 +39,7 @@ public class GeoLocManager : MonoBehaviour
     string currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
 
     public float refreshTime = 2f; // Tiempo de actualización de las coordenadas (para que no consuma tanta batería...) --> De momento, por defecto a 20 segs
-    public string defaultAreaName = "Default";
+    public string defaultAreaName = GameManager.defaultAreaName;
 
     GeoLocData geoLocData; //Singleton
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.

@@ -15,9 +15,11 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
     public GameData(StringStringDictionary allAreas)
     {
-        Debug.Log("Creating new gameData object...");
+        areasStatus = new Dictionary<string, AreaStatus>();
+        Debug.Log("Creating new gameData object...  " + allAreas);
         foreach (KeyValuePair<string, string> area in allAreas)
         {
+            if (area.Key == GameManager.defaultAreaName) continue;
             areasStatus.Add(area.Key, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
         }
     }
@@ -80,10 +82,12 @@ public class SaveManager : MonoBehaviour
         string destination = Application.persistentDataPath + "/playerData.dat";
         FileStream file;
 
+        Debug.Log("File exists: " + File.Exists(destination));
+
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.Log("Returns null");
+            Debug.Log("File not exists, so it returns null");
             return null;
         }
 
