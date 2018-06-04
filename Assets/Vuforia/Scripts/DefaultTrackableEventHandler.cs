@@ -6,6 +6,7 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using Fungus;
 using UnityEngine;
 using Vuforia;
 
@@ -94,7 +95,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        Fungus.Flowchart.BroadcastFungusMessage("OnTrackingFound");
+        Flowchart.BroadcastFungusMessage("OnTrackingFound");
     }
 
 
@@ -115,6 +116,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
+        Flowchart.BroadcastFungusMessage("OnTrackingLost");
     }
 
     #endregion // PROTECTED_METHODS
