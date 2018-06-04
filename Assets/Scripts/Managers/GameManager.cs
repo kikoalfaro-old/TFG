@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -79,12 +80,8 @@ public class GameManager : MonoBehaviour {
 
     public void ResetAllStatus()
     {
-        foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
-        {
-            gameData.areasStatus[area.Key] = AreaStatus.Available; // OJO, HABRÁ QUE PONERLO A UNKNOWN EN LA VERSIÓN FINAL
-        }
-
-        SaveGame(gameData);
+        SaveGame(new GameData(geoLocData.allAreas));
+        gameData = LoadGame();
     }
 
     public void SaveGame(GameData gameData)
