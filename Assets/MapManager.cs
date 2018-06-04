@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 
 
-public class MapManager : MonoBehaviour {
-    
+public class MapManager : MonoBehaviour
+{
+
     [SerializeField]
     AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();
 
@@ -22,6 +23,8 @@ public class MapManager : MonoBehaviour {
     {
         gameData = GameManager.Instance.GetGameData();
         SetAreaColors();
+
+
     }
 
     public void DisableMap()
@@ -33,7 +36,14 @@ public class MapManager : MonoBehaviour {
     {
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
-            areaImages[area.Key].color = statusColors[area.Value]; // Devuelve el color que corresponde a ese estado
+            try
+            {
+                areaImages[area.Key].color = statusColors[area.Value]; // Devuelve el color que corresponde a ese estado
+            }
+            catch (KeyNotFoundException e)
+            {
+                Debug.LogError("No has referenciado el área " + area.Key + " con su imagen en el MapManager");
+            }
         }
     }
 }

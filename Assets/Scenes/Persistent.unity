@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 857219170}
   - component: {fileID: 857219169}
   m_Layer: 5
-  m_Name: "C\xE1psula"
+  m_Name: "C\xE1psula_S\xEDmbolos"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,6 +2198,7 @@ MonoBehaviour:
     - Quart
     - Catedral
     - Serranos
+    - Capsula
     m_values:
     - {fileID: 1227073234}
     - {fileID: 1435391615}
@@ -2205,3 +2206,4 @@ MonoBehaviour:
     - {fileID: 1068959819}
     - {fileID: 1975715697}
     - {fileID: 320821606}
+    - {fileID: 857219169}

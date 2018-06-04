@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d070335ddde290c4c832a9143eaf46e1, type: 3}
   m_Name: GeoLocData
   m_EditorClassIdentifier: 
-  areaRadius: 200
+  areaRadius: 100
   allAreas:
     m_keys:
     - Norte
@@ -21,6 +21,7 @@ MonoBehaviour:
     - Catedral
     - Serranos
     - Default
+    - Capsula
     m_values:
     - 39.467094, -0.377206
     - 39.469756, -0.376414
@@ -29,3 +30,4 @@ MonoBehaviour:
     - 39.475592, -0.375244
     - 39.479228, -0.375982
     - 0, 0
+    - 39.468328, -0.377067

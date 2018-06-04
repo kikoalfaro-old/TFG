@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 515951384}
   - component: {fileID: 515951386}
   m_Layer: 0
-  m_Name: Interactable
+  m_Name: Scene interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
