@@ -23,4 +23,25 @@ public class AreaLocalStatus : MonoBehaviour
         GameManager.Instance.UpdateCurrentAreaStatus(newStatus); //Lo actualizo en el gameManager
         return newStatus.ToString();
     }
+
+    public void ClearCurrentFlowchart()
+    {
+        //GameObject sayDialog = FindObjectOfType<SayDialog>().gameObject;
+        GameObject sayDialog = GameObject.Find("SayDialog");
+
+        if (sayDialog != null)
+        {
+            Debug.Log("sayDialog found and destroyed");
+            Destroy(sayDialog);
+        }
+
+        //GameObject menuDialog = FindObjectOfType<MenuDialog>().gameObject;
+        GameObject menuDialog = GameObject.Find("MenuDialog");
+
+        if (menuDialog != null)
+        {
+            Debug.Log("menuDialog found and destroyed");
+            Destroy(menuDialog);
+        }
+    }
 }
