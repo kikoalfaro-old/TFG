@@ -27,7 +27,7 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
 
     public bool sendFlowchartMessageWhenGameEnds;
 
-    private void Start()
+    private void OnEnable()
     {
         LevelSetup();
         StartCoroutine("SpawnSymbol");
@@ -48,6 +48,8 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
         newScoreAnimator = scoreText.GetComponentInChildren<Animator>();
 
         successAudio = GetComponent<AudioSource>();
+
+        scoreText.text = score.ToString();
     }
 
     // Aparecer símbolo cada x tiempo

@@ -54,6 +54,7 @@ public class GeoLocManager : MonoBehaviour
     [Space]
     [Header("Current area debug")]
     public string currentCoords_Debug;
+    public bool debugMode;
 
     public static GeoLocManager Instance
     {
@@ -98,6 +99,8 @@ public class GeoLocManager : MonoBehaviour
 
         InitialSetup();
         StartCoroutine(UpdateCoordsCoroutine()); // Comienza la corrutina de actualizar la posición cada cierto tiempo
+
+        if (debugMode) Debug.LogWarning("DEBUG MODE IS ENABLED!"); else Debug.LogWarning("DEBUG MODE IS DISABLED (Only for smartphone)");
     }
 
     void InitialSetup()
@@ -127,24 +130,25 @@ public class GeoLocManager : MonoBehaviour
     {
 
         // -------------- EASY DEBUG (No real input) -------------
-//#if UNITY_ANDROID
-//        currentCoords.latitude = Input.location.lastData.latitude;
-//        currentCoords.longitude = Input.location.lastData.longitude;
-//#endif
+        //#if UNITY_ANDROID
+        //        currentCoords.latitude = Input.location.lastData.latitude;
+        //        currentCoords.longitude = Input.location.lastData.longitude;
+        //#endif
 
-#if UNITY_EDITOR
-        // Poniendo el punto como si estuviéramos justo en el centro de la zona (muy improbable...)
-        try
+        if (debugMode)
         {
-            string[] textSplit = currentCoords_Debug.Split(", "[0]);
-            float.TryParse(textSplit[0], out currentCoords.latitude);
-            float.TryParse(textSplit[1], out currentCoords.longitude);
+            // Poniendo el punto como si estuviéramos justo en el centro de la zona (muy improbable...)
+            try
+            {
+                string[] textSplit = currentCoords_Debug.Split(", "[0]);
+                float.TryParse(textSplit[0], out currentCoords.latitude);
+                float.TryParse(textSplit[1], out currentCoords.longitude);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Debug.Log("La zona introducida no está dentro del rango de zonas creado.");
+            }
         }
-        catch (ArgumentOutOfRangeException)
-        {
-            Debug.Log("La zona introducida no está dentro del rango de zonas creado.");
-        }
-#endif
 
         UpdateArea(); //Si el área actual es 0 (ficticia), no mira si está dentro o no.
         SetTexts();
