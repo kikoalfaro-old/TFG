@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Capsula.unity
     guid: f2325201a087dd54797e9454ea2ee0b3
+  - enabled: 1
+    path: Assets/Scenes/ELEMENTOS DE INFO/Ayuntamiento.unity
+    guid: 9352d6caf39db0f4aa13f3d562c00116
+  - enabled: 1
+    path: Assets/Scenes/ELEMENTOS DE INFO/Serranos.unity
+    guid: 1089f24bc4d7bf749b0e0e735ce73799
   m_configObjects: {}
