@@ -14,14 +14,9 @@ using System;
 
 public class CombinationManager : MonoBehaviour
 {
-
+    public bool sendFlowchartMessageWhenGameEnds;
     public MeshRenderer[] cubes;
     Color originalColor;
-
-    // Parámetros del nivel
-    public int stages; // Número de rondas de juego
-    int playedStages;
-    // public int initialAmountOfCubes; // Número de cubos que se iluminan en la primera ronda
 
     int totalCubes;
     bool canTouch = false;
@@ -31,8 +26,11 @@ public class CombinationManager : MonoBehaviour
     public int timeBetweenCubes = 2; // Intervalo de tiempo entre que un cubo se ilumina y el siguiente
     WaitForSeconds secondsBetweenCubes;
 
+    // Parámetros del juego
     [Space]
     public int initialLevel = 2; //Indica los elementos a pulsar seguidos (habrá que hacer el temporizador en función a esto también)
+    public int stages; // Número de rondas de juego
+    int playedStages;
     int currentLevel;
     int currentIndex = 0; // Índice en el que está comprobando si se ha pulsado (En array "combinación")
     int[] sequence;
@@ -72,7 +70,7 @@ public class CombinationManager : MonoBehaviour
     private void GetResults()
     {
         Debug.Log("JUEGO TERMINADO");
-        // Broadcast a flowchart
+        if (sendFlowchartMessageWhenGameEnds) Fungus.Flowchart.BroadcastFungusMessage("GameWon");
     }
 
     void GenerateNewSequence()
