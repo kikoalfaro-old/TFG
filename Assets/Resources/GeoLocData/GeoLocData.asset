@@ -22,6 +22,7 @@ MonoBehaviour:
     - Serranos
     - Default
     - Capsula
+    - CapsulaSimon
     m_values:
     - 39.467094, -0.377206
     - 39.469756, -0.376414
@@ -31,3 +32,4 @@ MonoBehaviour:
     - 39.479228, -0.375982
     - 0, 0
     - 39.468328, -0.377067
+    - 39.472628, -0.377183

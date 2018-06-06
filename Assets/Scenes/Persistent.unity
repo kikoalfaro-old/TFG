@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 187219186}
   - component: {fileID: 187219185}
   m_Layer: 5
-  m_Name: "C\xE1psula"
+  m_Name: "C\xE1psula_Simon"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2200,6 +2200,7 @@ MonoBehaviour:
     - Catedral
     - Serranos
     - Capsula
+    - CapsulaSimon
     m_values:
     - {fileID: 1227073234}
     - {fileID: 1435391615}
@@ -2208,3 +2209,4 @@ MonoBehaviour:
     - {fileID: 1975715697}
     - {fileID: 320821606}
     - {fileID: 857219169}
+    - {fileID: 187219185}

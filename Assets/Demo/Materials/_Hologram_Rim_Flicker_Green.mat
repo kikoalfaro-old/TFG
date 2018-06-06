@@ -93,8 +93,8 @@ Material:
     - _FlickerSpeed: 10
     - _Fold: 63
     - _Glitch: 1
-    - _GlitchIntensity: 0.2
-    - _GlitchSpeed: 12
+    - _GlitchIntensity: 3.57
+    - _GlitchSpeed: 5.8
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -123,7 +123,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Direction: {r: 1, g: 1, b: 1, a: 0}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainColor: {r: 0, g: 0.41509432, b: 0.131208, a: 1}
     - _RimColor: {r: 0.972, g: 1, b: 0, a: 1}

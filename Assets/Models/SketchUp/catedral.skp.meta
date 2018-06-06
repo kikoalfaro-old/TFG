@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: ebadd10fae092894e9d35d50eefa5ff4
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000020000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 111c69680f2ccb0bf164fc08d86e67ca
+  longitude: -0.3752652394559479
+  latitude: 39.475682489493614
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -4.138843, y: 47.526955, z: 73.82521}
+      lookAt: {x: 23.325163, y: -294.39902, z: -196.05917}
+      up: {x: 0.07930995, y: 0.62152904, z: -0.77936614}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: campana1.dwg
+    100002: //RootNode
+    100004: Component
+    100006: Google Earth Snapshot
+    100008: Group#1
+    100010: Group#2
+    100012: Group#3
+    100014: Group#4
+    100016: sketchup-download200702221202443
+    400000: campana1.dwg
+    400002: //RootNode
+    400004: Component
+    400006: Google Earth Snapshot
+    400008: Group#1
+    400010: Group#2
+    400012: Group#3
+    400014: Group#4
+    400016: sketchup-download200702221202443
+    2100000: _defaultMat
+    2100002: Google Earth Snapshot1
+    2100004: Material13
+    2100006: Material20
+    2100008: Material24
+    2100010: Material12
+    2100012: _Tile02_
+    2100014: Material3
+    2100016: Material18
+    2100018: _Beige_1
+    2100020: _Beige_2
+    2100022: Material4
+    2100024: _Chipboard_
+    2100026: Material6
+    2100028: Material22
+    2100030: Google Earth Snapshot2
+    2300000: campana1.dwg
+    2300002: Component
+    2300004: Google Earth Snapshot
+    2300006: Group#1
+    2300008: Group#2
+    2300010: Group#3
+    2300012: Group#4
+    3300000: campana1.dwg
+    3300002: Component
+    3300004: Google Earth Snapshot
+    3300006: Group#1
+    3300008: Group#2
+    3300010: Group#3
+    3300012: Group#4
+    4300000: Mesh Component
+    4300002: Mesh Google Earth Snapshot
+    4300004: Mesh campana1.dwg
+    4300006: Mesh Group#1
+    4300008: Mesh Group#2
+    4300010: Mesh Group#3
+    4300012: Mesh Group#4
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
