@@ -81,11 +81,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
-        var transforms = GetComponentsInChildren<Transform>(true);
+        var transforms = GetComponentsInChildren<Renderer>(true);
 
         foreach (var item in transforms)
         {
-            item.gameObject.SetActive(true);
+            if (item.gameObject.tag != "ImageTarget") item.gameObject.SetActive(true);
         }
 
         Flowchart.BroadcastFungusMessage("OnTrackingFound");
@@ -94,11 +94,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
-        var transforms = GetComponentsInChildren<Transform>(true);
+        var transforms = GetComponentsInChildren<Renderer>(true);
 
         foreach (var item in transforms)
         {
-            item.gameObject.SetActive(false);
+            if (item.gameObject.tag != "ImageTarget") item.gameObject.SetActive(false);
         }
 
         Flowchart.BroadcastFungusMessage("OnTrackingLost");

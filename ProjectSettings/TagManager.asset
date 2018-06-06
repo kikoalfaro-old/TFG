@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - simonCube
+  - ImageTarget
   layers:
   - Default
   - TransparentFX
