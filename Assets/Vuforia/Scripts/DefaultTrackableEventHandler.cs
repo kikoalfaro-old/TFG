@@ -81,21 +81,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
-        var rendererComponents = GetComponentsInChildren<Renderer>(true);
-        var colliderComponents = GetComponentsInChildren<Collider>(true);
-        var canvasComponents = GetComponentsInChildren<Canvas>(true);
+        var transforms = GetComponentsInChildren<Transform>(true);
 
-        // Enable rendering:
-        foreach (var component in rendererComponents)
-            component.enabled = true;
-
-        // Enable colliders:
-        foreach (var component in colliderComponents)
-            component.enabled = true;
-
-        // Enable canvas':
-        foreach (var component in canvasComponents)
-            component.enabled = true;
+        foreach (var item in transforms)
+        {
+            item.gameObject.SetActive(true);
+        }
 
         Flowchart.BroadcastFungusMessage("OnTrackingFound");
     }
@@ -103,21 +94,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
-        var rendererComponents = GetComponentsInChildren<Renderer>(true);
-        var colliderComponents = GetComponentsInChildren<Collider>(true);
-        var canvasComponents = GetComponentsInChildren<Canvas>(true);
+        var transforms = GetComponentsInChildren<Transform>(true);
 
-        // Disable rendering:
-        foreach (var component in rendererComponents)
-            component.enabled = false;
-
-        // Disable colliders:
-        foreach (var component in colliderComponents)
-            component.enabled = false;
-
-        // Disable canvas':
-        foreach (var component in canvasComponents)
-            component.enabled = false;
+        foreach (var item in transforms)
+        {
+            item.gameObject.SetActive(false);
+        }
 
         Flowchart.BroadcastFungusMessage("OnTrackingLost");
 
