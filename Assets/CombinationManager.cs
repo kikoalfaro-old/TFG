@@ -19,7 +19,8 @@ public class CombinationManager : MonoBehaviour
     Color originalColor;
 
     // Parámetros del nivel
-    //public int stages; // Número de rondas de juego
+    public int stages; // Número de rondas de juego
+    int playedStages;
     // public int initialAmountOfCubes; // Número de cubos que se iluminan en la primera ronda
 
     int totalCubes;
@@ -37,6 +38,8 @@ public class CombinationManager : MonoBehaviour
     int[] sequence;
     bool[] hitCubes;
 
+    AudioSource sound;
+
     void Awake()
     {
         DOTween.Init();
@@ -46,6 +49,8 @@ public class CombinationManager : MonoBehaviour
         totalCubes = cubes.Length;
         currentLevel = initialLevel;
         secondsBetweenCubes = new WaitForSeconds(timeBetweenCubes);
+        sound = GetComponent<AudioSource>();
+        playedStages = 0;
     }
 
     private void OnEnable()
@@ -53,6 +58,22 @@ public class CombinationManager : MonoBehaviour
         GenerateNewSequence();
     }
 
+    bool GameFinished()
+    {
+        return playedStages == stages;
+    }
+
+    void CheckIfGameFinished()
+    {
+        if (GameFinished()) GetResults();
+        else GenerateNewSequence();
+    }
+
+    private void GetResults()
+    {
+        Debug.Log("JUEGO TERMINADO");
+        // Broadcast a flowchart
+    }
 
     void GenerateNewSequence()
     {
@@ -70,7 +91,6 @@ public class CombinationManager : MonoBehaviour
 
         ShowSequence();
         // Mostrar secuencia visualmente con colores y notas
-
 
     }
 
@@ -101,7 +121,7 @@ public class CombinationManager : MonoBehaviour
             wellDoneSequence.Join(cubes[i].material.DOColor(Color.cyan, 0.05f))
                         .Join(cubes[i].material.DOColor(originalColor, 1f));
         }
-        wellDoneSequence.OnComplete(GenerateNewSequence);
+        wellDoneSequence.OnComplete(CheckIfGameFinished);
     }
 
     Sequence TouchAnimation(int cubeIndex, Color color)
@@ -115,6 +135,7 @@ public class CombinationManager : MonoBehaviour
     void CheckSequence(int cubeIndex)
     {
         Sequence touchAnimationSequence;
+        sound.Play();
 
         if (cubeIndex == sequence[currentIndex]) //ACIERTA 
         {
@@ -128,12 +149,13 @@ public class CombinationManager : MonoBehaviour
             {
                 Debug.Log("CORRECTO!");
                 currentLevel++;
+                playedStages++;
                 touchAnimationSequence.OnComplete(WellDoneSequence);
             }
         }
         else // FALLA, se reinicia
         {
-            Sequence touchAnimationSequence = TouchAnimation(cubeIndex, Color.cyan);
+            touchAnimationSequence = TouchAnimation(cubeIndex, Color.cyan);
 
             currentIndex = 0; //En el momento en que fallas, se reinicia
             for (int a = 0; a < hitCubes.Length; a++) hitCubes[a] = false;
@@ -146,7 +168,7 @@ public class CombinationManager : MonoBehaviour
                             .Join(cubes[i].material.DOColor(originalColor, 1f));
             }
 
-            allRedsSequence.OnComplete(ShowSequence);            
+            allRedsSequence.OnComplete(GenerateNewSequence); //Si falla, se genera una nueva secuencia del mismo nivel
         }
     }
 

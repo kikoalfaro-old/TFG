@@ -14,8 +14,8 @@ MonoBehaviour:
   levelsInfo:
     m_keys: 00000000
     m_values:
-    - symbolMinSpeed: 3
-      symbolMaxSpeed: 4
+    - symbolMinSpeed: 2
+      symbolMaxSpeed: 3
       timeBetweenSymbols: 4
       amountOfSymbolsToSpawn: 5
       minTotalAccuracy: 80
