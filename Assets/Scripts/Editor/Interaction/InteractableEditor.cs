@@ -62,7 +62,7 @@ public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor
         CheckAndCreateSubEditors(interactable.conditionCollections);
         
         // Use the default object field GUI for the interactionLocation.
-        EditorGUILayout.PropertyField (interactionLocationProperty);
+        //EditorGUILayout.PropertyField (interactionLocationProperty);
 
         // Display all of the ConditionCollections.
         for (int i = 0; i < subEditors.Length; i++)

@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Tutorial.unity
     guid: 6eacd690c5c9dfd46bb82e449a365a4b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ELEMENTOS DE INFO/Norte.unity
     guid: 449a722aaa58f0548be58b8343f06f2f
   - enabled: 1
@@ -26,7 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Ayuntamiento.unity
     guid: 9352d6caf39db0f4aa13f3d562c00116
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/1089f24bc4d7bf749b0e0e735ce73799
+    guid: 1089f24bc4d7bf749b0e0e735ce73799
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Serranos.unity
-    guid: 1089f24bc4d7bf749b0e0e735ce73799
+    guid: 3c4422e84acb66240ab459b0c146c7c6
   m_configObjects: {}

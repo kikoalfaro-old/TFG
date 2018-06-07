@@ -48,6 +48,7 @@ public class AreaLocalStatus : MonoBehaviour
     public void DisconnectButton()
     {
         Flowchart.BroadcastFungusMessage("Disconnect");
+        FindObjectOfType<SceneReaction>().ChangeScene();
     }
 
     public void CloseInfoButton()
