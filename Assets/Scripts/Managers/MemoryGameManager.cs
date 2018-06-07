@@ -12,7 +12,7 @@ using System;
  * Se puede hacer un sistema de niveles como en el juego de los símbolos, pero de momento simplificado
  */
 
-public class CombinationManager : MonoBehaviour
+public class MemoryGameManager : MonoBehaviour
 {
     public bool sendFlowchartMessageWhenGameEnds;
     public MeshRenderer[] cubes;
@@ -42,18 +42,24 @@ public class CombinationManager : MonoBehaviour
     {
         DOTween.Init();
 
+        // Get references
+        secondsBetweenCubes = new WaitForSeconds(timeBetweenCubes);
+        sound = GetComponent<AudioSource>();
         //cubes = GetComponentsInChildren<MeshRenderer>();
         originalColor = cubes[0].material.color;
         totalCubes = cubes.Length;
-        currentLevel = initialLevel;
-        secondsBetweenCubes = new WaitForSeconds(timeBetweenCubes);
-        sound = GetComponent<AudioSource>();
-        playedStages = 0;
     }
 
     private void OnEnable()
     {
+        ResetGame();
         GenerateNewSequence();
+    }
+
+    public void ResetGame()
+    {
+        currentLevel = initialLevel;
+        playedStages = 0;
     }
 
     bool GameFinished()

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using Fungus;
 using System;
 
@@ -43,5 +43,15 @@ public class AreaLocalStatus : MonoBehaviour
             Debug.Log("menuDialog found and destroyed");
             Destroy(menuDialog);
         }
+    }
+
+    public void DisconnectButton()
+    {
+        Flowchart.BroadcastFungusMessage("Disconnect");
+    }
+
+    public void CloseInfoButton()
+    {
+        Flowchart.BroadcastFungusMessage("CloseInfo");
     }
 }
