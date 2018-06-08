@@ -44,6 +44,10 @@ public class MapManager : MonoBehaviour
             {
                 Debug.LogError("No has referenciado el área " + area.Key + " con su imagen en el MapManager");
             }
+            catch (NullReferenceException e)
+            {
+                Debug.LogError("Hay un área que no está en el GeoLocData");
+            }
         }
     }
 }
