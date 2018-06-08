@@ -3,7 +3,7 @@ using Fungus;
 using System;
 
 public class AreaLocalStatus : MonoBehaviour
-{   
+{
     /*
     public void BroadcastStatusMessage()
     {
@@ -12,6 +12,9 @@ public class AreaLocalStatus : MonoBehaviour
         Flowchart.BroadcastFungusMessage(msg);
     }
     */
+
+    public Camera UICamera;
+    public Camera ARCamera;
 
     public string GetCurrentStatus()
     {
