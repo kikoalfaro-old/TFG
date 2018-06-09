@@ -14,4 +14,7 @@ public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, 
 public class AreaStatusColorDictionary : SerializableDictionary<AreaStatus, Color> { }
 
 [Serializable]
+public class AreaStatusSpriteDictionary : SerializableDictionary<AreaStatus, Sprite> { }
+
+[Serializable]
 public class StringImageDictionary : SerializableDictionary<string, Image> { }

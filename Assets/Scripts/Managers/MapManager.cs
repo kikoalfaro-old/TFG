@@ -8,8 +8,13 @@ using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour
 {
+    
     [SerializeField]
     AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();
+    
+
+    [SerializeField]
+    AreaStatusSpriteDictionary statusImage = new AreaStatusSpriteDictionary();
 
     [Space]
     [SerializeField]
@@ -42,6 +47,7 @@ public class MapManager : MonoBehaviour
             try
             {
                 areaImages[area.Key].color = statusColors[area.Value]; // Devuelve el color que corresponde a ese estado
+                areaImages[area.Key].sprite = statusImage[area.Value];
             }
             catch (KeyNotFoundException e)
             {
@@ -58,7 +64,7 @@ public class MapManager : MonoBehaviour
     {        
         string currentArea = geoLocManager.GetCurrentArea();
         Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
-        if (currentArea != GameManager.defaultAreaName) currentPosImg.position = areaImages[geoLocManager.GetCurrentArea()].transform.position;
+        if (currentArea != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea()].transform.position.x, areaImages[geoLocManager.GetCurrentArea()].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea()].transform.position.z);
     }
 
     private void OnDisable()

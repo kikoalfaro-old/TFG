@@ -7,6 +7,7 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(DifficultyLeveDictionary))]
 [CustomPropertyDrawer(typeof(AreaStatusColorDictionary))]
+[CustomPropertyDrawer(typeof(AreaStatusSpriteDictionary))]
 [CustomPropertyDrawer(typeof(StringImageDictionary))]
 
 
