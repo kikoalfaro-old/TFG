@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 378358401}
   - component: {fileID: 378358400}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Vista frontal (pont fusta)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 748497122}
   - component: {fileID: 748497121}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: "Vista panor\xE1mica"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 807249199}
   - component: {fileID: 807249198}
   m_Layer: 5
-  m_Name: Image
+  m_Name: parte trasera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,6 +1202,10 @@ GameObject:
   - component: {fileID: 1247721142}
   - component: {fileID: 1247721077}
   - component: {fileID: 1247721143}
+  - component: {fileID: 1247721144}
+  - component: {fileID: 1247721148}
+  - component: {fileID: 1247721146}
+  - component: {fileID: 1247721145}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -2789,6 +2793,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 1247721144}
   - {fileID: 1247721098}
   - {fileID: 1247721100}
 --- !u!114 &1247721104
@@ -3320,10 +3325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -323.02103, y: 99.34958}
+  scrollPos: {x: -153.81766, y: 110.54128}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 289
+  blockViewHeight: 294
   zoom: 0.79000014
   scrollViewRect:
     serializedVersion: 2
@@ -3331,10 +3336,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1247721070}
-  selectedCommands:
-  - {fileID: 1247721143}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 1247721128}
   - {fileID: 1247721109}
@@ -3417,6 +3420,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1247721127}
   commandList:
+  - {fileID: 1247721148}
+  - {fileID: 1247721146}
+  - {fileID: 1247721145}
   - {fileID: 1247721132}
   - {fileID: 1247721131}
 --- !u!114 &1247721134
@@ -3632,6 +3638,66 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 1
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1247721144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 379
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1247721102}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
+--- !u!114 &1247721145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 382
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 378358398}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1247721146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 381
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 807249196}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1247721147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3645,6 +3711,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 357
   indentLevel: 0
+--- !u!114 &1247721148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 380
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 748497119}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1247721151
 MonoBehaviour:
   m_ObjectHideFlags: 0
