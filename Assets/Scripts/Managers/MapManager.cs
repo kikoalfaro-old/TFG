@@ -28,9 +28,6 @@ public class MapManager : MonoBehaviour
         geoLocManager = GeoLocManager.Instance;
         geoLocManager.WhenSceneAvailable += SetAreaColors;
         geoLocManager.WhenSceneAvailable += ShowCurrentPosition;
-
-        SetAreaColors();
-        ShowCurrentPosition();
     }
 
     public void DisableMap()
@@ -60,7 +57,13 @@ public class MapManager : MonoBehaviour
     private void ShowCurrentPosition()
     {        
         string currentArea = geoLocManager.GetCurrentArea();
-        Debug.Log("Show current position with current area: " + currentArea);
+        Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
         if (currentArea != GameManager.defaultAreaName) currentPosImg.position = areaImages[geoLocManager.GetCurrentArea()].transform.position;
+    }
+
+    private void OnDisable()
+    {
+        geoLocManager.WhenSceneAvailable -= SetAreaColors;
+        geoLocManager.WhenSceneAvailable -= ShowCurrentPosition;
     }
 }
