@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: _Hologram_Rim_Red
+  m_Name: _Hologram_Rim_Map
   m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
-  m_ShaderKeywords: SCANLINES _GLITCH_ON _GLOW_ON _SCAN_ON
+  m_ShaderKeywords: SCANLINES _SCAN_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -79,32 +79,32 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0.371
-    - _Brightness: 1.08
+    - _Alpha: 0.449
+    - _Brightness: 0.33
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Flicker: 0
-    - _FlickerSpeed: 4
+    - _FlickerSpeed: 1.5
     - _Fold: 35
     - _Glitch: 1
-    - _GlitchIntensity: 0.25
+    - _GlitchIntensity: 0.05
     - _GlitchSpeed: 9.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GlowSpeed: 5.7
-    - _GlowTiling: 0.119
+    - _GlowTiling: 0.027
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RimFallness: 0.537
-    - _RimPower: 1.92
+    - _RimPower: 0.1
     - _RimStrength: 1.54
-    - _ScanSpeed: 1.46
-    - _ScanTiling: 10
+    - _ScanSpeed: 1.65
+    - _ScanTiling: 9.49
     - _Scanline: 0
     - _ScanlineSpeed: -0.15
     - _ScanlineTiling: 8.5
@@ -115,7 +115,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1, g: 0, b: 0.453, a: 1}
-    - _RimColor: {r: 1, g: 0.066176474, b: 0.066176474, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ScanlineColor: {r: 0, g: 0, b: 1, a: 1}

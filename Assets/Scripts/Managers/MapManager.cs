@@ -71,7 +71,7 @@ public class MapManager : MonoBehaviour
 
     private void ShowPercentage()
     {
-        percentageText.text = GameManager.Instance.completedPercentage.ToString() + " %";
+        percentageText.text = gameData.completedPercentage.ToString() + " %";
     }
 
 

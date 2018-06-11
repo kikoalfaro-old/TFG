@@ -580,7 +580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033da921da392864ca535f77cea1eb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completedPercentage: 0
   generator: {fileID: 1989508008}
   geoLocData: {fileID: 11400000, guid: 33283e77aa1af934cbfe4c8ac279d7e5, type: 2}
 --- !u!4 &703524738

@@ -10,6 +10,7 @@ public enum AreaStatus { Unknown, Available, Visited, Completed };
 [Serializable]
 public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuación (dado el caso)
 {
+    public int completedPercentage;
     public Dictionary<string, AreaStatus> areasStatus;
 
     public GameData(StringStringDictionary allAreas)
@@ -21,7 +22,28 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
             if (area.Key == GameManager.defaultAreaName) continue;
             areasStatus.Add(area.Key, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
         }
+
+        completedPercentage = 0; //Reinicio el porcentaje completado
     }
+
+    public void UpdateCompletedPercentage()
+    {
+        float visited = 0;
+        float completed = 0;
+
+        float completedCost = 100 / areasStatus.Count;
+        float visitedCost = completedCost * 0.5f;
+
+        foreach (KeyValuePair<string, AreaStatus> area in areasStatus)
+        {
+            if (area.Value == AreaStatus.Visited) visited++;
+            if (area.Value == AreaStatus.Completed) completed++;
+        }
+
+        completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
+    }
+
+
 }
 
 public class SaveManager : MonoBehaviour
