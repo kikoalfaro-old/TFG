@@ -25,6 +25,7 @@ public class MapManager : MonoBehaviour
 
     [Space]
     public Transform currentPosImg;
+    public Text percentageText;
 
     // Esto funciona solo porque en el primer frame (cuando se cogen todas las referencias), el mapa estará desactivado
     private void OnEnable()
@@ -33,6 +34,7 @@ public class MapManager : MonoBehaviour
         geoLocManager = GeoLocManager.Instance;
         geoLocManager.WhenSceneAvailable += SetAreaColors;
         geoLocManager.WhenSceneAvailable += ShowCurrentPosition;
+        geoLocManager.WhenSceneAvailable += ShowPercentage;
     }
 
     public void DisableMap()
@@ -67,9 +69,16 @@ public class MapManager : MonoBehaviour
         if (currentArea != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea()].transform.position.x, areaImages[geoLocManager.GetCurrentArea()].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea()].transform.position.z);
     }
 
+    private void ShowPercentage()
+    {
+        percentageText.text = 
+    }
+
+
     private void OnDisable()
     {
         geoLocManager.WhenSceneAvailable -= SetAreaColors;
         geoLocManager.WhenSceneAvailable -= ShowCurrentPosition;
+        geoLocManager.WhenSceneAvailable -= ShowPercentage;
     }
 }
