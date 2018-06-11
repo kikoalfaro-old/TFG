@@ -21,12 +21,12 @@ public class DefaultAreaManager : MonoBehaviour {
     private void OnEnable()
     {
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.WhenSceneAvailable += EnableLoadCanvas;
+        geoLocManager.WhenAreaAvailable += EnableLoadCanvas;
     }
 
     private void OnDisable()
     {
-        geoLocManager.WhenSceneAvailable -= EnableLoadCanvas;
+        geoLocManager.WhenAreaAvailable -= EnableLoadCanvas;
     }
 
     private void EnableLoadCanvas()

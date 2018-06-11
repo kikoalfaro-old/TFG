@@ -44,7 +44,8 @@ public class GeoLocManager : MonoBehaviour
     GeoLocData geoLocData; //Singleton
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.
 
-    public event Action WhenSceneAvailable;
+    public event Action WhenAreaAvailable;
+    public event Action OnUpdateCoords;
 
     // debug app
     [Header("Debug References")]
@@ -128,6 +129,7 @@ public class GeoLocManager : MonoBehaviour
 
     void UpdateCoods()
     {
+        if (OnUpdateCoords != null) OnUpdateCoords();
 
         // -------------- EASY DEBUG (No real input) -------------
         //#if UNITY_ANDROID
@@ -164,10 +166,10 @@ public class GeoLocManager : MonoBehaviour
 
                 if (PointInsideArea(currentCoords, area.Key))
                 {
-                    if (WhenSceneAvailable != null)
+                    if (WhenAreaAvailable != null)
                     {
                         currentArea = area.Key; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
-                        WhenSceneAvailable(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
+                        WhenAreaAvailable(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
                     }
                         
                     break;

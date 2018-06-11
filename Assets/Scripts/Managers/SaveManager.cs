@@ -10,7 +10,6 @@ public enum AreaStatus { Unknown, Available, Visited, Completed };
 [Serializable]
 public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuación (dado el caso)
 {
-    // score
     public Dictionary<string, AreaStatus> areasStatus;
 
     public GameData(StringStringDictionary allAreas)

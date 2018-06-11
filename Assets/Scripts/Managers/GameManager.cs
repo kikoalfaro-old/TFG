@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public float completedPercentage;
     public static string defaultAreaName = "Default";
     public DebugButtonGenerator generator;
 
@@ -74,8 +75,26 @@ public class GameManager : MonoBehaviour {
     public void UpdateCurrentAreaStatus(AreaStatus newStatus)
     {
         gameData.areasStatus[geoLocManager.GetCurrentArea()] = newStatus; // SUPONGAMOS QUE ASÍ SE ASIGNA UN VALOR A UNA CLAVE
+        UpdateCompletedPercentage();
         SaveGame(gameData); // Guardamos el juego después de actualizar el estado
         Debug.Log("Area status updated and game saved");
+    }
+
+    public void UpdateCompletedPercentage()
+    {
+        int visited = 0;
+        int completed = 0;
+
+        float completedCost = 100 / gameData.areasStatus.Count;
+        float visitedCost = completedCost * 0.5f;
+
+        foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
+        {
+            if (area.Value == AreaStatus.Visited) visited++;
+            if (area.Value == AreaStatus.Completed) completed++;
+        }
+
+        completedPercentage = visited * visitedCost + completed * completedCost;
     }
 
     public void ResetAllStatus()

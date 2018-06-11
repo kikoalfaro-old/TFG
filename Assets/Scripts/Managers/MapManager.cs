@@ -32,9 +32,9 @@ public class MapManager : MonoBehaviour
     {
         gameData = GameManager.Instance.GetGameData();
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.WhenSceneAvailable += SetAreaColors;
-        geoLocManager.WhenSceneAvailable += ShowCurrentPosition;
-        geoLocManager.WhenSceneAvailable += ShowPercentage;
+        geoLocManager.OnUpdateCoords += SetAreaColors;
+        geoLocManager.OnUpdateCoords += ShowPercentage;
+        geoLocManager.WhenAreaAvailable += ShowCurrentPosition;
     }
 
     public void DisableMap()
@@ -71,14 +71,14 @@ public class MapManager : MonoBehaviour
 
     private void ShowPercentage()
     {
-        percentageText.text = 
+        percentageText.text = GameManager.Instance.completedPercentage.ToString() + " %";
     }
 
 
     private void OnDisable()
     {
-        geoLocManager.WhenSceneAvailable -= SetAreaColors;
-        geoLocManager.WhenSceneAvailable -= ShowCurrentPosition;
-        geoLocManager.WhenSceneAvailable -= ShowPercentage;
+        geoLocManager.OnUpdateCoords -= SetAreaColors;
+        geoLocManager.OnUpdateCoords -= ShowPercentage;
+        geoLocManager.WhenAreaAvailable -= ShowCurrentPosition;
     }
 }

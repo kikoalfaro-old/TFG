@@ -558,6 +558,11 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 114155946073840496, guid: d478fbcbe14baca46975fbb95ee0e075,
+        type: 2}
+      propertyPath: percentageText
+      value: 
+      objectReference: {fileID: 1766008261}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d478fbcbe14baca46975fbb95ee0e075, type: 2}
   m_IsPrefabParent: 0
@@ -1325,7 +1330,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9aeb10a65c66d146b4ac8ae44ac4841, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -1337,7 +1342,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50 %
+  m_Text: Nada
 --- !u!222 &1766008262
 CanvasRenderer:
   m_ObjectHideFlags: 0
