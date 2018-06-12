@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     public event Action AfterSceneLoad;             // Event delegate that is called just after a scene is loaded. --> LOAD DATA
 
     [Space]
+    public bool fadeBetweenScenes = false;
     public CanvasGroup faderCanvasGroup;            // The CanvasGroup that controls the Image used for fading to black.
     public float fadeDuration = 1f;                 // How long it should take to fade to and from black.
 
@@ -68,7 +69,7 @@ public class SceneController : MonoBehaviour
     {
         // 1) --- EMPIEZA EL FADING A NEGRO ---
         // Start fading to black and wait for it to finish before continuing.
-        yield return StartCoroutine(Fade(1f));
+        if(fadeBetweenScenes) yield return StartCoroutine(Fade(1f));
 
         // 2) --- SE GUARDA LA INFORMACIÓN DE LA ESCENA ACTUAL ---
         // If this event has any subscribers, call it.
@@ -89,7 +90,7 @@ public class SceneController : MonoBehaviour
 
         // 5) --- FADING A ESCENA ---
         // Start fading back in and wait for it to finish before exiting the function.
-        yield return StartCoroutine(Fade(0f));
+        if (fadeBetweenScenes) yield return StartCoroutine(Fade(0f));
 
         // Aquí el último yield significa: "La corrutina no acaba hasta que el fade final acabe"
     }

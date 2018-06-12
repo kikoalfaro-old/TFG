@@ -595,7 +595,7 @@ RectTransform:
   m_Children:
   - {fileID: 1916404537}
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1230,8 +1230,8 @@ RectTransform:
   - {fileID: 1718721641}
   - {fileID: 661197310}
   - {fileID: 2101414309}
-  - {fileID: 2092929845}
   - {fileID: 85817635}
+  - {fileID: 2092929845}
   - {fileID: 1766008260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1255,7 +1255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1718721641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1332,7 +1332,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b9aeb10a65c66d146b4ac8ae44ac4841, type: 3}
-    m_FontSize: 75
+    m_FontSize: 41
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
@@ -1343,7 +1343,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nada
+  m_Text: Cargando...
 --- !u!222 &1766008262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

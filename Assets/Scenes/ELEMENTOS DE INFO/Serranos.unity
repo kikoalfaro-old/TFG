@@ -203,15 +203,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.188
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.282
+      value: 0.066000015
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.149
+      value: 0.041999996
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalRotation.x
@@ -375,9 +375,31 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114976033144431766, guid: 309758c1224929d44b7c4029dd715bf5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01deec6d3f3be3e4f894d6f8c0178e7f,
+        type: 3}
+    - target: {fileID: 114274350984501314, guid: 309758c1224929d44b7c4029dd715bf5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d125649183bef624eae265cece033d39,
+        type: 3}
+    - target: {fileID: 114721644133480246, guid: 309758c1224929d44b7c4029dd715bf5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d4716e6c54087940a92acca645eb9ea,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 309758c1224929d44b7c4029dd715bf5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &210696073 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+  m_PrefabInternal: {fileID: 493346049}
 --- !u!43 &363238085
 Mesh:
   m_ObjectHideFlags: 0
@@ -534,80 +556,72 @@ Animator:
   m_PrefabParentObject: {fileID: 95730334545980018, guid: 309758c1224929d44b7c4029dd715bf5,
     type: 2}
   m_PrefabInternal: {fileID: 124154986}
---- !u!1 &510123387
-GameObject:
+--- !u!1001 &493346049
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: fc4befba95a929445a0514e40f89986e, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 510123388}
-  - component: {fileID: 510123390}
-  - component: {fileID: 510123389}
-  m_Layer: 0
-  m_Name: Quart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &510123388
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2027619666}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.015210983
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.015210996
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.015210996
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0af7ad49d9e0d54cb487c1c81501239, type: 2}
+    - target: {fileID: 100000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &493346050 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: fc4befba95a929445a0514e40f89986e, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510123387}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.007, y: 0, z: 0.071}
-  m_LocalScale: {x: 0.015210983, y: 0.015210996, z: 0.015210996}
-  m_Children: []
-  m_Father: {fileID: 2027619666}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &510123389
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300002, guid: fc4befba95a929445a0514e40f89986e,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510123387}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: d0af7ad49d9e0d54cb487c1c81501239, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &510123390
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300002, guid: fc4befba95a929445a0514e40f89986e,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510123387}
-  m_Mesh: {fileID: 4300000, guid: fc4befba95a929445a0514e40f89986e, type: 3}
+  m_PrefabParentObject: {fileID: 400000, guid: 7f484b7869efd6543a0410f0c5dd0eeb, type: 3}
+  m_PrefabInternal: {fileID: 493346049}
 --- !u!1 &619103684
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,36 +828,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4542344791436472, guid: 99adeecea7db11d44b3af7e5e577652f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542344791436472, guid: 99adeecea7db11d44b3af7e5e577652f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542344791436472, guid: 99adeecea7db11d44b3af7e5e577652f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1964347787832912, guid: 99adeecea7db11d44b3af7e5e577652f, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114392453832670136, guid: 99adeecea7db11d44b3af7e5e577652f,
-        type: 2}
-      propertyPath: stages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114392453832670136, guid: 99adeecea7db11d44b3af7e5e577652f,
-        type: 2}
-      propertyPath: sendFlowchartMessageWhenGameEnds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114392453832670136, guid: 99adeecea7db11d44b3af7e5e577652f,
-        type: 2}
-      propertyPath: initialLevel
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99adeecea7db11d44b3af7e5e577652f, type: 2}
@@ -1285,11 +1272,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.36599997
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.038
+      value: 0.5339999
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1485,6 +1472,19 @@ GameObject:
   - component: {fileID: 1247721172}
   - component: {fileID: 1247721173}
   - component: {fileID: 1247721174}
+  - component: {fileID: 1247721175}
+  - component: {fileID: 1247721176}
+  - component: {fileID: 1247721178}
+  - component: {fileID: 1247721179}
+  - component: {fileID: 1247721182}
+  - component: {fileID: 1247721181}
+  - component: {fileID: 1247721180}
+  - component: {fileID: 1247721184}
+  - component: {fileID: 1247721183}
+  - component: {fileID: 1247721186}
+  - component: {fileID: 1247721185}
+  - component: {fileID: 1247721188}
+  - component: {fileID: 1247721187}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1622,9 +1622,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1187.7329
-    y: 162.88426
-    width: 148.5714
+    x: 1191.5305
+    y: 178.07414
+    width: 153.2967
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1778,10 +1778,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "En la parte que mira hacia el interior de la ciudad aparecen una serie
-      de estancias abiertas, cubiertas con b\xF3vedas nervadas de crucer\xEDa.\nEn
-      el centro de las torres, encima del arco de la puerta, aparece un orificio abovedado
-      por el que se atacaba a los que quer\xEDan derribarla."
+    stringVal: "Tras el incendio de la ciudad en 1586, las torres se reconvirtieron
+      en prisi\xF3n de nobles y caballeros, hasta el traslado de los presos al convento
+      de San Agust\xEDn en 1887. Este uso evit\xF3 que se desmantelaran posteriormente
+      con el resto de la muralla."
 --- !u!114 &1247721045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,7 +1797,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1774.2798
     y: 200.10983
-    width: 134.28569
+    width: 141.2088
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1842,10 +1842,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Construidas entre 1441 y 1460, han soportado la Guerra de la Independencia
-      francesa, la de Sucesi\xF3n, las cantonales y la Guerra Civil Espa\xF1ola.\nSi
-      observas bien, encontrar\xE1s las huellas de los impactos provocados por los
-      ca\xF1onazos de la Guerra de la Independecia."
+    stringVal: "Las torres, originalmente de mamposter\xEDa muy s\xF3lida, sirvieron
+      durante mucho tiempo como fortificaci\xF3n contra cualquier asedio o atauque
+      eventual a la ciudad."
 --- !u!114 &1247721048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,7 +1860,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1768.9119
     y: 133.30304
-    width: 134.28569
+    width: 141.2088
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1906,9 +1905,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Entre las dos torres se sit\xFAa una puerta de entrada y salida a
-      la ciudad rematada con arco de medio punto y rodeada de siller\xEDa, que en
-      su momento alberg\xF3 el \xE1ngel custodio para luego acoger el escudo de Valencia."
+    stringVal: La puerta, con forma de arco de medio punto, era considerada la entrada
+      principal de la ciudad y se empleaba para ceremonias y entradas oficiales de
+      embajadores y reyes.
 --- !u!114 &1247721051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,7 +1923,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1773.5149
     y: 68.20578
-    width: 134.28569
+    width: 141.2088
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1992,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 341
-  indentLevel: 0
+  indentLevel: 1
   description: UPDATE CURRENT STATUS TO COMPLETED
   targetObject: {fileID: 693866114}
   targetComponentAssemblyName: AreaLocalStatus, Assembly-CSharp, Version=0.0.0.0,
@@ -2139,12 +2138,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Leyendo...\n\n\"Las Torres de Quart (o Cuarte) son una de las dos
-      puertas fortificadas de la muralla medieval de Valencia que aun permanecen en
-      pie.\"\n\n\"De estilo g\xF3tico tard\xEDo, deben su nombre a que estaban situadas
-      en el camino que conectaba el centro de la ciudad (la plaza de La Virgen) hasta
-      el pueblo de Quart de Poblet.\"\n\n\xA1Toca los puntos para descubrir m\xE1s
-      curiosidades!"
+    stringVal: "Leyendo...\n\n\"Las Torres de Serranos o Puerta de Serranos son una
+      de las dos puertas fortificadas de la muralla medieval de Valencia que aun permanecen
+      en pie.\"\n\n\xA1Toca los puntos para descubrir m\xE1s curiosidades!"
 --- !u!114 &1247721061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,10 +2156,10 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 1521695392}
+    gameObjectVal: {fileID: 210696073}
   activeState:
     booleanRef: {fileID: 0}
-    booleanVal: 0
+    booleanVal: 1
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1247721062
 MonoBehaviour:
@@ -2269,9 +2265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1541.3835
-    y: 93.685425
-    width: 158.5714
+    x: 1538.8518
+    y: 115.20442
+    width: 165.38461
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2351,9 +2347,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 887.0216
-    y: 91.32714
-    width: 137.14282
+    x: 889.8787
+    y: 119.89857
+    width: 141.2088
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2447,8 +2443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1203.0533
-    y: 70.06667
+    x: 1189.1292
+    y: 73.86414
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2619,9 +2615,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1362.4639
-    y: 19.09969
-    width: 121.42855
+    x: 1381.675
+    y: 22.451286
+    width: 125.82418
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2636,7 +2632,9 @@ MonoBehaviour:
   - {fileID: 1247721062}
   - {fileID: 1247721035}
   - {fileID: 1247721064}
+  - {fileID: 1247721188}
   - {fileID: 1247721054}
+  - {fileID: 1247721187}
 --- !u!114 &1247721084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,7 +2670,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1991.5966
     y: 79.433014
-    width: 139.99997
+    width: 139.01099
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2875,7 +2873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 316
-  indentLevel: 0
+  indentLevel: 1
   description: UPDATE CURRENT STATUS TO VISITED
   targetObject: {fileID: 693866114}
   targetComponentAssemblyName: AreaLocalStatus, Assembly-CSharp, Version=0.0.0.0,
@@ -2945,8 +2943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 540.3569
-    y: 2.3788757
+    x: 528.6028
+    y: 15.362597
     width: 120
     height: 40
   tint: {r: 0.9843138, g: 0.94117653, b: 0.45882356, a: 1}
@@ -2956,7 +2954,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 1247721186}
   - {fileID: 1247721095}
+  - {fileID: 1247721185}
   - {fileID: 1247721058}
 --- !u!114 &1247721098
 MonoBehaviour:
@@ -3086,8 +3086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 636.35455
-    y: 258.74603
+    x: 630.6403
+    y: 255.88892
     width: 120
     height: 40
   tint: {r: 0.7924528, g: 0, b: 0.7699812, a: 1}
@@ -3153,8 +3153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 521.261
-    y: 115.95128
+    x: 519.21765
+    y: 121.46664
     width: 120
     height: 40
   tint: {r: 0.43867922, g: 1, b: 0.8855271, a: 1}
@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: Status
-  value: 
+  value: Available
 --- !u!114 &1247721110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3360,10 +3360,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Escaneando entorno...\nRecogiendo datos...\nEscaneo completo.\nMis
-      sensores me indican que estamos en un lugar llamado \"Torres de Quart\"\nSin
-      embargo, los datos de memoria est\xE1n encriptados.\n\xBFQuieres intentar acceder
-      a ellos?"
+    stringVal: 'Escaneando entorno...
+
+      Recogiendo datos...
+
+'
 --- !u!114 &1247721117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,9 +3458,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 711.73517
-    y: 131.2497
-    width: 120
+    x: 720.5958
+    y: 141.37628
+    width: 122.52747
     height: 40
   tint: {r: 1, g: 0.9564972, b: 0.4669811, a: 1}
   useCustomTint: 1
@@ -3469,6 +3470,8 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1247721116}
+  - {fileID: 1247721176}
+  - {fileID: 1247721175}
   - {fileID: 1247721071}
 --- !u!114 &1247721122
 MonoBehaviour:
@@ -3509,7 +3512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 296
-  indentLevel: 0
+  indentLevel: 1
   description: GET CURRENT STATUS
   targetObject: {fileID: 693866114}
   targetComponentAssemblyName: AreaLocalStatus, Assembly-CSharp, Version=0.0.0.0,
@@ -3568,9 +3571,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 196.37686
-    y: 121.46557
-    width: 149.99997
+    x: 194.94829
+    y: 100.037
+    width: 156.59341
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3580,7 +3583,9 @@ MonoBehaviour:
   eventHandler: {fileID: 1247721107}
   commandList:
   - {fileID: 1247721124}
+  - {fileID: 1247721184}
   - {fileID: 1247721123}
+  - {fileID: 1247721183}
   - {fileID: 1247721122}
   - {fileID: 1247721120}
   - {fileID: 1247721115}
@@ -3629,23 +3634,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -393.8748, y: 174.7864}
+  scrollPos: {x: -797.7154, y: 16.26163}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 525
-  zoom: 0.7000002
+  blockViewHeight: 567
+  zoom: 0.90999997
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1247721067}
+  selectedCommands:
+  - {fileID: 1247721061}
   variables:
+  - {fileID: 1247721179}
+  - {fileID: 1247721182}
   - {fileID: 1247721128}
   - {fileID: 1247721109}
   - {fileID: 1247721142}
+  - {fileID: 1247721178}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3713,9 +3723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 201.5031
-    y: 218.293
-    width: 137.14282
+    x: 204.36024
+    y: 198.293
+    width: 144.5055
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3784,7 +3794,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -42.045197
     y: 76.19355
-    width: 167.14282
+    width: 174.17583
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3795,7 +3805,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247721135}
   - {fileID: 1247721134}
+  - {fileID: 1247721181}
   - {fileID: 1247721140}
+  - {fileID: 1247721180}
 --- !u!114 &1247721137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3849,9 +3861,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -221.44641
-    y: 19.017735
-    width: 138.57141
+    x: -212.87497
+    y: 71.874855
+    width: 142.3077
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3873,7 +3885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 318
-  indentLevel: 0
+  indentLevel: 1
   targetFlowchart: {fileID: 1247721129}
   targetBlock: {fileID: 1247721126}
   startLabel:
@@ -4557,6 +4569,251 @@ MonoBehaviour:
   time:
     floatRef: {fileID: 0}
     floatVal: 0
+--- !u!114 &1247721175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 407
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Escaneo completo.\nMis sensores me indican que hemos llegado a un
+      lugar llamado \"{$AreaName}\"\nSin embargo, los datos de memoria est\xE1n encriptados.\n\xBFQuieres
+      intentar acceder a ellos?"
+--- !u!114 &1247721176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5316d953c7abe498799575550c973535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 408
+  indentLevel: 0
+  animator:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 1733761446}
+  stateName:
+    stringRef: {fileID: 0}
+    stringVal: Scanning
+  layer:
+    integerRef: {fileID: 0}
+    integerVal: -1
+  time:
+    floatRef: {fileID: 0}
+    floatVal: 0
+--- !u!114 &1247721178
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4580f28dd8581476b810b38eea2f1316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: AreaName
+  value: Torres de Serranos
+--- !u!114 &1247721179
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: DEBUG
+  value: 1
+--- !u!114 &1247721180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 410
+  indentLevel: 0
+--- !u!114 &1247721181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 409
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 1247721182}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1247721182
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: AR
+  value: 0
+--- !u!114 &1247721183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 412
+  indentLevel: 0
+--- !u!114 &1247721184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 411
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 1247721179}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1247721185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 414
+  indentLevel: 0
+--- !u!114 &1247721186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 413
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 1247721179}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+--- !u!114 &1247721187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 416
+  indentLevel: 0
+--- !u!114 &1247721188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 415
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 1247721179}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!1 &1252959585
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,15 +4944,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.218
+      value: -0.188
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.191
+      value: 0.318
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.185
+      value: 0.245
       objectReference: {fileID: 0}
     - target: {fileID: 4552564230307028, guid: c18445eacf5cc684eb272dc6f2926819, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4781,7 +5038,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1521695392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4969,7 +5226,7 @@ Transform:
   m_GameObject: {fileID: 1733761445}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.604, z: 0}
-  m_LocalScale: {x: 0.20000018, y: 0.19999997, z: 0.20000018}
+  m_LocalScale: {x: 0.20000018, y: 0.2, z: 0.2000002}
   m_Children:
   - {fileID: 51452425}
   - {fileID: 1551692333}
@@ -5047,7 +5304,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.34, z: -0.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 510123388}
+  - {fileID: 493346050}
   - {fileID: 1521695393}
   m_Father: {fileID: 1252959591}
   m_RootOrder: 1
