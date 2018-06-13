@@ -30,7 +30,7 @@ public class MapManager : MonoBehaviour
     // Esto funciona solo porque en el primer frame (cuando se cogen todas las referencias), el mapa estará desactivado
     private void OnEnable()
     {
-        gameData = GameManager.Instance.GetGameData();
+        //gameData = GameManager.Instance.GetGameData();
         geoLocManager = GeoLocManager.Instance;
         geoLocManager.OnUpdateCoords += SetAreaColors;
         geoLocManager.OnUpdateCoords += ShowPercentage;
@@ -44,6 +44,7 @@ public class MapManager : MonoBehaviour
 
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
     {
+        if(gameData == null) gameData = GameManager.Instance.GetGameData(); // FATAL.
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
             try

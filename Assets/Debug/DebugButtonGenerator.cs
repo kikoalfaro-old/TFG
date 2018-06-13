@@ -17,7 +17,7 @@ public class DebugButtonGenerator : MonoBehaviour {
             if (area.name == GameManager.defaultAreaName) continue;
             GameObject newButton = Instantiate(buttonPrefab, transform);
             newButton.GetComponent<Button>().interactable = true;
-            newButton.GetComponentInChildren<Text>().text = area.centre.ToString();
+            newButton.GetComponentInChildren<Text>().text = area.name;
             newButton.GetComponent<DebugButton>().coords = area.centre.ToString();
         }
     }

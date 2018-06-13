@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static string defaultAreaName = "Default";
     public DebugButtonGenerator generator;
 
@@ -24,9 +23,7 @@ public class GameManager : MonoBehaviour
 
     SaveManager saveManager;
     GameData gameData; // Aquí es donde se almacenará toda la información de los estados de las áreas
-
-
-
+    
     public static GameManager Instance
     {
         get
@@ -62,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Start() // Cuidado con el GeoLocManager! (Plantearse Awake...)
     {
+        allAreas = new List<Area>();
         allAreas.Add(new Area(defaultAreaName, 0, 0, 0)); // Añadimos el área por defecto
         using (WWW www = new WWW(URL))
         {
@@ -79,6 +77,7 @@ public class GameManager : MonoBehaviour
 
             GetExternalReferences();
             SyncronizeGameData();
+            geoLocManager.StartGeoLoc();
         }
     }
 
@@ -99,7 +98,7 @@ public class GameManager : MonoBehaviour
 
         // Después de esto, el gameData ya que se queda actualizado con lo que hay en Internés
 
-        // Debug.Log(Application.persistentDataPath);
+        Debug.Log(Application.persistentDataPath);
     }
 
     // OBVIAMENTE esta no es la mejor opción. Un diccionario de <Area, AreaStatus> para las áreas bastaría para hacerlo más simple, pero :)
