@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         // Recorro cada una de las áreas a eliminar y las quito
         for (int i = 0; i < areasToRemove.Count; i++)
         {
-            gameData.areasStatus.Remove(areasToRemove[i]);
+            gameData.RemoveArea(areasToRemove[i]);
         }
 
         /*

@@ -29,16 +29,29 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
     public void AddArea(Area area)
     {
-        if (area.name != GameManager.defaultAreaName) areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+        if (area.name != GameManager.defaultAreaName)
+        {
+            areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+            UpdateCompletedPercentage();
+        }
     }
 
     public void RemoveArea(Area area)
     {
         areasStatus.Remove(area.name);
+        UpdateCompletedPercentage();
+    }
+
+    public void RemoveArea(string areaName)
+    {
+        areasStatus.Remove(areaName);
+        Debug.Log("Removed: " + areaName);
+        UpdateCompletedPercentage();
     }
 
     public void UpdateCompletedPercentage()
     {
+        Debug.Log("Updating % ...");
         float visited = 0;
         float completed = 0;
 
@@ -53,7 +66,7 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
         completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
     }
-    
+
 }
 
 
