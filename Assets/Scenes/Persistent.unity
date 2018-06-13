@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSceneName: Default
+  fadeBetweenScenes: 0
   faderCanvasGroup: {fileID: 1708470355}
   fadeDuration: 1
 --- !u!4 &353158847
