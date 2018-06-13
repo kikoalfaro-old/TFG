@@ -10,15 +10,15 @@ public class DebugButtonGenerator : MonoBehaviour {
 
     public void GenerateButons()
     {
-        StringStringDictionary allAreas = GameManager.Instance.GetGeoLocData().allAreas;
+        List<Area> allAreas = GameManager.Instance.GetAllAreas();
 
-        foreach (KeyValuePair<string, string> area in allAreas)
+        foreach (Area area in allAreas)
         {
-            if (area.Key == GameManager.defaultAreaName) continue;
+            if (area.name == GameManager.defaultAreaName) continue;
             GameObject newButton = Instantiate(buttonPrefab, transform);
             newButton.GetComponent<Button>().interactable = true;
-            newButton.GetComponentInChildren<Text>().text = area.Key;
-            newButton.GetComponent<DebugButton>().coords = allAreas[area.Key];
+            newButton.GetComponentInChildren<Text>().text = area.centre.ToString();
+            newButton.GetComponent<DebugButton>().coords = area.centre.ToString();
         }
     }
 } 

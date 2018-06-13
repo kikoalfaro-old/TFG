@@ -38,9 +38,9 @@ public class DefaultAreaManager : MonoBehaviour {
     // Esto se llama desde el botón para cargar la nueva escena. --> Imita SceneReaction
     public void LoadNewArea()
     {
-        string sceneName = geoLocManager.GetCurrentArea();
+        string sceneName = geoLocManager.GetCurrentArea().name;
         string startingPointInLoadedScene = sceneName; // Por claridad
 
-        sceneController.FadeAndLoadScene(geoLocManager.GetCurrentArea());
+        sceneController.FadeAndLoadScene(geoLocManager.GetCurrentArea().name);
     }
 }

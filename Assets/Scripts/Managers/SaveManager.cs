@@ -3,6 +3,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using SimpleJSON;
 
 [Serializable]
 public enum AreaStatus { Unknown, Available, Visited, Completed };
@@ -13,17 +14,27 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
     public int completedPercentage;
     public Dictionary<string, AreaStatus> areasStatus;
 
-    public GameData(StringStringDictionary allAreas)
+    public GameData(List<Area> allAreas)
     {
         areasStatus = new Dictionary<string, AreaStatus>();
         Debug.Log("Creating new gameData object...  " + allAreas);
-        foreach (KeyValuePair<string, string> area in allAreas)
+        foreach (Area area in allAreas)
         {
-            if (area.Key == GameManager.defaultAreaName) continue;
-            areasStatus.Add(area.Key, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+            if (area.name == GameManager.defaultAreaName) continue;
+            areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
         }
 
         completedPercentage = 0; //Reinicio el porcentaje completado
+    }
+
+    public void AddArea(Area area)
+    {
+        if (area.name != GameManager.defaultAreaName) areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+    }
+
+    public void RemoveArea(Area area)
+    {
+        areasStatus.Remove(area.name);
     }
 
     public void UpdateCompletedPercentage()
@@ -42,12 +53,16 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
         completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
     }
-
-
+    
 }
 
+
+/// <summary>
+/// Se encarga de manejar los datos tanto localmente como en la nube
+/// </summary>
 public class SaveManager : MonoBehaviour
 {
+
     private static SaveManager instance = null;
 
     public static SaveManager Instance
@@ -80,6 +95,7 @@ public class SaveManager : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
     }
+
 
     public void SaveGame(GameData gameDataToSave) // Le pasamos el objeto de gameData que deseamos serializar
     {
@@ -119,5 +135,4 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Game loaded");
         return loadedGameData;
     }
-
 }

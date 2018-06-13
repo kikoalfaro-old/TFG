@@ -5,6 +5,40 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+public class Area
+{
+    public string name;
+    public GeoLocCoordinates centre;
+    public double radius;
+
+    public Area(string name, double latitude, double longitude, double radius)
+    {
+        this.name = name;
+        this.centre = new GeoLocCoordinates((float)latitude, (float)longitude);
+        this.radius = radius;
+    }
+
+    public override string ToString()
+    {
+        return "Nombre: " + this.name + "\nLatitud: " + this.centre.latitude + "; Longitud: " + this.centre.longitude + "\nRadio: " + this.radius;
+    }
+
+    public override bool Equals(object other)
+    {
+        Area otherArea = (Area)other;
+        return this.name == otherArea.name &&
+            this.centre.latitude == otherArea.centre.latitude &&
+            this.centre.longitude == otherArea.centre.longitude &&
+            this.radius == otherArea.radius;
+    }
+
+    public override int GetHashCode()
+    {
+        return this.GetHashCode();
+    }
+}
+
 [Serializable]
 public class GeoLocCoordinates
 {
@@ -17,12 +51,19 @@ public class GeoLocCoordinates
         this.longitude = 0f;
     }
 
+
     // Introducimos las coordenadas como una cadena y hace el split para guardarlo como float
     public GeoLocCoordinates(string coordinates)
     {
         string[] textSplit = coordinates.Split(", "[0]);
         float.TryParse(textSplit[0], out latitude);
         float.TryParse(textSplit[1], out longitude);
+    }
+
+    public GeoLocCoordinates(float latitude, float longitude)
+    {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public override string ToString()
@@ -36,12 +77,13 @@ public class GeoLocManager : MonoBehaviour
     private static GeoLocManager instance = null;
 
     GeoLocCoordinates currentCoords; // Coordenadas espaciales actuales
-    string currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
+    Area currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
 
     public float refreshTime = 2f; // Tiempo de actualización de las coordenadas (para que no consuma tanta batería...) --> De momento, por defecto a 20 segs
-    public string defaultAreaName = GameManager.defaultAreaName;
+    string defaultAreaName = GameManager.defaultAreaName;
+    Area defaultArea;
 
-    GeoLocData geoLocData; //Singleton
+    List<Area> allAreas; 
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.
 
     public event Action WhenAreaAvailable;
@@ -90,8 +132,8 @@ public class GeoLocManager : MonoBehaviour
 
     void Start()
     {
-        geoLocData = GameManager.Instance.GetGeoLocData();
-        if (geoLocData == null)
+        allAreas = GameManager.Instance.GetAllAreas();
+        if (allAreas == null)
             throw new UnityException("Geolocation data could not be found, ensure that it exists in the Persistent scene.");
 
         sceneController = FindObjectOfType<SceneController>();
@@ -106,10 +148,10 @@ public class GeoLocManager : MonoBehaviour
 
     void InitialSetup()
     {
-        // Valores iniciales por defecto
-        currentArea = defaultAreaName;
-        string currentAreaCentre = geoLocData.allAreas[currentArea]; //Empieza siendo la zona por defecto (Separo en dos por legibilidad)
-        currentCoords = new GeoLocCoordinates(currentAreaCentre);
+        // Valores iniciales por defecto (area Default)
+        defaultArea = allAreas[0];
+        currentArea = defaultArea;                                                   
+        currentCoords = new GeoLocCoordinates();
 
         Input.location.Start();
         UpdateCoods(); //Pone las coordenadas actuales al inicializarse y sitúa el juego
@@ -158,17 +200,18 @@ public class GeoLocManager : MonoBehaviour
 
     void UpdateArea()
     {
-        if (currentArea == defaultAreaName)
+        if (currentArea.Equals(defaultArea)) // Sería igual que decir currentArea == allAreas[0] --> Área por defecto
         {
-            foreach (KeyValuePair<string, string> area in geoLocData.allAreas) // Recorro el diccionario de áreas
+            for (int i = 0; i < allAreas.Count; i++)
             {
-                if (area.Key == currentArea) continue; //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
+                if (allAreas[i].Equals(currentArea)) continue; //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
+                // SE SUPONE QUE POR EL COMPARER, LOS OBJETOS SE DEBEN COMPARAR BIEN (Da igual que sean instancias diferentes)
 
-                if (PointInsideArea(currentCoords, area.Key))
+                if (PointInsideArea(currentCoords, allAreas[i]))
                 {
                     if (WhenAreaAvailable != null)
                     {
-                        currentArea = area.Key; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
+                        currentArea = allAreas[i]; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
                         WhenAreaAvailable(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
                     }
                         
@@ -179,15 +222,15 @@ public class GeoLocManager : MonoBehaviour
 
         // Si no estoy en la escena por defecto pero no estoy dentro del área, cargar la escena por defecto
         else if(!PointInsideArea(currentCoords, currentArea)){
-            sceneController.FadeAndLoadScene(defaultAreaName);
-            currentArea = defaultAreaName;
+            sceneController.FadeAndLoadScene(defaultArea.name);
+            currentArea = defaultArea;
         }
     }
 
     private void SetTexts()
     {
         coordsText.text = currentCoords.ToString();
-        zoneText.text = currentArea;
+        zoneText.text = currentArea.name;
     }
 
 
@@ -199,12 +242,12 @@ public class GeoLocManager : MonoBehaviour
     /// <param name="point"></param>
     /// <param name="area"></param>
     /// <returns></returns>
-    //OJO:  Aquí hemos de CAMBIARLO y pasar como parámetro un objeto de tipo AREA... (también vale para elementos)
-    bool PointInsideArea(GeoLocCoordinates point, string area)
+    //OJO:  Aquí hemos de CAMBIARLO y pasar como parámetro un objeto de tipo AREA...
+    bool PointInsideArea(GeoLocCoordinates point, Area area)
     {
         //Debug.Log(point + "inside " + area);
         bool isInsideArea = false;
-        if(area != defaultAreaName) isInsideArea = DistanceBetweenPoints(point, new GeoLocCoordinates(geoLocData.allAreas[area])) <= geoLocData.areaRadius; 
+        if(!area.Equals(defaultArea)) isInsideArea = DistanceBetweenPoints(point, area.centre) <= area.radius; 
         // Un punto está dentro de un círculo si la distancia desde él hasta el centro es menor o igual que r (radio)
 
         return isInsideArea;
@@ -245,13 +288,52 @@ public class GeoLocManager : MonoBehaviour
     {
         return currentCoords;
     }
-
-    public string GetCurrentArea()
+    
+    public Area GetCurrentArea()
     {
         return currentArea;
     }
 
+    public string GetCurrentAreaName()
+    {
+        return currentArea.name;
+    }
+
     #endregion
 
-
 }
+
+/*
+/// <summary>
+/// Comparador entre dos áreas
+/// </summary>
+public class IdComparer : IEqualityComparer<Area>
+{
+
+    public int GetHashCode(Area area)
+    {
+        if (area == null)
+        {
+            return 0;
+        }
+        return area.GetHashCode();
+    }
+
+    public bool Equals(Area a1, Area a2)
+    {
+        if (object.ReferenceEquals(a1, a2))
+        {
+            return true;
+        }
+        if (object.ReferenceEquals(a1, null) ||
+            object.ReferenceEquals(a2, null))
+        {
+            return false;
+        }
+        return a1.name == a2.name &&
+            a1.centre.latitude == a2.centre.latitude &&
+            a1.centre.longitude == a2.centre.longitude &&
+            a1.radius == a2.radius;
+    }
+}
+*/

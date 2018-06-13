@@ -64,9 +64,9 @@ public class MapManager : MonoBehaviour
 
     private void ShowCurrentPosition()
     {        
-        string currentArea = geoLocManager.GetCurrentArea();
+        Area currentArea = geoLocManager.GetCurrentArea();
         Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
-        if (currentArea != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea()].transform.position.x, areaImages[geoLocManager.GetCurrentArea()].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea()].transform.position.z);
+        if (currentArea.name != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea().name].transform.position.x, areaImages[geoLocManager.GetCurrentArea().name].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea().name].transform.position.z);
     }
 
     private void ShowPercentage()
