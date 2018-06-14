@@ -1361,8 +1361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: -75}
-  m_SizeDelta: {x: 510.7, y: 70}
+  m_AnchoredPosition: {x: -0.00022888, y: -65}
+  m_SizeDelta: {x: 631.5, y: 89.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055755997
 MonoBehaviour:
@@ -1384,8 +1384,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b9aeb10a65c66d146b4ac8ae44ac4841, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 6868ef9141b4eba4b97570c3f40b69c2, type: 3}
+    m_FontSize: 39
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1396,7 +1396,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1INICIA LA COMUNICACI\xD3N CON KAI!"
+  m_Text: "INICIAR COMUNICACI\xD3N"
 --- !u!222 &1055755998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1509,7 +1509,7 @@ RectTransform:
   m_GameObject: {fileID: 1087917720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.97, y: 0.97, z: 0.97}
+  m_LocalScale: {x: 0.98, y: 0.98, z: 0.98}
   m_Children: []
   m_Father: {fileID: 1650811047}
   m_RootOrder: 2
@@ -1538,12 +1538,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c08e8229d447c3f46a6378e2447b91ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 220e29227b5733b40b0b8e329cccd870, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
 --- !u!222 &1087917723
@@ -1757,13 +1757,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1718721641}
+  - component: {fileID: 1718721642}
   m_Layer: 5
   m_Name: WhenArriveToZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1718721641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1784,6 +1785,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 314}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!95 &1718721642
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718721640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76239cdcc1d76fe429a231c3d225805e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1766008259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,8 +1835,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 280, y: 150}
+  m_AnchoredPosition: {x: 0, y: -85.20001}
+  m_SizeDelta: {x: 280, y: 79.8}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1766008261
 MonoBehaviour:
@@ -1839,7 +1858,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b9aeb10a65c66d146b4ac8ae44ac4841, type: 3}
+    m_Font: {fileID: 12800000, guid: 6868ef9141b4eba4b97570c3f40b69c2, type: 3}
     m_FontSize: 41
     m_FontStyle: 0
     m_BestFit: 0
@@ -1892,7 +1911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 162}
+  m_AnchoredPosition: {x: 0, y: 190}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1786632117
@@ -2048,8 +2067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 0, y: -38.1}
+  m_SizeDelta: {x: 200, y: 191.9}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!96 &1916404538
 TrailRenderer:
@@ -2108,7 +2127,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.64705884}
+      key0: {r: 1, g: 1, b: 1, a: 0.21176471}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

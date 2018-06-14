@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
 
     SaveManager saveManager;
     GameData gameData; // Aquí es donde se almacenará toda la información de los estados de las áreas
-    
+
+    public event Action OnDataLoaded;
+
     public static GameManager Instance
     {
         get
@@ -77,7 +79,8 @@ public class GameManager : MonoBehaviour
 
             GetExternalReferences();
             SyncronizeGameData();
-            geoLocManager.StartGeoLoc();
+            OnDataLoaded();
+            //geoLocManager.StartGeoLoc();
         }
     }
 

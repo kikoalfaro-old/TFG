@@ -130,6 +130,17 @@ public class GeoLocManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    public void OnEnable()
+    {
+        GameManager.Instance.OnDataLoaded += StartGeoLoc;
+    }
+
+    public void OnDisable()
+    {
+        GameManager.Instance.OnDataLoaded -= StartGeoLoc;
+    }
+
     public void StartGeoLoc()
     {
         allAreas = GameManager.Instance.GetAllAreas();

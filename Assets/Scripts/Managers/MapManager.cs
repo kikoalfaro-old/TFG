@@ -44,9 +44,17 @@ public class MapManager : MonoBehaviour
     // Esto funciona solo porque en el primer frame (cuando se cogen todas las referencias), el mapa estará desactivado
     private void OnEnable()
     {
-        //gameData = GameManager.Instance.GetGameData();
         geoLocManager = GeoLocManager.Instance;
         geoLocManager.WhenAreaAvailable += ShowCurrentPosition;
+        geoLocManager.WhenAreaAvailable += ShowVisualInformation;
+        GameManager.Instance.OnDataLoaded += ShowVisualInformation;
+    }
+
+    public void OnDisable()
+    {
+        GameManager.Instance.OnDataLoaded -= ShowVisualInformation;
+        geoLocManager.WhenAreaAvailable -= ShowVisualInformation;
+        geoLocManager.WhenAreaAvailable -= ShowCurrentPosition;
     }
 
     private void Awake()
@@ -66,6 +74,7 @@ public class MapManager : MonoBehaviour
 
     public void ShowVisualInformation()
     {
+        gameData = GameManager.Instance.GetGameData();
         SetAreaColors();
         ShowPercentage();
     }
@@ -125,11 +134,4 @@ public class MapManager : MonoBehaviour
         //yield return null;
     }
 
-
-    private void OnDisable()
-    {
-        geoLocManager.OnUpdateCoords -= SetAreaColors;
-        geoLocManager.OnUpdateCoords -= ShowPercentage;
-        geoLocManager.WhenAreaAvailable -= ShowCurrentPosition;
-    }
 }
