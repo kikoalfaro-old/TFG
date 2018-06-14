@@ -2370,7 +2370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 215
   indentLevel: 0
-  text: "\xA1Por supuesto!"
+  text: "\xA1Vamos!"
   description: 
   targetBlock: {fileID: 1247721070}
   hideIfVisited: 0
@@ -3624,7 +3624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 283.58475, y: 37.19288}
+  scrollPos: {x: -207.62402, y: 108.62143}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 480
@@ -3636,8 +3636,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1247721136}
-  selectedCommands: []
+  - {fileID: 1247721161}
+  selectedCommands:
+  - {fileID: 1247721153}
   variables:
   - {fileID: 1247721179}
   - {fileID: 1247721182}
@@ -4121,7 +4122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 371
   indentLevel: 0
-  text: "\xA1Vamos all\xE1!"
+  text: "\xA1Otra!"
   description: 
   targetBlock: {fileID: 1247721070}
   hideIfVisited: 0
@@ -5376,7 +5377,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6014151, g: 0.8018868, b: 0.74436456, a: 1}
+  m_BackGroundColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
