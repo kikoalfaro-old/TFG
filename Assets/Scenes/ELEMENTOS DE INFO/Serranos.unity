@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: Status
-  value: Available
+  value: 
 --- !u!114 &1247721110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4639,7 +4639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: DEBUG
-  value: 1
+  value: 0
 --- !u!114 &1247721180
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
+using DG.Tweening;
 
 public class MapManager : MonoBehaviour
 {
-    
+    private static MapManager instance = null;
+
     [SerializeField]
-    AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();
-    
+    AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();    
 
     [SerializeField]
     AreaStatusSpriteDictionary statusImage = new AreaStatusSpriteDictionary();
@@ -25,16 +24,50 @@ public class MapManager : MonoBehaviour
 
     [Space]
     public Transform currentPosImg;
+    public Image percentageCircle;
+    public float animationTime;
     public Text percentageText;
+
+    public static MapManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+
+        set
+        {
+            instance = value;
+        }
+    }
 
     // Esto funciona solo porque en el primer frame (cuando se cogen todas las referencias), el mapa estará desactivado
     private void OnEnable()
     {
         //gameData = GameManager.Instance.GetGameData();
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.OnUpdateCoords += SetAreaColors;
-        geoLocManager.OnUpdateCoords += ShowPercentage;
         geoLocManager.WhenAreaAvailable += ShowCurrentPosition;
+    }
+
+    private void Awake()
+    {
+        //Check if instance already exists
+        if (Instance == null)
+
+            //if not, set instance to this
+            Instance = this;
+
+        //If instance already exists and it's not this:
+        else if (Instance != this)
+
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+    }
+
+    public void ShowVisualInformation()
+    {
+        SetAreaColors();
+        ShowPercentage();
     }
 
     public void DisableMap()
@@ -73,6 +106,23 @@ public class MapManager : MonoBehaviour
     private void ShowPercentage()
     {
         percentageText.text = gameData.completedPercentage.ToString() + " %";
+        //percentageCircle.fillAmount = (float) gameData.completedPercentage / 100f;
+        float currentValue = (float)gameData.completedPercentage / 100f;
+        StartCoroutine(LerpPercentage(0, currentValue, animationTime));
+    }
+
+    private IEnumerator LerpPercentage(float startValue, float endValue, float time)
+    {
+        float elapsedTime = 0;
+        percentageCircle.fillAmount = startValue;
+
+        while (elapsedTime < time)
+        {
+            percentageCircle.fillAmount = Mathf.Lerp(percentageCircle.fillAmount, endValue, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        //yield return null;
     }
 
 
