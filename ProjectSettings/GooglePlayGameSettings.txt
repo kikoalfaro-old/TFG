@@ -1,0 +1,9 @@
+lastUpgrade=00950
+proj.pluginVersion=0.9.50
+proj.AppId=615519753677
+and.BundleId=com.KikoAlfaro.KAI
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e615519753677%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.KikoAlfaro.KAI%3c%2fstring%3e%0d%0a++%3c%21--+achievement+%c2%a1Madera+de+explorador%21+--%3e%0d%0a++%3cstring+name%3d%22achievement_madera_de_explorador%22+translatable%3d%22false%22%3eCgkIzavY_vQREAIQAg%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+Progreso+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_progreso%22+translatable%3d%22false%22%3eCgkIzavY_vQREAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=
+android.SetupDone=true

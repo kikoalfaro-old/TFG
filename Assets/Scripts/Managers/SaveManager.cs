@@ -65,6 +65,9 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
         }
 
         completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
+
+        // Actualizo la leaderboard con el porcentaje completado
+        GPGSManager.Instance.AddScoreLeaderBoard(completedPercentage);
     }
 
 }

@@ -2,10 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-
-
 
 public class GameManager : MonoBehaviour
 {
@@ -61,8 +58,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Start() // Cuidado con el GeoLocManager! (Plantearse Awake...)
     {
-        allAreas = new List<Area>();
-        allAreas.Add(new Area(defaultAreaName, 0, 0, 0)); // Añadimos el área por defecto
+        allAreas = new List<Area>
+        {
+            new Area(defaultAreaName, 0, 0, 0) // Añadimos el área por defecto
+        };
+
         using (WWW www = new WWW(URL))
         {
             yield return www; // Se espera hasta que se complete la descarga
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
         // Después de esto, el gameData ya que se queda actualizado con lo que hay en Internés
 
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
     }
 
     // OBVIAMENTE esta no es la mejor opción. Un diccionario de <Area, AreaStatus> para las áreas bastaría para hacerlo más simple, pero :)
@@ -135,22 +135,6 @@ public class GameManager : MonoBehaviour
         {
             gameData.RemoveArea(areasToRemove[i]);
         }
-
-        /*
-        // Dos diferencias, para darle prioridad a lo que hemos cogido del JSON
-        var areasToAdd = cloudAreas.Except(localAreas, new IdComparer()).ToList();
-        var areasToRemove = localAreas.Except(cloudAreas, new IdComparer()).ToList();
-
-        foreach (Area area in areasToAdd)
-        {
-            gameData.AddArea(area); // Añadimos el área que no había al objeto de datos
-        }
-
-        foreach (Area area in areasToRemove)
-        {
-            gameData.RemoveArea(area);
-        }
-        */
     }
 
     private void GetExternalReferences()
