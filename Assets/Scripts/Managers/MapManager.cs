@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public class MapManager : MonoBehaviour
 {
@@ -27,6 +26,7 @@ public class MapManager : MonoBehaviour
     public Image percentageCircle;
     public float animationTime;
     public Text percentageText;
+    public Text currentAreaText;
 
     public static MapManager Instance
     {
@@ -45,16 +45,15 @@ public class MapManager : MonoBehaviour
     private void OnEnable()
     {
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.WhenAreaAvailable += ShowCurrentPosition;
-        geoLocManager.WhenAreaAvailable += ShowVisualInformation;
-        GameManager.Instance.OnDataLoaded += ShowVisualInformation;
+        geoLocManager.OnAreaChanges += ShowCurrentAreaInfo;        
+        //GameManager.Instance.OnDataLoaded += ShowVisualInformation;
     }
+
 
     public void OnDisable()
     {
-        GameManager.Instance.OnDataLoaded -= ShowVisualInformation;
-        geoLocManager.WhenAreaAvailable -= ShowVisualInformation;
-        geoLocManager.WhenAreaAvailable -= ShowCurrentPosition;
+       // GameManager.Instance.OnDataLoaded -= ShowVisualInformation;
+        geoLocManager.OnAreaChanges -= ShowCurrentAreaInfo;
     }
 
     private void Awake()
@@ -72,11 +71,12 @@ public class MapManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void ShowVisualInformation()
+    private void Start()
     {
         gameData = GameManager.Instance.GetGameData();
         SetAreaColors();
-        ShowPercentage();
+        ShowCurrentAreaText();
+        ShowPercentageText();
     }
 
     public void DisableMap()
@@ -105,6 +105,12 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public void ShowCurrentAreaInfo()
+    {
+        ShowCurrentPosition();
+        ShowCurrentAreaText();
+    }
+
     private void ShowCurrentPosition()
     {        
         Area currentArea = geoLocManager.GetCurrentArea();
@@ -112,8 +118,18 @@ public class MapManager : MonoBehaviour
         if (currentArea.name != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea().name].transform.position.x, areaImages[geoLocManager.GetCurrentArea().name].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea().name].transform.position.z);
     }
 
-    private void ShowPercentage()
+    private void ShowCurrentAreaText()
     {
+        // Área actual
+        string currentArea = geoLocManager.GetCurrentArea().name;
+        if (currentArea == GameManager.defaultAreaName)
+            currentAreaText.text = "No estás en ningún área";
+        else currentAreaText.text = currentArea; // <-- AQUÍ SERÍA INTERESANTE METER UNA TAG DESDE LA WEB DE ANGULAR
+    }
+
+    private void ShowPercentageText() { 
+
+        // Porcentaje y animación de carga
         percentageText.text = gameData.completedPercentage.ToString() + " %";
         //percentageCircle.fillAmount = (float) gameData.completedPercentage / 100f;
         float currentValue = (float)gameData.completedPercentage / 100f;

@@ -86,13 +86,14 @@ public class GeoLocManager : MonoBehaviour
     List<Area> allAreas; 
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.
 
-    public event Action WhenAreaAvailable;
+    public event Action OnAreaChanges;
     public event Action OnUpdateCoords;
 
     // debug app
     [Header("Debug References")]
     public Text coordsText;
     public Text zoneText;
+    public GameObject VerticalLayout;
 
     [Space]
     [Header("Current area debug")]
@@ -183,14 +184,16 @@ public class GeoLocManager : MonoBehaviour
     {
         if (OnUpdateCoords != null) OnUpdateCoords();
 
-        //--------------EASY DEBUG(No real input)------------ -
-#if UNITY_ANDROID
-        currentCoords.latitude = Input.location.lastData.latitude;
-        currentCoords.longitude = Input.location.lastData.longitude;
-#endif
-
-        if (debugMode)
+        if (!debugMode)
         {
+#if UNITY_ANDROID
+            currentCoords.latitude = Input.location.lastData.latitude;
+            currentCoords.longitude = Input.location.lastData.longitude;
+#endif
+        } else
+        {
+
+            VerticalLayout.SetActive(true);
             // Poniendo el punto como si estuviéramos justo en el centro de la zona (muy improbable...)
             try
             {
@@ -206,6 +209,8 @@ public class GeoLocManager : MonoBehaviour
 
         UpdateArea(); //Si el área actual es 0 (ficticia), no mira si está dentro o no.
         SetTexts();
+
+        Debug.Log("Coords updated");
     }
 
     void UpdateArea()
@@ -219,10 +224,10 @@ public class GeoLocManager : MonoBehaviour
 
                 if (PointInsideArea(currentCoords, allAreas[i]))
                 {
-                    if (WhenAreaAvailable != null)
+                    if (OnAreaChanges != null)
                     {
                         currentArea = allAreas[i]; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
-                        WhenAreaAvailable(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
+                        OnAreaChanges(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
                     }
                         
                     break;
@@ -232,8 +237,9 @@ public class GeoLocManager : MonoBehaviour
 
         // Si no estoy en la escena por defecto pero no estoy dentro del área, cargar la escena por defecto
         else if(!PointInsideArea(currentCoords, currentArea)){
-            sceneController.FadeAndLoadScene(defaultArea.name);
+            //sceneController.FadeAndLoadScene(defaultArea.name);            
             currentArea = defaultArea;
+            OnAreaChanges();
         }
     }
 
