@@ -183,11 +183,11 @@ public class GeoLocManager : MonoBehaviour
     {
         if (OnUpdateCoords != null) OnUpdateCoords();
 
-        // -------------- EASY DEBUG (No real input) -------------
-        //#if UNITY_ANDROID
-        //        currentCoords.latitude = Input.location.lastData.latitude;
-        //        currentCoords.longitude = Input.location.lastData.longitude;
-        //#endif
+        //--------------EASY DEBUG(No real input)------------ -
+#if UNITY_ANDROID
+        currentCoords.latitude = Input.location.lastData.latitude;
+        currentCoords.longitude = Input.location.lastData.longitude;
+#endif
 
         if (debugMode)
         {
