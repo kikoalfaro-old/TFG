@@ -129,8 +129,7 @@ public class GeoLocManager : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
     }
-
-
+    
     public void OnEnable()
     {
         GameManager.Instance.OnDataLoaded += StartGeoLoc;
@@ -253,7 +252,7 @@ public class GeoLocManager : MonoBehaviour
     /// <param name="point"></param>
     /// <param name="area"></param>
     /// <returns></returns>
-    //OJO:  Aquí hemos de CAMBIARLO y pasar como parámetro un objeto de tipo AREA...
+    
     bool PointInsideArea(GeoLocCoordinates point, Area area)
     {
         //Debug.Log(point + "inside " + area);

@@ -46,15 +46,15 @@ public class GPGSManager : MonoBehaviour
     {
 
         //// AÑADIDO (Sin esto, funciona bien)
-        //// Create client configuration
-        //PlayGamesClientConfiguration config = new
-        //    PlayGamesClientConfiguration.Builder()
-        //    .Build();
+        // Create client configuration
+        PlayGamesClientConfiguration config = new
+            PlayGamesClientConfiguration.Builder()
+            .Build();
 
         // recommended for debugging:
         PlayGamesPlatform.DebugLogEnabled = true;
 
-        //PlayGamesPlatform.InitializeInstance(config); //Añadido
+        PlayGamesPlatform.InitializeInstance(config); //Añadido
 
         // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
@@ -93,7 +93,7 @@ public class GPGSManager : MonoBehaviour
         Debug.Log("Show leaderboard");
         //Social.ShowLeaderboardUI (); // Show all leaderboard
         if (PlayGamesPlatform.Instance.localUser.authenticated)
-            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzavY_vQREAIQAQ");
+            PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_progreso);
         else Debug.Log("Not autenticated");
     }
 
@@ -104,7 +104,7 @@ public class GPGSManager : MonoBehaviour
     {
         if (Social.localUser.authenticated)
         {
-            Social.ReportScore(score, /*GPGSIds.leaderboard_progreso*/ "CgkIzavY_vQREAIQAQ", (bool success) =>
+            Social.ReportScore(score, GPGSIds.leaderboard_progreso, (bool success) =>
             {
                 if (success)
                 {
