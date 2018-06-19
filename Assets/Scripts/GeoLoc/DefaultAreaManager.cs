@@ -15,24 +15,33 @@ public class DefaultAreaManager : MonoBehaviour {
         sceneController = FindObjectOfType<SceneController>();
         if (!sceneController)
             throw new UnityException("Scene Controller could not be found, ensure that it exists in the Persistent scene.");
+
+        SetLoadCanvas();
     }
 
     // Antes del start si por defecto está activo cuando se carga la escena
     private void OnEnable()
     {
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.OnAreaChanges += EnableLoadCanvas;
+        geoLocManager.OnAreaChanges += SetLoadCanvas;
     }
 
     private void OnDisable()
     {
-        geoLocManager.OnAreaChanges -= EnableLoadCanvas;
+        geoLocManager.OnAreaChanges -= SetLoadCanvas;
     }
 
-    private void EnableLoadCanvas()
+    private void SetLoadCanvas()
     {
-        loadCanvas.SetActive(true);
-        notZoneText.SetActive(false);
+        if(geoLocManager.GetCurrentArea().name != GameManager.defaultAreaName)
+        {
+            loadCanvas.SetActive(true);
+            notZoneText.SetActive(false);
+        } else
+        {
+            loadCanvas.SetActive(false);
+            notZoneText.SetActive(true);
+        }
     }
 
     // Esto se llama desde el botón para cargar la nueva escena. --> Imita SceneReaction

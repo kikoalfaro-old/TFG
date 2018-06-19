@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
 using PDollarGestureRecognizer;
 
 public class GestureRecognizer : MonoBehaviour
 {
+    public bool usePlane = true;
+
     SymbolsGameManager symbolsGameManager;
     public Transform gestureOnScreenPrefab;
 
@@ -56,51 +57,113 @@ public class GestureRecognizer : MonoBehaviour
 
     void Update()
     {
-
-        if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
+        if (!usePlane)
         {
-            if (Input.touchCount > 0)
+            if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
             {
-                virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+                if (Input.touchCount > 0)
+                {
+                    virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+                }
+            }
+
+            if (drawArea.Contains(virtualKeyPosition))
+            {
+
+                // Si se ha levantado el dedo, se ha dibujado un gesto y todavía no ha sido reconocido --> RECONOCERLO
+                if (Input.GetMouseButtonUp(0) && strokeId > -1 && !recognized)
+                {
+                    Recognize();
+                    ClearLine();
+                }
+
+                if (Input.GetMouseButtonDown(0)) // Justo recién de tocar
+                {
+                    ++strokeId;
+
+                    Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
+                    currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
+
+                    gestureLinesRenderer.Add(currentGestureLineRenderer);
+
+                    vertexCount = 0;
+                }
+
+                // Si se está pulsando en el área de dibujado, sigue añadiendo puntos a la línea y la va dibujando
+                if (Input.GetMouseButton(0))
+                {
+                    points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
+
+                    currentGestureLineRenderer.positionCount = ++vertexCount;
+                    currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+                }
             }
         }
         else
         {
+
+            if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
+            {
+                if (Input.touchCount > 0)
+                {
+                    virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+                }
+            }
+
+            // Si se pulsa por primera vez, instnaciar el Line Renderer y dibujar el primer punto
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit) && hit.collider.tag == "GesturePlane")
+                {                    
+                    ++strokeId;
+
+                    Transform tmpGesture = Instantiate(gestureOnScreenPrefab, hit.point, transform.rotation) as Transform;
+                    currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
+
+                    gestureLinesRenderer.Add(currentGestureLineRenderer);
+
+                    vertexCount = 0;
+                }
+            }
+            // Si se está pulsando en el área de dibujado, sigue añadiendo puntos a la línea y la va dibujando
             if (Input.GetMouseButton(0))
             {
-                virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-            }
-        }
+                RaycastHit hit;
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (drawArea.Contains(virtualKeyPosition))
-        {
+                if (Physics.Raycast(ray, out hit) && hit.collider.tag == "GesturePlane")
+                {
+                    points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
+
+                    //Debug.Log(hit.point);
+                    currentGestureLineRenderer.positionCount = ++vertexCount;
+                    currentGestureLineRenderer.SetPosition(vertexCount - 1, new Vector3(hit.point.x, hit.point.y, 0f));
+                }
+
+            }
 
             // Si se ha levantado el dedo, se ha dibujado un gesto y todavía no ha sido reconocido --> RECONOCERLO
             if (Input.GetMouseButtonUp(0) && strokeId > -1 && !recognized)
             {
                 Recognize();
                 ClearLine();
-            }
-
-            if (Input.GetMouseButtonDown(0)) // Justo recién de tocar
-            {
-                ++strokeId;
-
-                Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
-                currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
-
-                gestureLinesRenderer.Add(currentGestureLineRenderer);
-
-                vertexCount = 0;
-            }
-
-            // Si se está pulsando en el área de dibujado, sigue añadiendo puntos a la línea y la va dibujando
-            if (Input.GetMouseButton(0))
-            {
-                points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
-
-                currentGestureLineRenderer.positionCount = ++vertexCount;
-                currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
             }
         }
     }
@@ -133,6 +196,7 @@ public class GestureRecognizer : MonoBehaviour
         Gesture candidate = new Gesture(points.ToArray());
         try
         {
+            Debug.Log(trainingSet.Count);
             Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
             message = gestureResult.GestureClass + " " + gestureResult.Score;
 

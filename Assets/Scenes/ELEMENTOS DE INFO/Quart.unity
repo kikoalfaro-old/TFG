@@ -360,22 +360,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114522262748565902, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 693866115}
     - target: {fileID: 114258511366882326, guid: 309758c1224929d44b7c4029dd715bf5,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 693866115}
-    - target: {fileID: 114343973947747624, guid: 309758c1224929d44b7c4029dd715bf5,
+    - target: {fileID: 114522262748565902, guid: 309758c1224929d44b7c4029dd715bf5,
         type: 2}
-      propertyPath: m_Material
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117325342243996, guid: 309758c1224929d44b7c4029dd715bf5, type: 2}
+      objectReference: {fileID: 693866115}
+    - target: {fileID: 1281166310224342, guid: 309758c1224929d44b7c4029dd715bf5, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3242,7 +3237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: Status
-  value: Available
+  value: 
 --- !u!114 &1247721110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4668,7 +4663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: DEBUG
-  value: 1
+  value: 0
 --- !u!114 &1247721180
 MonoBehaviour:
   m_ObjectHideFlags: 0

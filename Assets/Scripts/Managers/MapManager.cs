@@ -9,7 +9,7 @@ public class MapManager : MonoBehaviour
     private static MapManager instance = null;
 
     [SerializeField]
-    AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();    
+    AreaStatusColorDictionary statusColors = new AreaStatusColorDictionary();
 
     [SerializeField]
     AreaStatusSpriteDictionary statusImage = new AreaStatusSpriteDictionary();
@@ -45,14 +45,14 @@ public class MapManager : MonoBehaviour
     private void OnEnable()
     {
         geoLocManager = GeoLocManager.Instance;
-        geoLocManager.OnAreaChanges += ShowCurrentAreaInfo;        
-        //GameManager.Instance.OnDataLoaded += ShowVisualInformation;
+        geoLocManager.OnAreaChanges += ShowCurrentAreaInfo;
+        //GameManager.Instance.OnDataLoaded += SetAreaColors;
     }
 
 
     public void OnDisable()
     {
-       // GameManager.Instance.OnDataLoaded -= ShowVisualInformation;
+        //GameManager.Instance.OnDataLoaded -= SetAreaColors;
         geoLocManager.OnAreaChanges -= ShowCurrentAreaInfo;
     }
 
@@ -75,7 +75,7 @@ public class MapManager : MonoBehaviour
     {
         gameData = GameManager.Instance.GetGameData();
         SetAreaColors();
-        ShowCurrentAreaText();
+        ShowCurrentAreaInfo();
         ShowPercentageText();
     }
 
@@ -86,7 +86,7 @@ public class MapManager : MonoBehaviour
 
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
     {
-        if(gameData == null) gameData = GameManager.Instance.GetGameData(); // FATAL.
+        if (gameData == null) gameData = GameManager.Instance.GetGameData(); // FATAL.
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
             try
@@ -107,28 +107,24 @@ public class MapManager : MonoBehaviour
 
     public void ShowCurrentAreaInfo()
     {
-        ShowCurrentPosition();
-        ShowCurrentAreaText();
-    }
-
-    private void ShowCurrentPosition()
-    {        
-        Area currentArea = geoLocManager.GetCurrentArea();
-        Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
-        if (currentArea.name != GameManager.defaultAreaName) currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea().name].transform.position.x, areaImages[geoLocManager.GetCurrentArea().name].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea().name].transform.position.z);
-    }
-
-    private void ShowCurrentAreaText()
-    {
-        // Área actual
         string currentArea = geoLocManager.GetCurrentArea().name;
-        if (currentArea == GameManager.defaultAreaName)
-            currentAreaText.text = "No estás en ningún área";
-        else currentAreaText.text = currentArea; // <-- AQUÍ SERÍA INTERESANTE METER UNA TAG DESDE LA WEB DE ANGULAR
+        //Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
+
+        if (currentArea != GameManager.defaultAreaName) // Si no es el área por defecto, se pone el marcador de posición y el texto del área (o tag)
+        {
+            currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea().name].transform.position.x, areaImages[geoLocManager.GetCurrentArea().name].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea().name].transform.position.z);
+            currentAreaText.text = currentArea; // <-- AQUÍ SERÍA INTERESANTE METER UNA TAG DESDE LA WEB DE ANGULAR
+        }
+        else // Si es el área por defecto...
+        {
+            currentPosImg.position = Vector3.one * 2000f;
+            currentAreaText.text = "";
+        }
     }
 
-    private void ShowPercentageText() { 
 
+    public void ShowPercentageText()
+    {
         // Porcentaje y animación de carga
         percentageText.text = gameData.completedPercentage.ToString() + " %";
         //percentageCircle.fillAmount = (float) gameData.completedPercentage / 100f;
