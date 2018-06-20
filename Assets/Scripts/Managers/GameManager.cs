@@ -79,9 +79,8 @@ public class GameManager : MonoBehaviour
 
             GetExternalReferences();
             SyncronizeGameData();
-            OnDataLoaded();
-            //geoLocManager.StartGeoLoc();
-        }
+            geoLocManager.StartGeoLoc();
+        }        
     }
 
     private void SyncronizeGameData()

@@ -22,6 +22,8 @@ public class MapManager : MonoBehaviour
     GeoLocManager geoLocManager;
     GameManager gameManager;
 
+    bool animationDone; // flag
+
     [Space]
     public Transform currentPosImg;
     public Image percentageCircle;
@@ -49,16 +51,16 @@ public class MapManager : MonoBehaviour
         gameManager = GameManager.Instance;
 
         geoLocManager.OnAreaChanges += ShowCurrentAreaInfo;
-        gameManager.OnDataLoaded += SetAreaColors;
-        gameManager.OnDataLoaded += ShowPercentageText;
+        geoLocManager.OnUpdateCoords += SetAreaColors;
+        geoLocManager.OnUpdateCoords += ShowPercentageText;
     }
 
 
     public void OnDisable()
     {
-        gameManager.OnDataLoaded -= SetAreaColors;
-        gameManager.OnDataLoaded -= ShowPercentageText;
         geoLocManager.OnAreaChanges -= ShowCurrentAreaInfo;
+        geoLocManager.OnUpdateCoords -= SetAreaColors;
+        geoLocManager.OnUpdateCoords -= ShowPercentageText;
     }
 
     private void Awake()
@@ -78,14 +80,16 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log(Application.persistentDataPath);
         gameData = gameManager.GetGameData();
 
-        if (gameData != null) // Para las demás veces
-        {
-            SetAreaColors();
-            ShowPercentageText();
-        }
-            ShowCurrentAreaInfo();
+        //if (gameData != null) // Para las demás veces
+        //{
+        //    SetAreaColors();
+        //    ShowPercentageText();
+        //}
+        ShowCurrentAreaInfo();
+        animationDone = false;
     }
 
     public void DisableMap()
@@ -93,8 +97,12 @@ public class MapManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
-    {        
+    {
+        if(gameData == null) gameData = gameManager.GetGameData();
+        if (gameData == null) return;
+
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
             try
@@ -133,11 +141,15 @@ public class MapManager : MonoBehaviour
 
     public void ShowPercentageText()
     {
+        if (gameData == null) gameData = gameManager.GetGameData();
+        if (gameData == null) return;
+
         // Porcentaje y animación de carga
         percentageText.text = gameData.completedPercentage.ToString() + " %";
         //percentageCircle.fillAmount = (float) gameData.completedPercentage / 100f;
         float currentValue = (float)gameData.completedPercentage / 100f;
-        StartCoroutine(LerpPercentage(0, currentValue, animationTime));
+        if(!animationDone) StartCoroutine(LerpPercentage(0, currentValue, animationTime));
+        animationDone = true;
     }
 
     private IEnumerator LerpPercentage(float startValue, float endValue, float time)
@@ -153,5 +165,4 @@ public class MapManager : MonoBehaviour
         }
         //yield return null;
     }
-
 }
