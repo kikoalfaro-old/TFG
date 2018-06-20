@@ -75,12 +75,12 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
         if (GetTotalAccuracy() >= level.minTotalAccuracy)
         {
             Debug.Log("Nivel superado!");
-            if (sendFlowchartMessageWhenGameEnds) Fungus.Flowchart.BroadcastFungusMessage("GameWon");
+            if (sendFlowchartMessageWhenGameEnds) Flowchart.BroadcastFungusMessage("GameWon");
         }
         else
         {
             Debug.Log("Nivel no superado...");
-            if (sendFlowchartMessageWhenGameEnds) Fungus.Flowchart.BroadcastFungusMessage("GameLost");
+            if (sendFlowchartMessageWhenGameEnds) Flowchart.BroadcastFungusMessage("GameLost");
         }
     }
 
@@ -138,7 +138,7 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
 
         // Sale la nueva puntuación (trigger a animator), y cuando acaba la animación se actualiza.
         newScoreText.text = "+ " + obtainedScore;
-        newScoreAnimator.SetTrigger("Scored");
+        //newScoreAnimator.SetTrigger("Scored");
 
 
         score += obtainedScore; // Actualizo puntuación

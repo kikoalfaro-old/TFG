@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Name: AllGestures
   m_EditorClassIdentifier: 
   allSymbols:
-  - symbolName: line
-    symbolSprite: {fileID: 21300000, guid: b41f75fdda3d96e449927a9acd15fe5b, type: 3}
-  - symbolName: circle
-    symbolSprite: {fileID: 21300000, guid: c08e8229d447c3f46a6378e2447b91ce, type: 3}
+  - symbolName: ray
+    symbolSprite: {fileID: 21300000, guid: da483ffbc8c9b4b45b82a94a2a2c1cdf, type: 3}
+  - symbolName: square
+    symbolSprite: {fileID: 21300000, guid: 4cf6bfc3d18a01b46986bde3386d29bd, type: 3}
+  - symbolName: triangle
+    symbolSprite: {fileID: 21300000, guid: cac58327d9b804145ba9e4dc2d25742d, type: 3}

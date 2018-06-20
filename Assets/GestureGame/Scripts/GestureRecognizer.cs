@@ -48,8 +48,6 @@ public class GestureRecognizer : MonoBehaviour
 
     void Update()
     {
-
-        if (currentTrailRenderer != null) Debug.Log(currentTrailRenderer.position);
         #region Check platform
         if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
         {
@@ -125,14 +123,13 @@ public class GestureRecognizer : MonoBehaviour
     void Recognize()
     {
         recognized = true;
-        if (Time.unscaledTime - startDrawingTime < 0.5f) return;
-        
+        if (Time.unscaledTime - startDrawingTime < 0.3f) return;
         Gesture candidate = new Gesture(points.ToArray());
         try
         {
             Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
             message = gestureResult.GestureClass + " " + gestureResult.Score;
-
+            Debug.Log(message);
             // Comprobar si se ha acertado
             symbolsGameManager.OnSymbolDrawn(gestureResult);
         }
@@ -153,41 +150,41 @@ public class GestureRecognizer : MonoBehaviour
     }
 
 
-    // Esto lo dejamos aquí para poder añadir gestos personalizados.
+    //Esto lo dejamos aquí para poder añadir gestos personalizados.
 
-    //    void OnGUI()
-    //    {
+//        void OnGUI()
+//    {
 
-    //        //GUI.Box(drawArea, "Draw Area");
+//        //GUI.Box(drawArea, "Draw Area");
 
-    //        //GUI.Label(new Rect(10, Screen.height - 40, 500, 50), message);
+//        GUI.Label(new Rect(10, Screen.height - 40, 500, 50), message);
 
-    //        /*
-    //        if (GUI.Button(new Rect(Screen.width - 100, 10, 100, 30), "Recognize"))
-    //        {
+        
+//        if (GUI.Button(new Rect(Screen.width - 100, 10, 100, 30), "Recognize"))
+//        {
 
-    //            Recognize();
-    //        }
-    //        */
+//            Recognize();
+//        }
+        
 
-    //        /*
-    //        GUI.Label(new Rect(Screen.width - 200, 150, 70, 30), "Add as: ");
-    //        newGestureName = GUI.TextField(new Rect(Screen.width - 150, 150, 100, 30), newGestureName);
-    //        */
+        
+//        GUI.Label(new Rect(Screen.width - 200, 150, 70, 30), "Add as: ");
+//        newGestureName = GUI.TextField(new Rect(Screen.width - 150, 150, 100, 30), newGestureName);
+        
 
-    //        if (GUI.Button(new Rect(Screen.width - 50, 150, 50, 30), "Add") && points.Count > 0 && newGestureName != "")
-    //        {
+//        if (GUI.Button(new Rect(Screen.width - 50, 150, 50, 30), "Add") && points.Count > 0 && newGestureName != "")
+//        {
 
-    //            string fileName = String.Format("{0}/{1}-{2}.xml", Application.persistentDataPath, newGestureName, DateTime.Now.ToFileTime());
+//            string fileName = String.Format("{0}/{1}-{2}.xml", Application.persistentDataPath, newGestureName, DateTime.Now.ToFileTime());
 
-    //#if !UNITY_WEBPLAYER
-    //            GestureIO.WriteGesture(points.ToArray(), newGestureName, fileName);
-    //#endif
+//#if !UNITY_WEBPLAYER
+//            GestureIO.WriteGesture(points.ToArray(), newGestureName, fileName);
+//#endif
 
-    //            trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
+//            trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
 
-    //            newGestureName = "";
-    //        }
-    //    }
+//            newGestureName = "";
+//        }
+//    }
 
 }
