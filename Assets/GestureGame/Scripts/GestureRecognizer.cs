@@ -106,7 +106,7 @@ public class GestureRecognizer : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && hit.collider.tag == "GesturePlane")
         {
             points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, 1));
-            currentTrailRenderer.position = hit.point;
+            if(currentTrailRenderer != null) currentTrailRenderer.position = hit.point;
         }
     }
 
@@ -129,7 +129,7 @@ public class GestureRecognizer : MonoBehaviour
         {
             Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
             message = gestureResult.GestureClass + " " + gestureResult.Score;
-            Debug.Log(message);
+            //Debug.Log(message);
             // Comprobar si se ha acertado
             symbolsGameManager.OnSymbolDrawn(gestureResult);
         }
