@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
 
     GameData gameData;
     GeoLocManager geoLocManager;
+    GameManager gameManager;
 
     [Space]
     public Transform currentPosImg;
@@ -45,14 +46,18 @@ public class MapManager : MonoBehaviour
     private void OnEnable()
     {
         geoLocManager = GeoLocManager.Instance;
+        gameManager = GameManager.Instance;
+
         geoLocManager.OnAreaChanges += ShowCurrentAreaInfo;
-        //GameManager.Instance.OnDataLoaded += SetAreaColors;
+        gameManager.OnDataLoaded += SetAreaColors;
+        gameManager.OnDataLoaded += ShowPercentageText;
     }
 
 
     public void OnDisable()
     {
-        //GameManager.Instance.OnDataLoaded -= SetAreaColors;
+        gameManager.OnDataLoaded -= SetAreaColors;
+        gameManager.OnDataLoaded -= ShowPercentageText;
         geoLocManager.OnAreaChanges -= ShowCurrentAreaInfo;
     }
 
@@ -73,10 +78,14 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        gameData = GameManager.Instance.GetGameData();
-        SetAreaColors();
-        ShowCurrentAreaInfo();
-        ShowPercentageText();
+        gameData = gameManager.GetGameData();
+
+        if (gameData != null) // Para las demás veces
+        {
+            SetAreaColors();
+            ShowPercentageText();
+        }
+            ShowCurrentAreaInfo();
     }
 
     public void DisableMap()
@@ -85,8 +94,7 @@ public class MapManager : MonoBehaviour
     }
 
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
-    {
-        if (gameData == null) gameData = GameManager.Instance.GetGameData(); // FATAL.
+    {        
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
         {
             try

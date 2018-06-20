@@ -93,7 +93,7 @@ public class GeoLocManager : MonoBehaviour
     [Header("Debug References")]
     public Text coordsText;
     public Text zoneText;
-    public GameObject VerticalLayout;
+    public GameObject DebugLayout;
 
     [Space]
     [Header("Current area debug")]
@@ -186,6 +186,7 @@ public class GeoLocManager : MonoBehaviour
 
         if (!debugMode)
         {
+            if (DebugLayout.activeSelf) DebugLayout.SetActive(false);
 #if UNITY_ANDROID
             currentCoords.latitude = Input.location.lastData.latitude;
             currentCoords.longitude = Input.location.lastData.longitude;
@@ -193,7 +194,7 @@ public class GeoLocManager : MonoBehaviour
         } else
         {
 
-            VerticalLayout.SetActive(true);
+            DebugLayout.SetActive(true);
             // Poniendo el punto como si estuviéramos justo en el centro de la zona (muy improbable...)
             try
             {
@@ -316,6 +317,11 @@ public class GeoLocManager : MonoBehaviour
     }
 
     #endregion
+
+    public void ChangeDebugMode()
+    {
+        debugMode = !debugMode;
+    }
 
 }
 

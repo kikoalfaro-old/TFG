@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
         geoLocManager = GeoLocManager.Instance;
         saveManager = GetComponent<SaveManager>();
 
-        if (geoLocManager.debugMode) generator.GenerateButons();
+        /*if (geoLocManager.debugMode)*/ generator.GenerateButons();
     }
 
     public AreaStatus GetCurrentAreaStatus()
