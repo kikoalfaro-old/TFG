@@ -77,7 +77,7 @@ public class GeoLocManager : MonoBehaviour
     private static GeoLocManager instance = null;
 
     GeoLocCoordinates currentCoords; // Coordenadas espaciales actuales
-    Area currentArea; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
+    Area currentArea = null; // Área en la que se encuentra el jugador. Nulo si está fuera de los límites del juego.
 
     public float refreshTime = 2f; // Tiempo de actualización de las coordenadas (para que no consuma tanta batería...) --> De momento, por defecto a 20 segs
     string defaultAreaName = GameManager.defaultAreaName;
@@ -159,6 +159,7 @@ public class GeoLocManager : MonoBehaviour
 
     void InitialSetup()
     {
+        Debug.Log("Initial Setup of GeoLocManager --> Default area");
         // Valores iniciales por defecto (area Default)
         defaultArea = allAreas[0];
         currentArea = defaultArea;                                                   
@@ -211,7 +212,7 @@ public class GeoLocManager : MonoBehaviour
         UpdateArea(); //Si el área actual es 0 (ficticia), no mira si está dentro o no.
         SetTexts();
 
-        Debug.Log("Coords updated");
+        //Debug.Log("Coords updated");
     }
 
     void UpdateArea()

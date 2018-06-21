@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// EL DEFAULT AREA MANAGER Y EL MAP MANAGER PODRÍAN IR PERFECTAMENTE EN EL MISMO SCRIPT...
 public class DefaultAreaManager : MonoBehaviour {
 
     public GameObject loadCanvas;
@@ -16,7 +18,7 @@ public class DefaultAreaManager : MonoBehaviour {
         if (!sceneController)
             throw new UnityException("Scene Controller could not be found, ensure that it exists in the Persistent scene.");
 
-        SetLoadCanvas();
+        if (geoLocManager.GetCurrentArea() != null)  SetLoadCanvas();
     }
 
     // Antes del start si por defecto está activo cuando se carga la escena
@@ -33,6 +35,7 @@ public class DefaultAreaManager : MonoBehaviour {
 
     private void SetLoadCanvas()
     {
+        Debug.Log("When area changes, set load canvas ");
         if(geoLocManager.GetCurrentArea().name != GameManager.defaultAreaName)
         {
             loadCanvas.SetActive(true);

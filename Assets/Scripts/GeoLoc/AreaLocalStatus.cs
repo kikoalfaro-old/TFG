@@ -1,6 +1,7 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AreaLocalStatus : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class AreaLocalStatus : MonoBehaviour
     }
     */
 
-    public Camera UICamera;
-    public Camera ARCamera;
+    SceneReaction sceneReaction;
+
+    private void Start()
+    {
+        sceneReaction = FindObjectOfType<SceneReaction>();
+    }
 
     public string GetCurrentStatus()
     {
@@ -51,7 +56,7 @@ public class AreaLocalStatus : MonoBehaviour
     public void DisconnectButton()
     {
         Flowchart.BroadcastFungusMessage("Disconnect");
-        FindObjectOfType<SceneReaction>().ChangeScene();
+        sceneReaction.ChangeScene();
     }
 
     public void CloseInfoButton()

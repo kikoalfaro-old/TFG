@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// EL DEFAULT AREA MANAGER Y EL MAP MANAGER PODRÍAN IR PERFECTAMENTE EN EL MISMO SCRIPT...
+
 public class MapManager : MonoBehaviour
 {
     private static MapManager instance = null;
@@ -23,15 +25,21 @@ public class MapManager : MonoBehaviour
     GameManager gameManager;
 
     bool animationDone; // flag
+    bool firstTime;
 
     [Space]
+    [Header("References")]
     public Transform currentPosImg;
     public Image percentageCircle;
-    public float animationTime;
     public Text percentageText;
     public Animator percentageTextAnim;
     public Text currentAreaText;
     public GameObject starsPS;
+
+    [Space]
+    [Header("FX Parameters")]
+    public float timeToSpawnStars;
+    public float animationTime;
 
     public static MapManager Instance
     {
@@ -82,17 +90,16 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log(Application.persistentDataPath);
         gameData = gameManager.GetGameData();
-        if(geoLocManager == null) geoLocManager = GeoLocManager.Instance;
 
-        //if (gameData != null) // Para las demás veces
-        //{
-        //    SetAreaColors();
-        //    ShowPercentageText();
-        //}
-        ShowCurrentAreaInfo();
+        if (geoLocManager.GetCurrentArea() != null)
+        {
+            ShowCurrentAreaInfo();
+            SetAreaColors();
+            //ShowPercentageText();
+        }
         animationDone = false;
+        firstTime = false;
     }
 
     public void DisableMap()
@@ -126,8 +133,10 @@ public class MapManager : MonoBehaviour
 
     public void ShowCurrentAreaInfo()
     {
-        Debug.Log(geoLocManager);
+        Debug.Log("Show current area info of map manager");
+
         string currentArea = geoLocManager.GetCurrentArea().name;
+
         //Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
 
         if (currentArea != GameManager.defaultAreaName) // Si no es el área por defecto, se pone el marcador de posición y el texto del área (o tag)
@@ -151,7 +160,7 @@ public class MapManager : MonoBehaviour
         int completedPercentage = gameData.completedPercentage;
 
         bool isGameCompleted = completedPercentage == 100;
-        starsPS.SetActive(isGameCompleted);
+        if (isGameCompleted) Invoke("ActiveStars", timeToSpawnStars);
         percentageTextAnim.SetBool("GameCompleted", isGameCompleted);
 
         // Ponemos el booleano como que se ha completado el juego para que se ejecute la animación
@@ -163,6 +172,11 @@ public class MapManager : MonoBehaviour
         float currentValue = (float)completedPercentage / 100f;
         if (!animationDone) StartCoroutine(LerpPercentage(0, currentValue, animationTime));
         animationDone = true;
+    }
+
+    void ActiveStars()
+    {
+        starsPS.SetActive(true);
     }
 
     private IEnumerator LerpPercentage(float startValue, float endValue, float time)
