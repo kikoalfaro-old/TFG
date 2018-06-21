@@ -17,8 +17,8 @@ MonoBehaviour:
     - symbolMinSpeed: 2
       symbolMaxSpeed: 3
       timeBetweenSymbols: 4
-      amountOfSymbolsToSpawn: 25
-      minTotalAccuracy: 80
+      amountOfSymbolsToSpawn: 5
+      minTotalAccuracy: 50
       spawningPoints:
       - transform: {fileID: 224365613347064608, guid: 204f0260519f7b240b466a2d89ba66eb,
           type: 2}

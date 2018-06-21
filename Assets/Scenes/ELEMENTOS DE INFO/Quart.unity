@@ -189,11 +189,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 51452424}
   m_Mesh: {fileID: 4300000, guid: 6736025b8b140924988c6446d1e8cba6, type: 3}
---- !u!1 &65503186 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1117325342243996, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
 --- !u!1001 &90859835
 Prefab:
   m_ObjectHideFlags: 0
@@ -263,120 +258,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 90859835}
   m_Script: {fileID: 11500000, guid: cc03961113fa349c09cb06ef2911013d, type: 3}
---- !u!1001 &124154986
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224337787402880022, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114258511366882326, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 693866115}
-    - target: {fileID: 114522262748565902, guid: 309758c1224929d44b7c4029dd715bf5,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 693866115}
-    - target: {fileID: 1281166310224342, guid: 309758c1224929d44b7c4029dd715bf5, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 309758c1224929d44b7c4029dd715bf5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!43 &316436470
 Mesh:
   m_ObjectHideFlags: 0
@@ -523,16 +404,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1 &378358398 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1123058918684148, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
---- !u!95 &378358402 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95730334545980018, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
 --- !u!1 &451021007
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510123387
 GameObject:
@@ -830,7 +701,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &667918348
 Prefab:
@@ -885,8 +756,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &667918349 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4542344791436472, guid: 99adeecea7db11d44b3af7e5e577652f,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 667918348}
 --- !u!1 &667918350 stripped
 GameObject:
@@ -933,28 +803,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &748497119 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1664980884923484, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
---- !u!95 &748497123 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95727820611252280, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
---- !u!1 &807249196 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1727487608367208, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
---- !u!95 &807249200 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95067006075921746, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
 --- !u!1 &815795909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +973,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50.000004, y: 64.87701, z: 0}
 --- !u!1 &1034276052
 GameObject:
@@ -1625,7 +1475,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -1645,7 +1495,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1191.5305
     y: 178.07414
-    width: 155.06326
+    width: 144.52051
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1723,7 +1573,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -1818,7 +1668,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1774.2798
     y: 200.10983
-    width: 147.46832
+    width: 130.8219
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1882,7 +1732,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1768.9119
     y: 133.30304
-    width: 147.46832
+    width: 130.8219
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1945,7 +1795,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1773.5149
     y: 68.20578
-    width: 147.46832
+    width: 130.8219
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2292,7 +2142,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1538.8518
     y: 115.20442
-    width: 168.9873
+    width: 154.10956
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2374,7 +2224,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 889.8787
     y: 119.89857
-    width: 142.40503
+    width: 133.56161
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2589,7 +2439,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 378358398}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2609,7 +2459,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 807249196}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2642,7 +2492,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1381.675
     y: 22.451286
-    width: 132.27846
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2695,7 +2545,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1991.5966
     y: 79.433014
-    width: 157.59491
+    width: 136.30133
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2748,7 +2598,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 748497119}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2881,7 +2731,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3160,7 +3010,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3425,7 +3275,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 748497119}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3445,7 +3295,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 807249196}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3485,7 +3335,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 720.5958
     y: 141.37628
-    width: 128.48099
+    width: 120
     height: 40
   tint: {r: 1, g: 0.9564972, b: 0.4669811, a: 1}
   useCustomTint: 1
@@ -3567,7 +3417,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 1920945719}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3598,7 +3448,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 194.94829
     y: 100.037
-    width: 162.6582
+    width: 145.89038
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3659,11 +3509,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -863.38617, y: 72.63757}
+  scrollPos: {x: -610.97253, y: 105.965004}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 480
-  zoom: 0.7900002
+  zoom: 0.73000026
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -3671,7 +3521,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1247721085}
+  - {fileID: 1247721067}
   selectedCommands: []
   variables:
   - {fileID: 1247721179}
@@ -3749,7 +3599,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 204.36024
     y: 198.293
-    width: 152.53162
+    width: 133.56161
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3776,7 +3626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 287
   indentLevel: 0
-  targetTextObject: {fileID: 1920945719}
+  targetTextObject: {fileID: 0}
   text:
     stringRef: {fileID: 0}
     stringVal: "Coloca el comunicador frente al tel\xE9fono m\xF3vil para iniciar
@@ -3798,7 +3648,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 1920945719}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3818,7 +3668,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -24.972034
     y: 76.19356
-    width: 184.17719
+    width: 162.32874
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3847,7 +3697,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 378358398}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3887,7 +3737,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -223.85059
     y: 75.533394
-    width: 161.39238
+    width: 134.93149
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3993,7 +3843,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 807249196}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4013,7 +3863,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 378358398}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4033,7 +3883,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 748497119}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4086,7 +3936,7 @@ MonoBehaviour:
   indentLevel: 0
   _animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 378358402}
+    animatorVal: {fileID: 0}
   _parameterName:
     stringRef: {fileID: 0}
     stringVal: Disappear
@@ -4107,7 +3957,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 0.3
+    floatVal: 1.8
   durationOLD: 0
 --- !u!114 &1247721151
 MonoBehaviour:
@@ -4137,7 +3987,7 @@ MonoBehaviour:
   indentLevel: 0
   _animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 807249200}
+    animatorVal: {fileID: 0}
   _parameterName:
     stringRef: {fileID: 0}
     stringVal: Disappear
@@ -4219,7 +4069,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 0.3
+    floatVal: 1.8
   durationOLD: 0
 --- !u!114 &1247721157
 MonoBehaviour:
@@ -4236,7 +4086,7 @@ MonoBehaviour:
   indentLevel: 0
   _animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 748497123}
+    animatorVal: {fileID: 0}
   _parameterName:
     stringRef: {fileID: 0}
     stringVal: Disappear
@@ -4257,7 +4107,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 0.3
+    floatVal: 1.8
   durationOLD: 0
 --- !u!114 &1247721159
 MonoBehaviour:
@@ -4274,7 +4124,7 @@ MonoBehaviour:
   indentLevel: 2
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4294,7 +4144,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 748497119}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4341,7 +4191,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 378358398}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4361,7 +4211,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 807249196}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4421,7 +4271,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4441,7 +4291,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4461,7 +4311,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4481,7 +4331,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4501,7 +4351,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4521,7 +4371,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 65503186}
+    gameObjectVal: {fileID: 0}
   activeState:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -4957,7 +4807,7 @@ Transform:
   - {fileID: 818264042}
   - {fileID: 1108347229}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1319542146
 Prefab:
@@ -5266,7 +5116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1733761443
 Transform:
@@ -5429,13 +5279,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1920945719 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1281166310224342, guid: 309758c1224929d44b7c4029dd715bf5,
-    type: 2}
-  m_PrefabInternal: {fileID: 124154986}
 --- !u!1 &2027619665
 GameObject:
   m_ObjectHideFlags: 0
