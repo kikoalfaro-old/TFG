@@ -29,7 +29,9 @@ public class MapManager : MonoBehaviour
     public Image percentageCircle;
     public float animationTime;
     public Text percentageText;
+    public Animator percentageTextAnim;
     public Text currentAreaText;
+    public GameObject starsPS;
 
     public static MapManager Instance
     {
@@ -82,6 +84,7 @@ public class MapManager : MonoBehaviour
     {
         //Debug.Log(Application.persistentDataPath);
         gameData = gameManager.GetGameData();
+        if(geoLocManager == null) geoLocManager = GeoLocManager.Instance;
 
         //if (gameData != null) // Para las demás veces
         //{
@@ -100,7 +103,7 @@ public class MapManager : MonoBehaviour
 
     private void SetAreaColors() // Se pueden poner en amarillo si están visitadas pero no completadas
     {
-        if(gameData == null) gameData = gameManager.GetGameData();
+        if (gameData == null) gameData = gameManager.GetGameData();
         if (gameData == null) return;
 
         foreach (KeyValuePair<string, AreaStatus> area in gameData.areasStatus)
@@ -123,6 +126,7 @@ public class MapManager : MonoBehaviour
 
     public void ShowCurrentAreaInfo()
     {
+        Debug.Log(geoLocManager);
         string currentArea = geoLocManager.GetCurrentArea().name;
         //Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
 
@@ -144,11 +148,20 @@ public class MapManager : MonoBehaviour
         if (gameData == null) gameData = gameManager.GetGameData();
         if (gameData == null) return;
 
+        int completedPercentage = gameData.completedPercentage;
+
+        bool isGameCompleted = completedPercentage == 100;
+        starsPS.SetActive(isGameCompleted);
+        percentageTextAnim.SetBool("GameCompleted", isGameCompleted);
+
+        // Ponemos el booleano como que se ha completado el juego para que se ejecute la animación
+
+
         // Porcentaje y animación de carga
-        percentageText.text = gameData.completedPercentage.ToString() + " %";
+        percentageText.text = completedPercentage.ToString() + " %";
         //percentageCircle.fillAmount = (float) gameData.completedPercentage / 100f;
-        float currentValue = (float)gameData.completedPercentage / 100f;
-        if(!animationDone) StartCoroutine(LerpPercentage(0, currentValue, animationTime));
+        float currentValue = (float)completedPercentage / 100f;
+        if (!animationDone) StartCoroutine(LerpPercentage(0, currentValue, animationTime));
         animationDone = true;
     }
 

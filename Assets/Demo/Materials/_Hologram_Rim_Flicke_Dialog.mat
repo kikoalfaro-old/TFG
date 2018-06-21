@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: _Hologram_Rim_Flicker_Blue
+  m_Name: _Hologram_Rim_Flicke_Dialog
   m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
   m_ShaderKeywords: SCANLINES _GLOW_ON _SCAN_ON
   m_LightmapFlags: 4
@@ -117,6 +117,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.47899607, g: 0.8182741, b: 0.8679245, a: 1}
-    - _RimColor: {r: 0.009000003, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 0.5518868, g: 1, b: 0.85714453, a: 1}
+    - _RimColor: {r: 0.10849059, g: 1, b: 1, a: 1}
     - _ScanlineColor: {r: 0.0719575, g: 0.9485294, b: 0, a: 1}

@@ -14,6 +14,11 @@ using System;
 
 public class MemoryGameManager : MonoBehaviour
 {
+    [SerializeField]
+    public Color emmisionColor;
+    [SerializeField]
+    public Color successColor;
+
     public bool sendFlowchartMessageWhenGameEnds;
     public MeshRenderer[] cubes;
     Color originalColor;
@@ -106,7 +111,7 @@ public class MemoryGameManager : MonoBehaviour
 
         foreach (var index in sequence)
         {
-            tweenSequence.Append(cubes[index].material.DOColor(Color.red, emissionTime))
+            tweenSequence.Append(cubes[index].material.DOColor(emmisionColor, emissionTime))
                 .Append(cubes[index].material.DOColor(originalColor, emissionTime));
         }
     }
@@ -122,7 +127,7 @@ public class MemoryGameManager : MonoBehaviour
         Sequence wellDoneSequence = DOTween.Sequence();
         for (int i = 0; i < cubes.Length; i++)
         {
-            wellDoneSequence.Join(cubes[i].material.DOColor(Color.cyan, 0.05f))
+            wellDoneSequence.Join(cubes[i].material.DOColor(successColor, 0.05f))
                         .Join(cubes[i].material.DOColor(originalColor, 1f));
         }
         wellDoneSequence.OnComplete(CheckIfGameFinished);
@@ -131,7 +136,7 @@ public class MemoryGameManager : MonoBehaviour
     Sequence TouchAnimation(int cubeIndex, Color color)
     {
         Sequence touchAnimationSequence = DOTween.Sequence();
-        touchAnimationSequence.Append(cubes[cubeIndex].material.DOColor(Color.cyan, emissionTime))
+        touchAnimationSequence.Append(cubes[cubeIndex].material.DOColor(successColor, emissionTime))
                 .Append(cubes[cubeIndex].material.DOColor(originalColor, emissionTime));
         return touchAnimationSequence;
     }
@@ -143,7 +148,7 @@ public class MemoryGameManager : MonoBehaviour
 
         if (cubeIndex == sequence[currentIndex]) //ACIERTA 
         {
-            touchAnimationSequence = TouchAnimation(cubeIndex, Color.cyan);
+            touchAnimationSequence = TouchAnimation(cubeIndex, successColor);
 
             hitCubes[currentIndex] = true;
             currentIndex++; //Se actualiza el índice
@@ -159,7 +164,7 @@ public class MemoryGameManager : MonoBehaviour
         }
         else // FALLA, se reinicia
         {
-            touchAnimationSequence = TouchAnimation(cubeIndex, Color.cyan);
+            touchAnimationSequence = TouchAnimation(cubeIndex, successColor);
 
             currentIndex = 0; //En el momento en que fallas, se reinicia
             for (int a = 0; a < hitCubes.Length; a++) hitCubes[a] = false;
@@ -168,7 +173,7 @@ public class MemoryGameManager : MonoBehaviour
             Sequence allRedsSequence = DOTween.Sequence();
             for (int i = 0; i < cubes.Length; i++)
             {
-                allRedsSequence.Join(cubes[i].material.DOColor(Color.red, 0.05f))
+                allRedsSequence.Join(cubes[i].material.DOColor(emmisionColor, 0.05f))
                             .Join(cubes[i].material.DOColor(originalColor, 1f));
             }
 

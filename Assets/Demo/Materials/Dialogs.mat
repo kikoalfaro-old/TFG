@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: VertexDispacement - World
-  m_Shader: {fileID: 4800000, guid: 250c47138a06a4fa1ae55518c2ff04b6, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: Dialogs
+  m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -38,8 +38,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FlickerTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8400000, guid: 984b3e844e1efa243999d77f2661b0ad, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -54,39 +58,37 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SecondaryTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 10
+    - _Alpha: 1
+    - _Brightness: 0.53
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Displacement: 0.491
-    - _Distance: 0.072
     - _DstBlend: 0
-    - _Frequency: 10
+    - _FlickerSpeed: 1
+    - _Fold: 3
+    - _GlitchIntensity: 0
+    - _GlitchSpeed: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.518
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Glow: 0.84
-    - _Intensity: 1
-    - _Metallic: 0.337
+    - _GlowSpeed: 1
+    - _GlowTiling: 0.01
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetColor: 0.0655
-    - _OffsetDistortion: 681.67
-    - _OffsetNoiseX: 0
-    - _OffsetNoiseY: 0
-    - _OffsetPosY: 0
     - _Parallax: 0.02
+    - _RimPower: 5
+    - _ScanSpeed: 1
+    - _ScanTiling: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 1.83
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
