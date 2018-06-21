@@ -12,21 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/ELEMENTOS DE INFO/Default.unity
     guid: 4769378e64e30c54eaa5e3221c1ac662
   - enabled: 1
-    path: Assets/Scenes/ELEMENTOS DE INFO/Quart.unity
+    path: Assets/Scenes/Escenas con referencias perdidas/Quart.unity
     guid: a5faba9402ee2e94c9144bd3b2077d4b
   - enabled: 0
-    path: Assets/Scenes/ELEMENTOS DE INFO/Ayuntamiento.unity
+    path: Assets/Scenes/Escenas con referencias perdidas/Ayuntamiento.unity
     guid: 0ebef4553bdc4a445820f035fb270d4e
   - enabled: 1
-    path: Assets/Scenes/ELEMENTOS DE INFO/Micalet.unity
+    path: Assets/Scenes/Escenas con referencias perdidas/Micalet.unity
     guid: 986f2f8f17623be4ab3830f118d4a668
   - enabled: 1
-    path: Assets/Scenes/ELEMENTOS DE INFO/LonjaSeda.unity
+    path: Assets/Scenes/Escenas con referencias perdidas/LonjaSeda.unity
     guid: c573c7f69e482174d8319642debb0f8d
   - enabled: 1
-    path: Assets/Scenes/ELEMENTOS DE INFO/Norte.unity
+    path: Assets/Scenes/Escenas con referencias perdidas/Norte.unity
     guid: 60440f4f6d9629f498d23ea2f87e0beb
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Serranos.unity
     guid: cb4238584287c824aad5c866cfe0340f
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8e12dc011d147b24aabde981917ae8e1
   m_configObjects: {}
