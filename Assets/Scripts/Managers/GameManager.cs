@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetAllStatus()
     {
+        PlayerPrefs.SetInt("FirstTime", 0); // Se ve también el tutorial la próxima vez que se inicia
         SaveGame(new GameData(allAreas));
         gameData = LoadGame();
     }
