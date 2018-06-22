@@ -5,6 +5,7 @@ using PDollarGestureRecognizer;
 using System;
 using UnityEngine.UI;
 using Fungus;
+using DG.Tweening;
 
 public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
 {
