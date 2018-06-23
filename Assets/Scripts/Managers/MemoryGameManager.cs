@@ -14,14 +14,17 @@ using System;
 
 public class MemoryGameManager : MonoBehaviour
 {
-    [SerializeField]
-    public Color emmisionColor;
-    [SerializeField]
-    public Color successColor;
-    [SerializeField]
-    public Color failureColor;
+    // Parámetros del juego    
+    [Header("Game Parameters")]
+    public int initialLevel = 2; //Indica los elementos a pulsar seguidos (habrá que hacer el temporizador en función a esto también)
+    public int stages; // Número de rondas de juego
+    int playedStages;
+    int currentLevel;
+    int currentIndex = 0; // Índice en el que está comprobando si se ha pulsado (En array "combinación")
+    int[] sequence;
+    bool[] hitCubes;
 
-    public int colorMaterialIndex;
+
 
     public bool sendFlowchartMessageWhenGameEnds;
     MeshRenderer[] meshRenderers;
@@ -30,20 +33,22 @@ public class MemoryGameManager : MonoBehaviour
     int totalCubes;
     bool canTouch = false;
 
+    [Space]
     [Header("Sequence animation")]
+    [SerializeField]
+    public Color emmisionColor;
+    [SerializeField]
+    public Color successColor;
+    [SerializeField]
+    public Color failureColor;
     public float emissionTime = 1;
     public int timeBetweenCubes = 2; // Intervalo de tiempo entre que un cubo se ilumina y el siguiente
-    WaitForSeconds secondsBetweenCubes;
+    public int colorMaterialIndex;
 
-    // Parámetros del juego
     [Space]
-    public int initialLevel = 2; //Indica los elementos a pulsar seguidos (habrá que hacer el temporizador en función a esto también)
-    public int stages; // Número de rondas de juego
-    int playedStages;
-    int currentLevel;
-    int currentIndex = 0; // Índice en el que está comprobando si se ha pulsado (En array "combinación")
-    int[] sequence;
-    bool[] hitCubes;
+    public float punchScaleIntesity;
+    public float punchScaleTime;
+    WaitForSeconds secondsBetweenCubes;
 
     AudioSource sound;
 
@@ -60,7 +65,7 @@ public class MemoryGameManager : MonoBehaviour
         totalCubes = meshRenderers.Length;
     }
 
-    private void OnEnable()
+    public void StartNewGame()
     {
         ResetGame();
         GenerateNewSequence();
@@ -132,8 +137,8 @@ public class MemoryGameManager : MonoBehaviour
         Sequence wellDoneSequence = DOTween.Sequence();
         for (int i = 0; i < meshRenderers.Length; i++)
         {
-            wellDoneSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(successColor, emissionTime))
-                        .Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
+            wellDoneSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(successColor, emissionTime / 5f))
+                        .Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, emissionTime /5f));
         }
         wellDoneSequence.OnComplete(CheckIfGameFinished);
     }
@@ -141,8 +146,8 @@ public class MemoryGameManager : MonoBehaviour
     Sequence TouchAnimation(int cubeIndex, Color color)
     {
         Sequence touchAnimationSequence = DOTween.Sequence();
-        touchAnimationSequence.Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(successColor, emissionTime))
-                .Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(originalColor, emissionTime));
+        touchAnimationSequence.Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(successColor, emissionTime/5f))
+                .Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(originalColor, emissionTime/5f));
         return touchAnimationSequence;
     }
 
@@ -179,8 +184,8 @@ public class MemoryGameManager : MonoBehaviour
             Sequence allRedsSequence = DOTween.Sequence();
             for (int i = 0; i < meshRenderers.Length; i++)
             {
-                allRedsSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(failureColor, emissionTime))
-                            .Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, emissionTime));
+                allRedsSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(failureColor, emissionTime / 5f));
+                allRedsSequence.Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, emissionTime / 5f));
             }
 
             allRedsSequence.OnComplete(GenerateNewSequence); //Si falla, se genera una nueva secuencia del mismo nivel
@@ -212,7 +217,11 @@ public class MemoryGameManager : MonoBehaviour
             {
                 for (int i = 0; i < meshRenderers.Length; i++)
                 {
-                    if (meshRenderers[i].gameObject == hit.collider.gameObject) return i;
+                    if (meshRenderers[i].gameObject == hit.collider.gameObject)
+                    {
+                        hit.collider.gameObject.transform.DOPunchScale(Vector3.one * punchScaleIntesity, punchScaleTime, 10, 2);
+                        return i;
+                    }
                 }
             }
         }
