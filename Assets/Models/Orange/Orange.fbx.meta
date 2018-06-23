@@ -1,38 +1,28 @@
 fileFormatVersion: 2
-guid: 55efdb116afa02940bed6a54b9480b99
+guid: 0a63ff35eff826044950e53eb520233d
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera front
-    100002: Camera front.Target
-    100004: Cylinder01
-    100006: Omni01
-    100008: Omni03
-    100010: Omni04
-    100012: //RootNode
-    400000: Camera front
-    400002: Camera front.Target
-    400004: Cylinder01
-    400006: Omni01
-    400008: Omni03
-    400010: Omni04
-    400012: //RootNode
-    2000000: Camera front
-    2100000: bubble
-    2300000: Cylinder01
-    3300000: Cylinder01
-    4300000: Cylinder01
-    7400000: Take 001
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Stub__Color_jpg
+    2100002: Skin__Color_jpg
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Orange
+    7400000: Default Take
     9500000: //RootNode
-    10800000: Omni01
-    10800002: Omni03
-    10800004: Omni04
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: bubble
-    second: {fileID: 2100000, guid: 024195709f2e15141ad57e423b8d9012, type: 2}
+      name: Skin__Color_jpg
+    second: {fileID: 2100000, guid: 5dcc930448da7ae4aa62e637e0bb46d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stub__Color_jpg
+    second: {fileID: 2100000, guid: b8ba381a29d85d14db84275cc08e5cef, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -88,7 +78,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

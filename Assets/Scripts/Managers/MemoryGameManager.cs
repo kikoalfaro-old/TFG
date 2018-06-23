@@ -18,9 +18,10 @@ public class MemoryGameManager : MonoBehaviour
     public Color emmisionColor;
     [SerializeField]
     public Color successColor;
+    public int colorMaterialIndex;
 
     public bool sendFlowchartMessageWhenGameEnds;
-    public MeshRenderer[] cubes;
+    MeshRenderer[] meshRenderers;
     Color originalColor;
 
     int totalCubes;
@@ -50,9 +51,10 @@ public class MemoryGameManager : MonoBehaviour
         // Get references
         secondsBetweenCubes = new WaitForSeconds(timeBetweenCubes);
         sound = GetComponent<AudioSource>();
-        //cubes = GetComponentsInChildren<MeshRenderer>();
-        originalColor = cubes[0].material.color;
-        totalCubes = cubes.Length;
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        Debug.Log(meshRenderers[0].materials[colorMaterialIndex].name);
+        originalColor = meshRenderers[0].materials[colorMaterialIndex].GetColor("_Color");
+        totalCubes = meshRenderers.Length;
     }
 
     private void OnEnable()
@@ -111,8 +113,8 @@ public class MemoryGameManager : MonoBehaviour
 
         foreach (var index in sequence)
         {
-            tweenSequence.Append(cubes[index].material.DOColor(emmisionColor, emissionTime))
-                .Append(cubes[index].material.DOColor(originalColor, emissionTime));
+            tweenSequence.Append(meshRenderers[index].materials[colorMaterialIndex].DOColor(emmisionColor, emissionTime))
+                .Append(meshRenderers[index].materials[colorMaterialIndex].DOColor(originalColor, emissionTime));
         }
     }
 
@@ -125,10 +127,10 @@ public class MemoryGameManager : MonoBehaviour
     void WellDoneSequence()
     {
         Sequence wellDoneSequence = DOTween.Sequence();
-        for (int i = 0; i < cubes.Length; i++)
+        for (int i = 0; i < meshRenderers.Length; i++)
         {
-            wellDoneSequence.Join(cubes[i].material.DOColor(successColor, 0.05f))
-                        .Join(cubes[i].material.DOColor(originalColor, 1f));
+            wellDoneSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(successColor, 0.05f))
+                        .Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
         }
         wellDoneSequence.OnComplete(CheckIfGameFinished);
     }
@@ -136,8 +138,8 @@ public class MemoryGameManager : MonoBehaviour
     Sequence TouchAnimation(int cubeIndex, Color color)
     {
         Sequence touchAnimationSequence = DOTween.Sequence();
-        touchAnimationSequence.Append(cubes[cubeIndex].material.DOColor(successColor, emissionTime))
-                .Append(cubes[cubeIndex].material.DOColor(originalColor, emissionTime));
+        touchAnimationSequence.Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(successColor, emissionTime))
+                .Append(meshRenderers[cubeIndex].materials[colorMaterialIndex].DOColor(originalColor, emissionTime));
         return touchAnimationSequence;
     }
 
@@ -156,6 +158,7 @@ public class MemoryGameManager : MonoBehaviour
             // Comprueba si ha acabado la partida
             if (currentIndex == currentLevel) //Ha llegado hasta el final del array --> Ha acertado todos en el orden correcto
             {
+                canTouch = false;
                 Debug.Log("CORRECTO!");
                 currentLevel++;
                 playedStages++;
@@ -171,10 +174,10 @@ public class MemoryGameManager : MonoBehaviour
 
             touchAnimationSequence.Complete();
             Sequence allRedsSequence = DOTween.Sequence();
-            for (int i = 0; i < cubes.Length; i++)
+            for (int i = 0; i < meshRenderers.Length; i++)
             {
-                allRedsSequence.Join(cubes[i].material.DOColor(emmisionColor, 0.05f))
-                            .Join(cubes[i].material.DOColor(originalColor, 1f));
+                allRedsSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(emmisionColor, 0.05f))
+                            .Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
             }
 
             allRedsSequence.OnComplete(GenerateNewSequence); //Si falla, se genera una nueva secuencia del mismo nivel
@@ -204,15 +207,12 @@ public class MemoryGameManager : MonoBehaviour
         {
             if (hit.collider.tag == "simonCube")
             {
-                for (int i = 0; i < cubes.Length; i++)
+                for (int i = 0; i < meshRenderers.Length; i++)
                 {
-                    if (cubes[i].gameObject == hit.collider.gameObject) return i;
+                    if (meshRenderers[i].gameObject == hit.collider.gameObject) return i;
                 }
             }
         }
         return -1;
     }
-
-
-
 }
