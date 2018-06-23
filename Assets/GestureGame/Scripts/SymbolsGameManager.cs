@@ -11,7 +11,8 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
 {
 
     public Difficulty difficulty; //Aquí selecciono la dificultad que quiero en este nivel concreto
-    
+
+    public ParticleSystem externalPS;
     // SCORE REFERENCES
     int score; // Puntuación total
     Text scoreText;
@@ -121,7 +122,10 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
                 symbolsInsideRange.Remove(symbolMov);
                 UpdateScore(symbolMov); //Se actualiza la puntuación final
                 successAudio.Play(); //Suena el sonido de acertado
-                Destroy(symbolMov.gameObject);
+                symbolMov.GetComponent<ParticleSystem>().Play();
+                externalPS.Play();
+                symbolMov.GetComponent<Image>().enabled = false; // Desactivo la imagen
+                Destroy(symbolMov.gameObject, 0.5f);
                 succededSymbols++;
                 //Debug.Log("Símbolo acertado!");
                 break; //Rompo para no alterar la lista en tiempo de ejecución (error) 
