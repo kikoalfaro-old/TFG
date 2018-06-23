@@ -505,11 +505,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 327846173}
     m_Modifications:
-    - target: {fileID: 23418360251007472, guid: 7024f9c7103fd0b499faec10419fdb97,
-        type: 2}
-      propertyPath: m_Materials.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4542344791436472, guid: 7024f9c7103fd0b499faec10419fdb97, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.004
@@ -572,11 +567,6 @@ Prefab:
       propertyPath: stages
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23418360251007472, guid: 7024f9c7103fd0b499faec10419fdb97,
-        type: 2}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1d25c0ce72e58124fa2d482e07c9fcd8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7024f9c7103fd0b499faec10419fdb97, type: 2}
   m_IsPrefabParent: 0
@@ -8952,7 +8942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: Game
-  value: Simon
+  value: Symbols
 --- !u!114 &1247721143
 MonoBehaviour:
   m_ObjectHideFlags: 0

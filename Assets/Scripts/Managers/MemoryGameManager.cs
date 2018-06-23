@@ -67,6 +67,7 @@ public class MemoryGameManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        Debug.Log("START GAME!");
         ResetGame();
         GenerateNewSequence();
     }

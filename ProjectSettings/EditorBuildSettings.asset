@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Serranos.unity
     guid: cb4238584287c824aad5c866cfe0340f
+  - enabled: 1
+    path: Assets/Scenes/ELEMENTOS DE INFO/Quart.unity
+    guid: 820f7606ffe11ff46958b682c8a05e56
   m_configObjects: {}
