@@ -18,6 +18,9 @@ public class MemoryGameManager : MonoBehaviour
     public Color emmisionColor;
     [SerializeField]
     public Color successColor;
+    [SerializeField]
+    public Color failureColor;
+
     public int colorMaterialIndex;
 
     public bool sendFlowchartMessageWhenGameEnds;
@@ -129,8 +132,8 @@ public class MemoryGameManager : MonoBehaviour
         Sequence wellDoneSequence = DOTween.Sequence();
         for (int i = 0; i < meshRenderers.Length; i++)
         {
-            wellDoneSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(successColor, 0.05f))
-                        .Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
+            wellDoneSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(successColor, emissionTime))
+                        .Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
         }
         wellDoneSequence.OnComplete(CheckIfGameFinished);
     }
@@ -176,8 +179,8 @@ public class MemoryGameManager : MonoBehaviour
             Sequence allRedsSequence = DOTween.Sequence();
             for (int i = 0; i < meshRenderers.Length; i++)
             {
-                allRedsSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(emmisionColor, 0.05f))
-                            .Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, 1f));
+                allRedsSequence.Join(meshRenderers[i].materials[colorMaterialIndex].DOColor(failureColor, emissionTime))
+                            .Append(meshRenderers[i].materials[colorMaterialIndex].DOColor(originalColor, emissionTime));
             }
 
             allRedsSequence.OnComplete(GenerateNewSequence); //Si falla, se genera una nueva secuencia del mismo nivel
