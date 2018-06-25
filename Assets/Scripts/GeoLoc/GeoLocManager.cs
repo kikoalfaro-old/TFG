@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+[Serializable]
 public class Area
 {
     public string name;
@@ -239,9 +239,9 @@ public class GeoLocManager : MonoBehaviour
 
         // Si no estoy en la escena por defecto pero no estoy dentro del área, cargar la escena por defecto
         else if(!PointInsideArea(currentCoords, currentArea)){
-            //sceneController.FadeAndLoadScene(defaultArea.name);            
+            sceneController.FadeAndLoadScene(defaultArea.name);            
             currentArea = defaultArea;
-            OnAreaChanges();
+            if(OnAreaChanges != null) OnAreaChanges();
         }
     }
 

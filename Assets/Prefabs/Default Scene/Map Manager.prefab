@@ -222,6 +222,9 @@ MonoBehaviour:
     - {r: 0.9803922, g: 0.3372549, b: 0.3372549, a: 1}
     - {r: 0.9803922, g: 0.87843144, b: 0.3372549, a: 1}
     - {r: 0, g: 0.6784314, b: 0.63529414, a: 1}
+  statusImage:
+    m_keys: 
+    m_values: []
   areaImages:
     m_keys:
     - Norte
@@ -241,6 +244,14 @@ MonoBehaviour:
     - {fileID: 114153268377116380}
     - {fileID: 0}
     - {fileID: 0}
+  currentPosImg: {fileID: 0}
+  percentageCircle: {fileID: 0}
+  percentageText: {fileID: 0}
+  percentageTextAnim: {fileID: 0}
+  currentAreaText: {fileID: 0}
+  starsPS: {fileID: 0}
+  timeToSpawnStars: 0
+  animationTime: 0
 --- !u!114 &114170077291048652
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -499,8 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6552f4207baf4f4b85c52cd4ab2400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICamera: {fileID: 0}
-  ARCamera: {fileID: 2108981162}
 --- !u!4 &693866116
 Transform:
   m_ObjectHideFlags: 0
@@ -3230,8 +3228,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1247721045}
+  selectedCommands:
+  - {fileID: 1247721044}
   variables:
   - {fileID: 1247721179}
   - {fileID: 1247721182}

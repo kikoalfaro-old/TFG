@@ -317,11 +317,11 @@ MonoBehaviour:
       para el transcurso hist\xF3rico de la humanidad.\n\nPero, \xA1qu\xE9 voy a saber
       yo! \xA1El m\xF3dulo de emociones nost\xE1lgicas est\xE1 todav\xEDa en desarrollo!\n\nEs
       por eso que he sido enviado clandestinamente a donde estamos ahora mismo, a
-      Valencia (2018). Mi misi\xF3n es hallar y recomponer toda la informaci\xF3n
+      Valencia (2018).\n\nMi misi\xF3n es hallar y recomponer toda la informaci\xF3n
       perdida a lo largo de los siglos.\n\n\xA1Vaya responsabilidad para un simple
       robot! ... \xA1Lo es! Es por eso que junto a m\xED, se cre\xF3 el comunicador
       que tienes frente a ti.\n\nEl transmisor me permite comunicarme con la persona
-      elegida para rescatar toda esta informaci\xF3n. \xBFQue por qu\xE9 me haces
+      elegida para rescatar toda esta informaci\xF3n.\n\n\xBFQue por qu\xE9 me haces
       falta? \xA1Es sencillo!\n\n... \xA1\xBFME HAS VISTO ALGO PARECIDO A UNAS PIERNAS?!
       \xA1Solo escaneo lugares, pero no tengo la capacidad para alcanzarlos f\xEDsicamente!\n\n\xBFTe
       gustar\xEDa ayudarnos en la misi\xF3n de recuperar los datos culturales desaparecidos?\n\n"
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 35.20752, y: 62.97696}
+  scrollPos: {x: 104.20752, y: 25.97696}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 200

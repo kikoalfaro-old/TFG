@@ -840,8 +840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6552f4207baf4f4b85c52cd4ab2400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICamera: {fileID: 0}
-  ARCamera: {fileID: 2108981162}
 --- !u!4 &693866116
 Transform:
   m_ObjectHideFlags: 0
@@ -1947,7 +1945,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1196.4084
     y: 162.22047
-    width: 151.21948
+    width: 156.81815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2124,7 +2122,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1775.9192
     y: 200.10983
-    width: 143.9024
+    width: 144.31815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2187,7 +2185,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1768.9119
     y: 133.30304
-    width: 143.9024
+    width: 144.31815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2250,7 +2248,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1773.5149
     y: 68.20578
-    width: 143.9024
+    width: 144.31815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2595,7 +2593,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1540.5759
     y: 116.92856
-    width: 164.6341
+    width: 169.31815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2677,7 +2675,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 896.7446
     y: 100.520004
-    width: 139.02435
+    width: 144.31815
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2938,7 +2936,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1379.8795
     y: 56.431698
-    width: 129.26826
+    width: 128.40907
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2990,7 +2988,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1991.5966
     y: 79.433014
-    width: 153.65851
+    width: 142.04544
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3780,7 +3778,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 720.5958
     y: 141.37628
-    width: 125.609726
+    width: 124.99998
     height: 40
   tint: {r: 1, g: 0.9564972, b: 0.4669811, a: 1}
   useCustomTint: 1
@@ -3893,7 +3891,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 194.94829
     y: 100.037
-    width: 158.53654
+    width: 160.22723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3954,11 +3952,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -1152.4658, y: 136.63628}
+  scrollPos: {x: -1054.909, y: 60.17169}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 464
-  zoom: 0.8200003
+  zoom: 0.88000023
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -3967,7 +3965,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1247721048}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1247721047}
   variables:
   - {fileID: 1247721179}
   - {fileID: 1247721182}
@@ -4044,7 +4043,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 854.2445
     y: -194.9236
-    width: 148.78046
+    width: 147.72725
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4114,7 +4113,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -58.43863
     y: 13.898506
-    width: 179.26825
+    width: 178.40906
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4183,7 +4182,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -270.25198
     y: 45.645363
-    width: 157.31703
+    width: 145.45453
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5189,7 +5188,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1340.8273
     y: -150.21413
-    width: 136.58533
+    width: 140.90906
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5784,7 +5783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1521695393
 Transform:
   m_ObjectHideFlags: 0
@@ -6078,7 +6077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2027619666
 Transform:
   m_ObjectHideFlags: 0
