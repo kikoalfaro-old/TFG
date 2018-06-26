@@ -5,13 +5,8 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-
 [Serializable]
-public class DifficultyLeveDictionary : SerializableDictionary<Difficulty, Level> {}
-// Diccionario de correspondencia Difficulty --> Level
-
-[Serializable]
-public enum Difficulty { Easy, Normal, Hard, Extreme }
+public enum Difficulty { Easy, Medium, Hard, Extreme }
 
 [Serializable]
 public struct SymbolSpawningPoint
@@ -32,7 +27,7 @@ public struct SymbolSpawningPoint
 
 
 [Serializable]
-public class Level
+public class SymbolsLevel
 {
     [Header("Symbol speed parameters")]
     public float symbolMinSpeed;
@@ -57,7 +52,7 @@ public class Level
 // Sólo vamos a usar esta clase como almacén de datos
 public class SymbolsGameInfo : ScriptableObject
 {
-    public DifficultyLeveDictionary levelsInfo = new DifficultyLeveDictionary();
+    public DifficultySymbolsLevelDictionary levelsInfo = new DifficultySymbolsLevelDictionary();
 
     private static SymbolsGameInfo instance;              // The singleton instance.
 
@@ -90,7 +85,7 @@ public class SymbolsGameInfo : ScriptableObject
     }
 #endif
 
-    public static Level GetLevel(Difficulty difficulty)
+    public static SymbolsLevel GetLevel(Difficulty difficulty)
     {
         return Instance.levelsInfo[difficulty]; //Devuelve la información del nivel de la dificultad dada
     }

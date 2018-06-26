@@ -14,24 +14,6 @@ using System;
 
 public class MemoryGameManager : MonoBehaviour
 {
-    // Parámetros del juego    
-    [Header("Game Parameters")]
-    public int initialLevel = 2; //Indica los elementos a pulsar seguidos (habrá que hacer el temporizador en función a esto también)
-    public int stages; // Número de rondas de juego
-    int playedStages;
-    int currentLevel;
-    int currentIndex = 0; // Índice en el que está comprobando si se ha pulsado (En array "combinación")
-    int[] sequence;
-    bool[] hitCubes;
-
-
-
-    public bool sendFlowchartMessageWhenGameEnds;
-    MeshRenderer[] meshRenderers;
-    Color originalColor;
-
-    int totalCubes;
-    bool canTouch = false;
 
     [Space]
     [Header("Sequence animation")]
@@ -45,6 +27,22 @@ public class MemoryGameManager : MonoBehaviour
     public int timeBetweenCubes = 2; // Intervalo de tiempo entre que un cubo se ilumina y el siguiente
     public int colorMaterialIndex;
 
+    //public Difficulty difficulty;
+    MemoryLevel level;
+
+    int playedStages;
+    int currentLevel;
+    int currentIndex = 0; // Índice en el que está comprobando si se ha pulsado (En array "combinación")
+    int[] sequence;
+    bool[] hitCubes;
+
+    public bool sendFlowchartMessageWhenGameEnds;
+    MeshRenderer[] meshRenderers;
+    Color originalColor;
+
+    int totalCubes;
+    bool canTouch = false;
+
     [Space]
     public float punchScaleIntesity;
     public float punchScaleTime;
@@ -52,11 +50,19 @@ public class MemoryGameManager : MonoBehaviour
 
     AudioSource sound;
 
-    void Awake()
+    private void OnEnable()
+    {
+        LevelSetup();
+        StartNewGame();
+    }
+
+    private void LevelSetup()
     {
         DOTween.Init();
 
         // Get references
+        level = MemoryGameInfo.GetLevel(GameManager.Instance.GetCurrentDifficulty());
+
         secondsBetweenCubes = new WaitForSeconds(timeBetweenCubes);
         sound = GetComponent<AudioSource>();
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
@@ -74,13 +80,13 @@ public class MemoryGameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        currentLevel = initialLevel;
+        currentLevel = level.initialLevel;
         playedStages = 0;
     }
 
     bool GameFinished()
     {
-        return playedStages == stages;
+        return playedStages == level.stages;
     }
 
     void CheckIfGameFinished()

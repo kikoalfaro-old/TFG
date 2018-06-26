@@ -10,8 +10,6 @@ using DG.Tweening;
 public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
 {
 
-    public Difficulty difficulty; //Aquí selecciono la dificultad que quiero en este nivel concreto
-
     public ParticleSystem externalPS;
     // SCORE REFERENCES
     int score; // Puntuación total
@@ -22,7 +20,7 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
     WaitForSeconds timeBetweenSymbols;
     int spawnedSymbols; // Cantidad de símbolos spawneados en este momento
     int succededSymbols;
-    Level level; // Info del nivel actual
+    SymbolsLevel level; // Info del nivel actual
 
     List<SymbolMovement> symbolsInsideRange; //Símbolos que están dentro de algún rango
     AudioSource successAudio;
@@ -32,6 +30,11 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
     private void OnEnable()
     {
         LevelSetup();
+        StartNewGame(); // Esto puede ser accedido desde fuera para tener más control
+    }
+
+    public void StartNewGame()
+    {
         StartCoroutine("SpawnSymbol");
     }
 
@@ -42,7 +45,7 @@ public class SymbolsGameManager : MonoBehaviour /*, IPointerDownHandler */
         succededSymbols = 0;
         score = 0;
 
-        level = SymbolsGameInfo.GetLevel(difficulty); //Cojo la info del nivel de dificultad que quiero
+        level = SymbolsGameInfo.GetLevel(GameManager.Instance.GetCurrentDifficulty()); //Cojo la info del nivel de dificultad que quiero
         timeBetweenSymbols = new WaitForSeconds(level.timeBetweenSymbols);
         symbolsInsideRange = new List<SymbolMovement>();
 

@@ -18,3 +18,9 @@ public class AreaStatusSpriteDictionary : SerializableDictionary<AreaStatus, Spr
 
 [Serializable]
 public class StringImageDictionary : SerializableDictionary<string, Image> { }
+
+[Serializable]
+public class DifficultySymbolsLevelDictionary : SerializableDictionary<Difficulty, SymbolsLevel> { }
+
+[Serializable]
+public class DifficultyMemoryLevelDictionary : SerializableDictionary<Difficulty, MemoryLevel> { }

@@ -86,8 +86,21 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
         completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
 
+        SetCurrentDifficulty();
         // Actualizo la leaderboard con el porcentaje completado
         GPGSManager.Instance.AddScoreLeaderBoard(completedPercentage);
+    }
+
+
+    // OJO: Este método ahora mismo depende del porcentaje completado, NO del número de áreas completado.
+    // Esto quiere decir que si se visitan todas pero no se completan, será más difícil.
+    // ¿Cómo debería quedar? ... Así es más hardcore xD
+    private void SetCurrentDifficulty()
+    {
+        if (completedPercentage < 25) GameManager.Instance.currentDifficulty = Difficulty.Easy;
+        else if (completedPercentage < 50) GameManager.Instance.currentDifficulty = Difficulty.Medium;
+        else if (completedPercentage < 50) GameManager.Instance.currentDifficulty = Difficulty.Hard;
+        else GameManager.Instance.currentDifficulty = Difficulty.Extreme;
     }
 
     /// <summary>

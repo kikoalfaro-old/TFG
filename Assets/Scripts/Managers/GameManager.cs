@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public DebugButtonGenerator generator;
     List<Area> allAreas;
+    public Difficulty currentDifficulty = Difficulty.Easy;
 
     SaveManager saveManager;
     GameData gameData; // Aquí es donde se almacenará toda la información de los estados de las áreas
@@ -166,8 +167,7 @@ public class GameManager : MonoBehaviour
     {
         return gameData.areasStatus[area.name] == AreaStatus.Locked;
     }
-
-
+    
     public void ResetAllStatus()
     {
         PlayerPrefs.SetInt("FirstTime", 0); // Se ve también el tutorial la próxima vez que se inicia
@@ -193,5 +193,10 @@ public class GameManager : MonoBehaviour
     public List<Area> GetAllAreas()
     {
         return allAreas;
+    }
+
+    public Difficulty GetCurrentDifficulty()
+    {
+        return currentDifficulty;
     }
 }

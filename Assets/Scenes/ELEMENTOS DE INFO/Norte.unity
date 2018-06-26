@@ -555,6 +555,11 @@ Prefab:
       propertyPath: stages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114392453832670136, guid: 7024f9c7103fd0b499faec10419fdb97,
+        type: 2}
+      propertyPath: difficulty
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7024f9c7103fd0b499faec10419fdb97, type: 2}
   m_IsPrefabParent: 0
