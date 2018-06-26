@@ -6,16 +6,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static string defaultAreaName = "Default";
-    public DebugButtonGenerator generator;
+    public static string defaultAreaName = "Default"; // Nombre del área por defecto
+    [Range(0, 75)]
+    public float unknownAreasPercentage = 25f; // Porcentaje de áreas que están en estado desconocido al inicio de una partida
+    public AreaStatus unlockStatus = AreaStatus.Available;
+    public string URL = "https://firestore.googleapis.com/v1beta1/projects/tfg-kiko-web/databases/(default)/documents/Areas";
+
 
     private static GameManager instance = null;
 
     GeoLocManager geoLocManager; // Actualiza coordenadas, y llama a la carga escenas...
                                  //public GeoLocData geoLocData; // Datos de las áreas
 
-    public string URL = "https://firestore.googleapis.com/v1beta1/projects/tfg-kiko-web/databases/(default)/documents/Areas";
 
+    public DebugButtonGenerator generator;
     List<Area> allAreas;
 
     SaveManager saveManager;
@@ -153,8 +157,14 @@ public class GameManager : MonoBehaviour
     {
         gameData.areasStatus[geoLocManager.GetCurrentArea().name] = newStatus; // SUPONGAMOS QUE ASÍ SE ASIGNA UN VALOR A UNA CLAVE
         gameData.UpdateCompletedPercentage(); // Actualizamos porcentaje completado
+        if (newStatus == unlockStatus) gameData.UnlockRandomArea();
         SaveGame(gameData); // Guardamos el juego después de actualizar el estado
         Debug.Log("Area status updated and game saved");
+    }
+    
+    public bool IsAreaLocked(Area area)
+    {
+        return gameData.areasStatus[area.name] == AreaStatus.Locked;
     }
 
 

@@ -658,8 +658,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033da921da392864ca535f77cea1eb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generator: {fileID: 1989508008}
+  unknownAreasPercentage: 25
+  unlockStatus: 3
   URL: https://firestore.googleapis.com/v1beta1/projects/tfg-kiko-web/databases/(default)/documents/Areas
+  generator: {fileID: 1989508008}
 --- !u!4 &703524738
 Transform:
   m_ObjectHideFlags: 0

@@ -1656,6 +1656,8 @@ GameObject:
   - component: {fileID: 1247721222}
   - component: {fileID: 1247721224}
   - component: {fileID: 1247721223}
+  - component: {fileID: 1247721226}
+  - component: {fileID: 1247721225}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -3835,7 +3837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -768.4265, y: 61.808403}
+  scrollPos: {x: 216.67967, y: 190.53183}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 291
@@ -3847,8 +3849,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1247721048}
-  selectedCommands: []
+  - {fileID: 1247721133}
+  selectedCommands:
+  - {fileID: 1247721225}
   variables:
   - {fileID: 1247721179}
   - {fileID: 1247721182}
@@ -3938,6 +3941,8 @@ MonoBehaviour:
   - {fileID: 1247721146}
   - {fileID: 1247721144}
   - {fileID: 1247721145}
+  - {fileID: 1247721226}
+  - {fileID: 1247721225}
   - {fileID: 1247721132}
   - {fileID: 1247721131}
 --- !u!114 &1247721134
@@ -5822,6 +5827,46 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   durationOLD: 0
+--- !u!114 &1247721225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 467
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 1177825020}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1247721226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247721029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 466
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 1690887667}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
 --- !u!1 &1252959585
 GameObject:
   m_ObjectHideFlags: 0

@@ -188,7 +188,7 @@ Prefab:
     - target: {fileID: 224577174232893206, guid: d478fbcbe14baca46975fbb95ee0e075,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224577174232893206, guid: d478fbcbe14baca46975fbb95ee0e075,
         type: 2}
@@ -786,7 +786,7 @@ RectTransform:
   m_Children:
   - {fileID: 1916404537}
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5753,7 +5753,7 @@ Transform:
   m_Children:
   - {fileID: 168690087}
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!199 &434529454
 ParticleSystemRenderer:
@@ -10356,7 +10356,7 @@ GameObject:
   - component: {fileID: 661197311}
   - component: {fileID: 661197313}
   m_Layer: 5
-  m_Name: NotZoneText
+  m_Name: NotAreaText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10608,6 +10608,100 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 812913598}
+--- !u!1 &853751560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 853751561}
+  - component: {fileID: 853751564}
+  - component: {fileID: 853751563}
+  - component: {fileID: 853751562}
+  m_Layer: 5
+  m_Name: LockedAreaText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &853751561
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853751560}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999526, y: 0.9999526, z: 0.9999526}
+  m_Children: []
+  m_Father: {fileID: 1650811047}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.99993896, y: 59.99991}
+  m_SizeDelta: {x: -188.90002, y: 323.7}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!95 &853751562
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853751560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76239cdcc1d76fe429a231c3d225805e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &853751563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853751560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 6868ef9141b4eba4b97570c3f40b69c2, type: 3}
+    m_FontSize: 39
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 49
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Zona bloqueada temporalmente.\n\n\n\xA1Completa el resto de zonas para
+    poder acceder a ella!"
+--- !u!222 &853751564
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853751560}
 --- !u!1 &950925184
 GameObject:
   m_ObjectHideFlags: 0
@@ -10745,7 +10839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00022888, y: -44.95}
+  m_AnchoredPosition: {x: -0.00022888, y: -44.949997}
   m_SizeDelta: {x: 631.5, y: 89.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055755997
@@ -10964,7 +11058,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000455, y: 1.0000455, z: 1.0000455}
   m_Children: []
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -11119,7 +11213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadCanvas: {fileID: 1718721640}
-  notZoneText: {fileID: 661197309}
+  notAreaText: {fileID: 661197309}
+  lockedAreaText: {fileID: 853751560}
 --- !u!1 &1650811043
 GameObject:
   m_ObjectHideFlags: 0
@@ -11211,6 +11306,7 @@ RectTransform:
   - {fileID: 1087917721}
   - {fileID: 1718721641}
   - {fileID: 661197310}
+  - {fileID: 853751561}
   - {fileID: 85817635}
   - {fileID: 2101414309}
   - {fileID: 1766008260}
@@ -11320,7 +11416,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1650811047}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}

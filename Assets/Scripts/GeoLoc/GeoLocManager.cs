@@ -221,8 +221,9 @@ public class GeoLocManager : MonoBehaviour
         {
             for (int i = 0; i < allAreas.Count; i++)
             {
-                if (allAreas[i].Equals(currentArea)) continue; //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
-                // SE SUPONE QUE POR EL COMPARER, LOS OBJETOS SE DEBEN COMPARAR BIEN (Da igual que sean instancias diferentes)
+                if (allAreas[i].Equals(currentArea)) continue;
+                //Si es la misma, pasa a la siguiente itereación (ya hemos visto que en esta no está)
+                //Si no es la misma, pero está bloqueada, lo mismo.
 
                 if (PointInsideArea(currentCoords, allAreas[i]))
                 {

@@ -7,7 +7,8 @@ using UnityEngine;
 public class DefaultAreaManager : MonoBehaviour {
 
     public GameObject loadCanvas;
-    public GameObject notZoneText;
+    public GameObject notAreaText;
+    public GameObject lockedAreaText;
     private SceneController sceneController;    // Reference to the SceneController to actually do the loading and unloading of scenes.
     private GeoLocManager geoLocManager;
 
@@ -36,14 +37,27 @@ public class DefaultAreaManager : MonoBehaviour {
     private void SetLoadCanvas()
     {
         Debug.Log("When area changes, set load canvas ");
-        if(geoLocManager.GetCurrentArea().name != GameManager.defaultAreaName)
+        Area currentArea = geoLocManager.GetCurrentArea();
+        if (currentArea.name != GameManager.defaultAreaName)
         {
-            loadCanvas.SetActive(true);
-            notZoneText.SetActive(false);
+            if (!GameManager.Instance.IsAreaLocked(currentArea)) // Si no está bloqueada, que salga el botón de entrar en el área
+            {
+                lockedAreaText.SetActive(false);
+                loadCanvas.SetActive(true);
+                notAreaText.SetActive(false);
+            }
+            else // Si está bloqueada, que salga otro texto informando
+            {
+                lockedAreaText.SetActive(true);
+                loadCanvas.SetActive(false);
+                notAreaText.SetActive(false);
+            }
+
         } else
         {
+            lockedAreaText.SetActive(false);
             loadCanvas.SetActive(false);
-            notZoneText.SetActive(true);
+            notAreaText.SetActive(true);
         }
     }
 

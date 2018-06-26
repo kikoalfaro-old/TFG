@@ -4,25 +4,45 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using SimpleJSON;
+using System.Linq;
 
 [Serializable]
-public enum AreaStatus { Unknown, Available, Visited, Completed };
+public enum AreaStatus { Locked, Available, Visited, Completed };
 
 [Serializable]
 public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuación (dado el caso)
 {
     public int completedPercentage;
     public Dictionary<string, AreaStatus> areasStatus;
+    List<string> lockedAreas;
 
     public GameData(List<Area> allAreas)
     {
         areasStatus = new Dictionary<string, AreaStatus>();
+        lockedAreas = new List<string>();
         Debug.Log("Creating new gameData object...  " + allAreas);
+
+        int unknownAmount = Mathf.CeilToInt(allAreas.Count * (GameManager.Instance.unknownAreasPercentage / 100f)); // Número de áreas unknown (a la alza)
         foreach (Area area in allAreas)
         {
             if (area.name == GameManager.defaultAreaName) continue;
-            areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+
+            areasStatus.Add(area.name, AreaStatus.Available); // Creamos el nuevo diccionario de estados
         }
+
+        int unknownAreas = unknownAmount;
+        while(unknownAreas > 0)
+        {
+            string areaToChange = areasStatus.ElementAt(UnityEngine.Random.Range(0, areasStatus.Count-1)).Key;
+            if (areasStatus[areaToChange] == AreaStatus.Available)
+            {
+                areasStatus[areaToChange] = AreaStatus.Locked;
+                lockedAreas.Add(areaToChange); //Añado el nombre del área para acceder a ella rápido
+                Debug.Log("--> Cambiada el área " + areaToChange + " a Unknown");
+                unknownAreas--;
+            }
+        }
+
 
         completedPercentage = 0; //Reinicio el porcentaje completado
     }
@@ -31,7 +51,7 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
     {
         if (area.name != GameManager.defaultAreaName)
         {
-            areasStatus.Add(area.name, AreaStatus.Unknown); // Creamos el nuevo diccionario de estados
+            areasStatus.Add(area.name, AreaStatus.Available); // Creamos el nuevo diccionario de estados
             UpdateCompletedPercentage();
         }
     }
@@ -70,6 +90,19 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
         GPGSManager.Instance.AddScoreLeaderBoard(completedPercentage);
     }
 
+    /// <summary>
+    /// En caso de que queden áreas bloquedas, se desbloquea un área aleatoriamente y se quita de la lista
+    /// </summary>
+    public void UnlockRandomArea()
+    {
+        if(lockedAreas.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, lockedAreas.Count - 1);
+            string areaToUnlock = lockedAreas[randomIndex];
+            areasStatus[areaToUnlock] = AreaStatus.Available;
+            lockedAreas.Remove(areaToUnlock);
+        }
+    }
 }
 
 
