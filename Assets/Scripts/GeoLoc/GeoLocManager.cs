@@ -231,8 +231,7 @@ public class GeoLocManager : MonoBehaviour
                     {
                         currentArea = allAreas[i]; // ESTO DEBE IR AQUÍ. (Evita que se actualice área sin estar disponible la nueva escena para cargar)
                         OnAreaChanges(); //Llamamos al evento e informamos al DefaultAreaManager que se prepare para cargar la nueva escena
-                    }
-                        
+                    }                        
                     break;
                 }
             } //Si llega al final y no la ha actualizado, se quedará en área por defecto            

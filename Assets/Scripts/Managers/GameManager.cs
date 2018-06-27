@@ -11,13 +11,11 @@ public class GameManager : MonoBehaviour
     public float unknownAreasPercentage = 25f; // Porcentaje de áreas que están en estado desconocido al inicio de una partida
     public AreaStatus unlockStatus = AreaStatus.Available;
     public string URL = "https://firestore.googleapis.com/v1beta1/projects/tfg-kiko-web/databases/(default)/documents/Areas";
-
-
+    
     private static GameManager instance = null;
 
     GeoLocManager geoLocManager; // Actualiza coordenadas, y llama a la carga escenas...
                                  //public GeoLocData geoLocData; // Datos de las áreas
-
 
     public DebugButtonGenerator generator;
     List<Area> allAreas;
@@ -59,7 +57,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
     }
-
 
     IEnumerator Start() // Cuidado con el GeoLocManager! (Plantearse Awake...)
     {
@@ -156,6 +153,8 @@ public class GameManager : MonoBehaviour
 
     public void UpdateCurrentAreaStatus(AreaStatus newStatus)
     {
+        // La primera vez que se completa un área, se desbloquea un logro!
+        if (newStatus == AreaStatus.Completed) GPGSManager.Instance.AchievementAccomplished(GPGSIds.achievement_madera_de_explorador);
         gameData.areasStatus[geoLocManager.GetCurrentArea().name] = newStatus; // SUPONGAMOS QUE ASÍ SE ASIGNA UN VALOR A UNA CLAVE
         gameData.UpdateCompletedPercentage(); // Actualizamos porcentaje completado
         if (newStatus == unlockStatus) gameData.UnlockRandomArea();

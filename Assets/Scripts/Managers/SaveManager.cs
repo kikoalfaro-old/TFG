@@ -43,8 +43,8 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
             }
         }
 
-
         completedPercentage = 0; //Reinicio el porcentaje completado
+        GPGSManager.Instance.UpdateScoreLeaderBoard(completedPercentage, GPGSIds.leaderboard_progreso);
     }
 
     public void AddArea(Area area)
@@ -88,7 +88,7 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
         SetCurrentDifficulty();
         // Actualizo la leaderboard con el porcentaje completado
-        GPGSManager.Instance.AddScoreLeaderBoard(completedPercentage);
+        GPGSManager.Instance.UpdateScoreLeaderBoard(completedPercentage, GPGSIds.leaderboard_progreso);
     }
 
 

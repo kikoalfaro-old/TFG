@@ -25,6 +25,7 @@
 public static class GPGSIds
 {
         public const string leaderboard_progreso = "CgkIzavY_vQREAIQAQ"; // <GPGSID>
+        public const string achievement_erudito_monumental = "CgkIzavY_vQREAIQAw"; // <GPGSID>
         public const string achievement_madera_de_explorador = "CgkIzavY_vQREAIQAg"; // <GPGSID>
 
 }

@@ -56,6 +56,7 @@ public class AreaLocalStatus : MonoBehaviour
     public void DisconnectButton()
     {
         Flowchart.BroadcastFungusMessage("Disconnect");
+        GPGSManager.Instance.ShowButtons();
         sceneReaction.ChangeScene();
     }
 

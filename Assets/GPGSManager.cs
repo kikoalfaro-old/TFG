@@ -6,8 +6,14 @@ using UnityEngine.UI;
 
 public class GPGSManager : MonoBehaviour
 {
-
-    public Text debugText;
+    [Header("Button parameters")]
+    public GameObject GPGSButtons;
+    Image[] buttonImages;
+    public Color enabledColor;
+    public Color disabledColor;
+    [Space]
+    public Text signInButtonText;
+    public Text authStatus;
 
     private static GPGSManager instance = null;
 
@@ -42,47 +48,69 @@ public class GPGSManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
     }
+
     void Start()
     {
+        buttonImages = GPGSButtons.GetComponentsInChildren<Image>();
 
-        //// AÑADIDO (Sin esto, funciona bien)
         // Create client configuration
         PlayGamesClientConfiguration config = new
             PlayGamesClientConfiguration.Builder()
             .Build();
 
-        // recommended for debugging:
+        // Enable debugging output (recommended)
         PlayGamesPlatform.DebugLogEnabled = true;
 
-        PlayGamesPlatform.InitializeInstance(config); //Añadido
-
-        // Activate the Google Play Games platform
+        // Initialize and activate the platform
+        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
 
-        LogIn();
+        PlayGamesPlatform.Instance.Authenticate(SignInCallback, true);
     }
 
-    private void Update()
+    public void SignIn()
     {
-        debugText.text = PlayGamesPlatform.Instance.localUser.authenticated.ToString();
-    }
-
-    /// <summary>
-    /// Make Login and manage the succes or failure
-    /// </summary>
-    public void LogIn()
-    {
-        Social.localUser.Authenticate((bool success) =>
+        if (!PlayGamesPlatform.Instance.localUser.authenticated)
         {
-            if (success)
-            {
-                Debug.Log("Login Sucess");
-            }
-            else
-            {
-                Debug.Log("Login failed");
-            }
-        });
+            // Sign in with Play Game Services, showing the consent dialog
+            // by setting the second parameter to isSilent=false.
+            PlayGamesPlatform.Instance.Authenticate(SignInCallback, false);
+        }
+        else
+        {
+            // Sign out of play games
+            PlayGamesPlatform.Instance.SignOut();
+
+            // Reset UI
+            //signInButtonText.text = "Sign In";
+            //authStatus.text = "";
+        }
+    }
+
+    public void SignInCallback(bool success)
+    {
+        if (success)
+        {
+            Debug.Log("(Lollygagger) Signed in!");
+
+            // Change sign-in button text
+            //signInButtonText.text = "Sign out";
+
+            // Show the user's name
+            //authStatus.text = "Signed in as: " + Social.localUser.userName;
+
+            SwitchButtonColors(enabledColor);
+        }
+        else
+        {
+            Debug.Log("(Lollygagger) Sign-in failed...");
+
+            // Show failure message
+            //signInButtonText.text = "Sign in";
+            //authStatus.text = "Sign-in failed";
+
+            SwitchButtonColors(disabledColor);
+        }
     }
 
     /// <summary>
@@ -97,14 +125,26 @@ public class GPGSManager : MonoBehaviour
         else Debug.Log("Not autenticated");
     }
 
+    public void ShowAchievements()
+    {
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowAchievementsUI();
+        }
+        else
+        {
+            Debug.Log("Cannot show Achievements, not logged in");
+        }
+    }
+
     /// <summary>
-    /// Adds score to Leaderboard
+    /// Updates score on Leaderboard
     /// </summary>
-    public void AddScoreLeaderBoard(int score)
+    public void UpdateScoreLeaderBoard(int score, string leaderboardTokenID)
     {
         if (Social.localUser.authenticated)
         {
-            Social.ReportScore(score, GPGSIds.leaderboard_progreso, (bool success) =>
+            Social.ReportScore(score, leaderboardTokenID, (bool success) =>
             {
                 if (success)
                 {
@@ -124,18 +164,36 @@ public class GPGSManager : MonoBehaviour
     /// <param name="achievement">Token of achievement (GPGSIds)</param>
     public void AchievementAccomplished(string achievement)
     {
-        Social.ReportProgress(achievement, 200.0f, (bool success) =>
+        if (Social.localUser.authenticated)
         {
-            // handle success or failure
-            if (success)
+            Social.ReportProgress(achievement, 200.0f, (bool success) =>
             {
-                Debug.Log("Achievement update Succeeded");
-            }
-            else
-            {
-                Debug.Log("Achievement update Fail");
-            }
-        });
+                // handle success or failure
+                if (success)
+                {
+                    Debug.Log("Achievement update Succeeded");
+                }
+                else
+                {
+                    Debug.Log("Achievement update Fail");
+                }
+            });
+        }
+    }
+
+    /// <summary>
+    /// Para logros acumulativos
+    /// </summary>
+    /// <param name="achievement"></param>
+    public void AchievementIncremented(string achievement)
+    {
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.IncrementAchievement(achievement, 1, (bool success) =>
+              {
+                  Debug.Log("(Lollygagger) Sharpshooter Increment: " + success);
+              });
+        }
     }
 
     /// <summary>
@@ -146,4 +204,26 @@ public class GPGSManager : MonoBehaviour
         ((PlayGamesPlatform)Social.Active).SignOut();
     }
 
+
+    #region UI
+
+    void SwitchButtonColors(Color newColor)
+    {
+        foreach (Image img in buttonImages)
+        {
+            img.color = newColor;
+        }
+    }
+
+    public void ShowButtons()
+    {
+        GPGSButtons.SetActive(true);        
+    }
+
+    public void HideButtons()
+    {
+        GPGSButtons.SetActive(false);
+    }
+
+    #endregion
 }

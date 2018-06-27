@@ -20,6 +20,8 @@ public class DefaultAreaManager : MonoBehaviour {
             throw new UnityException("Scene Controller could not be found, ensure that it exists in the Persistent scene.");
 
         if (geoLocManager.GetCurrentArea() != null)  SetLoadCanvas();
+
+        GPGSManager.Instance.ShowButtons();
     }
 
     // Antes del start si por defecto está activo cuando se carga la escena
@@ -64,6 +66,7 @@ public class DefaultAreaManager : MonoBehaviour {
     // Esto se llama desde el botón para cargar la nueva escena. --> Imita SceneReaction
     public void LoadNewArea()
     {
+        GPGSManager.Instance.HideButtons();
         string sceneName = geoLocManager.GetCurrentArea().name;
         string startingPointInLoadedScene = sceneName; // Por claridad
 
