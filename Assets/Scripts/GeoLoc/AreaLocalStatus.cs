@@ -14,7 +14,7 @@ public class AreaLocalStatus : MonoBehaviour
     }
     */
 
-    SceneReaction sceneReaction;
+    SceneReaction sceneReaction; // Esto habría que cribarlo...
 
     private void Start()
     {
@@ -56,7 +56,6 @@ public class AreaLocalStatus : MonoBehaviour
     public void DisconnectButton()
     {
         Flowchart.BroadcastFungusMessage("Disconnect");
-        GPGSManager.Instance.ShowButtons();
         sceneReaction.ChangeScene();
     }
 
