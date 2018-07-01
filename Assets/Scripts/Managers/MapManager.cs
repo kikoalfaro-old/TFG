@@ -135,14 +135,14 @@ public class MapManager : MonoBehaviour
     {
         Debug.Log("Show current area info of map manager");
 
-        string currentArea = geoLocManager.GetCurrentArea().name;
+        Area currentArea = geoLocManager.GetCurrentArea();
 
         //Debug.Log("Show current position with current area: " + currentArea + "  Img: " + currentPosImg);
 
-        if (currentArea != GameManager.defaultAreaName) // Si no es el área por defecto, se pone el marcador de posición y el texto del área (o tag)
+        if (currentArea.name != GameManager.defaultAreaName) // Si no es el área por defecto, se pone el marcador de posición y el texto del área (o tag)
         {
             currentPosImg.position = new Vector3(areaImages[geoLocManager.GetCurrentArea().name].transform.position.x, areaImages[geoLocManager.GetCurrentArea().name].transform.position.y + 1f, areaImages[geoLocManager.GetCurrentArea().name].transform.position.z);
-            currentAreaText.text = currentArea; // <-- AQUÍ SERÍA INTERESANTE METER UNA TAG DESDE LA WEB DE ANGULAR
+            currentAreaText.text = currentArea.tag; // <-- AQUÍ SERÍA INTERESANTE METER UNA TAG DESDE LA WEB DE ANGULAR
         }
         else // Si es el área por defecto...
         {

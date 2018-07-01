@@ -11,12 +11,14 @@ public class Area
     public string name;
     public GeoLocCoordinates centre;
     public double radius;
+    public string tag;
 
-    public Area(string name, double latitude, double longitude, double radius)
+    public Area(string name, double latitude, double longitude, double radius, string tag)
     {
         this.name = name;
         this.centre = new GeoLocCoordinates((float)latitude, (float)longitude);
         this.radius = radius;
+        this.tag = tag;
     }
 
     public override string ToString()

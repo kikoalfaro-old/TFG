@@ -58,16 +58,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator Start() // Cuidado con el GeoLocManager! (Plantearse Awake...)
+    IEnumerator Start()
     {
         allAreas = new List<Area>
         {
-            new Area(defaultAreaName, 0, 0, 0) // Añadimos el área por defecto
+            new Area(defaultAreaName, 0, 0, 0, "") // Adding default area
         };
 
         using (WWW www = new WWW(URL))
         {
-            yield return www; // Se espera hasta que se complete la descarga
+            yield return www; // It waits until the download is ended
             var content = JSON.Parse(www.text);
             for (int i = 0; i < content["documents"].Count; i++)
             {
@@ -75,8 +75,9 @@ public class GameManager : MonoBehaviour
                 double lat = content["documents"][i]["fields"]["latitud"]["doubleValue"];
                 double lon = content["documents"][i]["fields"]["longitud"]["doubleValue"];
                 double rad = content["documents"][i]["fields"]["radio"]["doubleValue"];
-                Area a = new Area(name, lat, lon, rad);
-                allAreas.Add(a); // Añadimos el resto de áreas que hemos puesto en la web
+                string lab = content["documents"][i]["fields"]["etiqueta"]["stringValue"];
+                Area a = new Area(name, lat, lon, rad, lab);
+                allAreas.Add(a); // Adding each area that has been configured in the web app
             }
 
             GetExternalReferences();
