@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ELEMENTOS DE INFO/Quart.unity
     guid: d6c0741ee06dc7143ae008c18a888d92
+  - enabled: 1
+    path: Assets/Scenes/ELEMENTOS DE INFO/Ayuntamiento.unity
+    guid: 8bde7ea61d92b2348b09d02498bea859
   m_configObjects: {}
