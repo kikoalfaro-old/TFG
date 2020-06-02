@@ -4147,7 +4147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: Game
-  value: Simon
+  value: Symbols
 --- !u!114 &1247721143
 MonoBehaviour:
   m_ObjectHideFlags: 0

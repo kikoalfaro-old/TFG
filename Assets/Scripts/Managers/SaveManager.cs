@@ -86,7 +86,7 @@ public class GameData // Aquí se guardan los ESTADOS de las áreas y la puntuac
 
         completedPercentage = Mathf.RoundToInt(visited * visitedCost + completed * completedCost);
 
-        SetCurrentDifficulty();
+        //SetCurrentDifficulty(); // No actualiza dificultad
         // Actualizo la leaderboard con el porcentaje completado
         GPGSManager.Instance.UpdateScoreLeaderBoard(completedPercentage, GPGSIds.leaderboard_progreso);
     }
